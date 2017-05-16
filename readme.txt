@@ -9,3 +9,7 @@ $ git commit -m "add 3 files."
 $ git diff readme.txt
 
 $ git status
+
+$ git log
+
+$ git reflog
