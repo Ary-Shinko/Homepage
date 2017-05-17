@@ -30,3 +30,4 @@ $ git checkout {BRANCHNAME}
 $ git checkout -b {BRANCHNAME}
 $ git merge {BRANCHNAME}
 $ git branch -d {BRANCHNAME}
+.
