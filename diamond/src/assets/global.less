@@ -1,0 +1,30 @@
+.grid-unit {
+  width: 120vh;
+  height: 120vh;
+  box-sizing: border-box;
+  float:left;
+  border:8px solid transparent;
+  border-image: url(../assets/border1.png) 4 4 stretch;
+  // animation: border-breathing 5s ease infinite;
+}
+
+.grid-unit-fat {
+  width: 140vh;
+}
+
+.grid-unit-thin {
+  width: 100vh;
+}
+
+@keyframes border-breathing {
+  0% {
+    transform: scale(1.005);
+  }
+  45%,
+  55% {
+    transform: scale(0.999);
+  }
+  100% {
+    transform: scale(1.005);
+  }
+}

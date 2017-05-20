@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import 'normalize'
+import '../static/normalize.min.css'
+import './assets/global.less'
 
 Vue.config.productionTip = false
 
