@@ -1,45 +1,29 @@
 <template>
-  <div id="logo"><a href="/">{}</a></div>
+  <div id="catalogue">
+    <div class="grid-unit grid-unit-fat"></div>
+    <catalogue></catalogue>
+  </div>
 </template>
+
 <script>
+import Catalogue from './Catalogue.vue'
+
 export default {
+  components: {
+    Catalogue
+  }
 }
 </script>
-<style lang="less">
-#logo{
-  position:fixed;
-  z-index: 1;
-  top: -2vh;
-  left: 0;
-  font-size: 12vh;
-  letter-spacing: -1.5vh;
-  text-shadow: 0 0 8px #000;
-  a {
-    text-decoration: none;
-    &:link{
-      color: #888;
-    }
-    &:visited{
-      color: #888;
-    }
-    &:hover {
-      animation: redPulse 1s ease infinite;
-    }
-    &:active {
-      color: #888;
-    }
-  }
-}
 
-@keyframes redPulse {
-  0% {
-    color: red;
-  }
-  5% {
-    color: lightcoral;
-  }
-  10%{
-    color: red;
+<style lang="less">
+@import url(../assets/measure.less);
+
+#catalogue {
+  &>div:first-child {
+    z-index: 1;
+    position: fixed;
+    top: @TRANSLATE_CATALOGUE_Y + @TRANSLATE_DEFAULT_Y;
+    left: @TRANSLATE_CATALOGUE_X + @TRANSLATE_DEFAULT_X;
   }
 }
 </style>

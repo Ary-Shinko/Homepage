@@ -1,47 +1,29 @@
 <template>
-  <div id="logo" class="grid-unit">
-    <a href="/">{}</a>
+  <div id="logo">
+    <div class="grid-unit"></div>
+    <logo></logo>
   </div>
 </template>
 
 <script>
+import Logo from './Logo.vue'
+
 export default {
+  components: {
+    Logo
+  }
 }
 </script>
 
 <style lang="less">
-#logo {
-  position:fixed;
-  z-index: 1;
-  font-size: 12vh;
-  letter-spacing: -1.5vh;
-  text-shadow: 0 0 8px #000;
-  a {
-    text-decoration: none;
-    &:link{
-      color: #888;
-    }
-    &:visited{
-      color: #888;
-    }
-    &:hover {
-      animation: red-pulse 1s ease infinite;
-    }
-    &:active {
-      color: #888;
-    }
-  }
-}
+@import url(../assets/measure.less);
 
-@keyframes red-pulse {
-  0% {
-    color: red;
-  }
-  5% {
-    color: lightcoral;
-  }
-  10%{
-    color: red;
+#logo {
+  &>div:first-child {
+    z-index: 10;
+    position: fixed;
+    top: @TRANSLATE_LOGO_Y + @TRANSLATE_DEFAULT_Y;
+    left: @TRANSLATE_LOGO_X + @TRANSLATE_DEFAULT_X;
   }
 }
 </style>

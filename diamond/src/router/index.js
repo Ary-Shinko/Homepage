@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import MainView from '../view/MainView'
+import Index from '../view/Index.vue'
 
 Vue.use(Router)
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: MainView
+      name: 'index',
+      component: Index
     }
   ]
 })
