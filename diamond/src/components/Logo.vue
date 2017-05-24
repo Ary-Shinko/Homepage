@@ -37,13 +37,13 @@ export default {
 
 @keyframes red-pulse {
   0% {
-    color: red;
+    color: #f33;
   }
   5% {
-    color: lightcoral;
+    color: #f88;
   }
   10% {
-    color: red;
+    color: #f33;
   }
 }
 </style>
