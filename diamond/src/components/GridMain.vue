@@ -1,13 +1,28 @@
 <template>
   <div id="main" :class="navigationObject">
     <login class="login1 absolute"></login>
-    <core class="core1 absolute"></core>
+    <core class="core1 absolute">
+      <!-- First screen -->
+      <h1>Code Parenthesis<span>_</span></h1>
+      <img src="../assets/proto1.png" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis a, pariatur atque eaque incidunt deserunt id!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ad animi corporis suscipit ratione quidem vero temporibus consequatur aspernatur commodi quam tempora eaque necessitatibus dignissimos eveniet fugit ipsum. Inventore nobis, veritatis dolores cumque consectetur! Cum maxime, animi aspernatur ad nesciunt atque perspiciatis maiores nostrum accusantium, adipisci veritatis impedit iste! Recusandae.</p>
+    </core>
     <login class="login2 absolute"></login>
-    <core class="core2 absolute"></core>
+    <core class="core2 absolute">
+      <!-- Second screen -->
+      <h1>Architecture &amp; Design</h1>
+    </core>
     <login class="login3 absolute"></login>
-    <core class="core3 absolute"></core>
+    <core class="core3 absolute">
+      <!-- Third screen -->
+      <h1>Coding &amp; Algorithm</h1>
+    </core>
     <login class="login4 absolute"></login>
-    <core class="core4 absolute"></core>
+    <core class="core4 absolute">
+      <!-- Fourth screen -->
+      <h1>Laboratory</h1>
+    </core>
     <login class="login5 absolute"></login>
   </div>
 </template>
@@ -40,165 +55,112 @@ export default {
 </script>
 
 <style lang="less">
-@import url(../assets/measure.less);
+@import url(../assets/position.less);
 
 .absolute {
   position: absolute;
 }
 
-.navigation-static1 {
-  .core1 {
-    top: @TRANSLATE_CORE1_Y;
-    left: @TRANSLATE_CORE1_X;
+.core1 {
+  .core-grid {
+    position: absolute;
+    z-index: 2;
+    background: linear-gradient(45deg, #ddd, #fafafa);
   }
-  .core2 {
-    top: @TRANSLATE_CORE2_Y;
-    left: @TRANSLATE_CORE2_X;
-  }
-  .core3 {
-    top: @TRANSLATE_CORE3_Y;
-    left: @TRANSLATE_CORE3_X;
-  }
-  .core4 {
-    top: @TRANSLATE_CORE4_Y;
-    left: @TRANSLATE_CORE4_X;
-  }
-  .login1 {
-    top: @TRANSLATE_LOGIN1_Y;
-    left: @TRANSLATE_LOGIN1_X;
-  }
-  .login2 {
-    top: @TRANSLATE_LOGIN2_Y;
-    left: @TRANSLATE_LOGIN2_X;
-  }
-  .login3 {
-    top: @TRANSLATE_LOGIN3_Y;
-    left: @TRANSLATE_LOGIN3_X;
-  }
-  .login4 {
-    top: @TRANSLATE_LOGIN4_Y;
-    left: @TRANSLATE_LOGIN4_X;
-  }
-  .login5 {
-    top: @TRANSLATE_LOGIN5_Y;
-    left: @TRANSLATE_LOGIN5_X;
+  .core-content {
+    position: absolute;
+    z-index: 4;
+    width: 130vh;
+    margin: 35vh 0 0 5vh;
+    h1 {
+      color: #f33;
+      font-size: 6vh;
+      span {
+        animation: text-flicker 1s ease infinite;
+      }
+    }
+    img:first-of-type {
+      float: left;
+      margin: 2vh 0 0 0;
+      width: 70vh;
+    }
+    p:first-of-type {
+      float: left;
+      margin: 2vh 0 0 5vh;
+      width: 50vh;
+    }
+    p:nth-of-type(2) {
+      clear: both;
+      font-size: 2vh;
+      margin: 25vh 0 0 0;
+      width: 110vh;
+    }
   }
 }
 
-.navigation-static2 {
-  .core1 {
-    top: @TRANSLATE_CORE0_Y;
-    left: @TRANSLATE_CORE0_X;
+@keyframes text-flicker {
+  0% {
+    opacity: 0;
   }
-  .core2 {
-    top: @TRANSLATE_CORE1_Y;
-    left: @TRANSLATE_CORE1_X;
+  80% {
+    opacity: 1;
   }
-  .core3 {
-    top: @TRANSLATE_CORE2_Y;
-    left: @TRANSLATE_CORE2_X;
-  }
-  .core4 {
-    top: @TRANSLATE_CORE3_Y;
-    left: @TRANSLATE_CORE3_X;
-  }
-  .login1 {
-    top: @TRANSLATE_LOGIN0_Y;
-    left: @TRANSLATE_LOGIN0_X;
-  }
-  .login2 {
-    top: @TRANSLATE_LOGIN1_Y;
-    left: @TRANSLATE_LOGIN1_X;
-  }
-  .login3 {
-    top: @TRANSLATE_LOGIN2_Y;
-    left: @TRANSLATE_LOGIN2_X;
-  }
-  .login4 {
-    top: @TRANSLATE_LOGIN3_Y;
-    left: @TRANSLATE_LOGIN3_X;
-  }
-  .login5 {
-    top: @TRANSLATE_LOGIN4_Y;
-    left: @TRANSLATE_LOGIN4_X;
+  100% {
+    opacity: 0;
   }
 }
 
-.navigation-static3 {
-  .core1 {
-    top: @TRANSLATE_COREM1_Y;
-    left: @TRANSLATE_COREM1_X;
+.core2 {
+  .core-grid {
+    position: absolute;
+    z-index: 2;
+    background: linear-gradient(45deg, #ddd, #fff);
   }
-  .core2 {
-    top: @TRANSLATE_CORE0_Y;
-    left: @TRANSLATE_CORE0_X;
-  }
-  .core3 {
-    top: @TRANSLATE_CORE1_Y;
-    left: @TRANSLATE_CORE1_X;
-  }
-  .core4 {
-    top: @TRANSLATE_CORE2_Y;
-    left: @TRANSLATE_CORE2_X;
-  }
-  .login1 {
-    top: @TRANSLATE_LOGINM1_Y;
-    left: @TRANSLATE_LOGINM1_X;
-  }
-  .login2 {
-    top: @TRANSLATE_LOGIN0_Y;
-    left: @TRANSLATE_LOGIN0_X;
-  }
-  .login3 {
-    top: @TRANSLATE_LOGIN1_Y;
-    left: @TRANSLATE_LOGIN1_X;
-  }
-  .login4 {
-    top: @TRANSLATE_LOGIN2_Y;
-    left: @TRANSLATE_LOGIN2_X;
-  }
-  .login5 {
-    top: @TRANSLATE_LOGIN3_Y;
-    left: @TRANSLATE_LOGIN3_X;
+  .core-content {
+    position: absolute;
+    z-index: 4;
+    width: 130vh;
+    margin: 35vh 0 0 5vh;
+    h1 {
+      color: #f33;
+      font-size: 6vh;
+    }
   }
 }
 
-.navigation-static4 {
-  .core1 {
-    top: @TRANSLATE_COREM2_Y;
-    left: @TRANSLATE_COREM2_X;
+.core3 {
+  .core-grid {
+    position: absolute;
+    z-index: 2;
+    background: linear-gradient(45deg, #ddd, #fff);
   }
-  .core2 {
-    top: @TRANSLATE_COREM1_Y;
-    left: @TRANSLATE_COREM1_X;
+  .core-content {
+    position: absolute;
+    z-index: 4;
+    width: 130vh;
+    margin: 35vh 0 0 5vh;
+    h1 {
+      color: #f33;
+      font-size: 6vh;
+    }
   }
-  .core3 {
-    top: @TRANSLATE_CORE0_Y;
-    left: @TRANSLATE_CORE0_X;
+}
+
+.core4 {
+  .core-grid {
+    position: absolute;
+    z-index: 2;
+    background: linear-gradient(45deg, #ddd, #fff);
   }
-  .core4 {
-    top: @TRANSLATE_CORE1_Y;
-    left: @TRANSLATE_CORE1_X;
-  }
-  .login1 {
-    top: @TRANSLATE_LOGINM2_Y;
-    left: @TRANSLATE_LOGINM2_X;
-  }
-  .login2 {
-    top: @TRANSLATE_LOGINM1_Y;
-    left: @TRANSLATE_LOGINM1_X;
-  }
-  .login3 {
-    top: @TRANSLATE_LOGIN0_Y;
-    left: @TRANSLATE_LOGIN0_X;
-  }
-  .login4 {
-    top: @TRANSLATE_LOGIN1_Y;
-    left: @TRANSLATE_LOGIN1_X;
-  }
-  .login5 {
-    top: @TRANSLATE_LOGIN2_Y;
-    left: @TRANSLATE_LOGIN2_X;
+  .core-content {
+    position: absolute;
+    z-index: 4;
+    width: 130vh;
+    margin: 35vh 0 0 5vh;
+    h1 {
+      color: #f33;
+      font-size: 6vh;
+    }
   }
 }
 </style>

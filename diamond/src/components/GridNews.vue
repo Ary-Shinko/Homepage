@@ -22,8 +22,8 @@ export default {
   &>div:first-child {
     z-index: 5;
     position: fixed;
-    top: @TRANSLATE_NEWS_Y + @TRANSLATE_DEFAULT_Y;
-    left: @TRANSLATE_NEWS_X + @TRANSLATE_DEFAULT_X;
+    top: @TRANSLATE_NEWS_Y;
+    left: @TRANSLATE_NEWS_X;
   }
 }
 </style>

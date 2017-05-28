@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <a href="/">{}</a>
+    <router-link to="/">{}</router-link>
   </div>
 </template>
 
@@ -11,39 +11,49 @@ export default {
 
 <style lang="less">
 .logo {
+  &:hover+div {
+    background: url(../assets/bg2.png);
+    animation: border-breathing 5s ease infinite, background-hover 5s steps(10) infinite;
+  }
   a {
     position: fixed;
-    top: -2vh;
-    left: -0.8vh;
-    font-size: 11vh;
+    top: -1.5vh;
+    left: -0.5vh;
+    font-size: 10vh;
     z-index: 10;
     letter-spacing: -1.5vh;
-    text-shadow: 0 0 1vh #000;
     text-decoration: none;
     &:link {
-      color: #888;
+      color: #000;
     }
     &:visited {
-      color: #888;
+      color: #333;
     }
     &:hover {
-      animation: red-pulse 1s ease infinite;
+      color: #fff;
+      text-shadow: 0 0 2vh #fff;
     }
     &:active {
-      color: #888;
+      color: #000;
     }
   }
 }
 
-@keyframes red-pulse {
+@keyframes background-hover {
   0% {
-    color: #f33;
+    background-position: 0 0;
   }
-  5% {
-    color: #f88;
+  25% {
+    background-position: 100% 0;
   }
-  10% {
-    color: #f33;
+  50% {
+    background-position: 0 100%;
+  }
+  75% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
   }
 }
 </style>

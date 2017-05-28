@@ -1,18 +1,31 @@
 <template>
   <div class="catalogue">
-    <div class="navbar">
-      <div class="nav nav1" @click='modifyNavigation(1)'></div>
-      <div class="nav nav2" @click='modifyNavigation(2)'></div>
-      <div class="nav nav3" @click='modifyNavigation(3)'></div>
-      <div class="nav nav4" @click='modifyNavigation(4)'></div>
+    <div class="navbar" :class="navigationObject">
+      <div class="nav nav1" @click="modifyNavigation(1)"></div>
+      <div class="nav nav2" @click="modifyNavigation(2)"></div>
+      <div class="nav nav3" @click="modifyNavigation(3)"></div>
+      <div class="nav nav4" @click="modifyNavigation(4)"></div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
+  computed: {
+    ...mapState([
+      'navigationTo'
+    ]),
+    navigationObject () {
+      return {
+        'navigation-dot1': this.navigationTo === 1,
+        'navigation-dot2': this.navigationTo === 2,
+        'navigation-dot3': this.navigationTo === 3,
+        'navigation-dot4': this.navigationTo === 4
+      }
+    }
+  },
   methods: {
     ...mapActions([
       'modifyNavigation'
@@ -37,33 +50,117 @@ export default {
       margin: 6vh 4vh;
       border-radius: 1.2vh;
       cursor: pointer;
-      &:hover {
-        animation: red-pulse-bg 1s ease infinite;
-      }
     }
     .nav1 {
       background: #000;
+      &:hover::after {
+        content: '{ Home }';
+        display: block;
+        padding-left: 6vh;
+        width: 60vh;
+        transform: rotate(45deg);
+        transform-origin: 4% 0;
+      }
     }
     .nav2 {
       background: #111;
+      &:hover::after {
+        content: '{ Architecture & Design }';
+        display: block;
+        padding-left: 6vh;
+        width: 60vh;
+        transform: rotate(45deg);
+        transform-origin: 3.9% 0;
+
+      }
     }
     .nav3 {
       background: #222;
+      &:hover::after {
+        content: '{ Coding & Algorithm }';
+        display: block;
+        padding-left: 6vh;
+        width: 60vh;
+        transform: rotate(45deg);
+        transform-origin: 3.8% 0;
+      }
     }
     .nav4 {
       background: #333;
+      &:hover::after {
+        content: '{ Laboratory }';
+        display: block;
+        padding-left: 6vh;
+        width: 60vh;
+        transform: rotate(45deg);
+        transform-origin: 3.7% 0;
+      }
     }
   }
 }
 
-@keyframes red-pulse-bg {
+.navigation-dot1 {
+  div:nth-child(1) {
+    animation: red-pulse-nav 4s ease forwards;
+  }
+}
+
+.navigation-dot2 {
+  div:nth-child(2) {
+    animation: red-pulse-nav 4s ease forwards;
+  }
+}
+
+.navigation-dot3 {
+  div:nth-child(3) {
+    animation: red-pulse-nav 4s ease forwards;
+  }
+}
+
+.navigation-dot4 {
+  div:nth-child(4) {
+    animation: red-pulse-nav 4s ease forwards;
+  }
+}
+
+@keyframes red-pulse-nav {
   0% {
-    background: #f33;
+    background: #1a1a1a;
   }
   5% {
-    background: #833;
+    background: #f33;
   }
   10% {
+    background: #1a1a1a;
+  }
+  25% {
+    background: #1a1a1a;
+  }
+  30% {
+    background: #f33;
+  }
+  35% {
+    background: #1a1a1a;
+  }
+  50% {
+    background: #1a1a1a;
+  }
+  55% {
+    background: #f33;
+  }
+  60% {
+    background: #1a1a1a;
+  }
+  75% {
+    background: #1a1a1a;
+  }
+  80% {
+    background: #f33;
+  }
+  85% {
+    background: #1a1a1a;
+  }
+  100% {
     background: #f33;
   }
 }

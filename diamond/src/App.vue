@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @wheel.prevent="scrollNavigation($event.deltaY)">
     <grid-logo></grid-logo>
     <grid-catalogue></grid-catalogue>
     <grid-news></grid-news>
@@ -17,6 +17,7 @@ import GridNews from './components/GridNews.vue'
 import GridMain from './components/GridMain.vue'
 import CopyrightStatus from './components/CopyrightStatus.vue'
 import GlobalBackground from './components/GlobalBackground.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'app',
@@ -27,6 +28,22 @@ export default {
     GridCatalogue,
     CopyrightStatus,
     GlobalBackground
+  },
+  methods: {
+    ...mapActions([
+      'scrollNavigation'
+    ])
+  },
+  mounted () {
+    let that = this
+    window.addEventListener('keyup', function (e) {
+      if (e.keyCode === 38) {
+        that.scrollNavigation(-1)
+      } else if (e.keyCode === 40) {
+        that.scrollNavigation(1)
+      }
+      e.stopPropagation()
+    }, true)
   }
 }
 </script>
@@ -38,7 +55,7 @@ body {
 }
 
 #app {
-  /*zoom: 0.3;*/
+  /*zoom: .3;*/
   /*transform: translateX(4000px);*/
   font-size: 2.4vh;
   font-family: 'Roboto Mono', Arial, sans-serif;

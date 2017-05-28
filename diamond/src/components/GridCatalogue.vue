@@ -36,8 +36,9 @@ export default {
   &>div:first-child {
     z-index: 1;
     position: absolute;
-    top: @TRANSLATE_CATALOGUE_Y + @TRANSLATE_DEFAULT_Y;
-    left: @TRANSLATE_CATALOGUE_X + @TRANSLATE_DEFAULT_X;
+    top: @TRANSLATE_CATALOGUE_Y;
+    left: @TRANSLATE_CATALOGUE_X;
+    background: #eee;
   }
 }
 </style>

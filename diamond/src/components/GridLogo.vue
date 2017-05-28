@@ -1,7 +1,7 @@
 <template>
   <div id="logo">
-    <div class="grid-unit"></div>
     <logo></logo>
+    <div class="grid-unit"></div>
   </div>
 </template>
 
@@ -19,11 +19,11 @@ export default {
 @import url(../assets/measure.less);
 
 #logo {
-  &>div:first-child {
-    z-index: 10;
+  &>div:last-child {
+    z-index: 5;
     position: fixed;
-    top: @TRANSLATE_LOGO_Y + @TRANSLATE_DEFAULT_Y;
-    left: @TRANSLATE_LOGO_X + @TRANSLATE_DEFAULT_X;
+    top: @TRANSLATE_LOGO_Y;
+    left: @TRANSLATE_LOGO_X;
   }
 }
 </style>

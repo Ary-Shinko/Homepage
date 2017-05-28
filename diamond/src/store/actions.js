@@ -8,5 +8,27 @@ export default {
       commit('MODIFY_NAVIGATION_FROM', current)
       commit('UNLOCK_NAVIGATION')
     }, 4000)
+  },
+  scrollNavigation ({ commit, state }, delta) {
+    if (state.navigationLocked === true) return null
+    if (delta > 0 && state.navigationFrom === 4) return null
+    if (delta < 0 && state.navigationFrom === 1) return null
+    if (delta > 0) {
+      commit('MODIFY_NAVIGATION_TO', state.navigationFrom + 1)
+      commit('LOCK_NAVIGATION')
+      setTimeout(function () {
+        commit('MODIFY_NAVIGATION_FROM', state.navigationFrom + 1)
+        commit('UNLOCK_NAVIGATION')
+      }, 4000)
+    } else if (delta < 0) {
+      commit('MODIFY_NAVIGATION_TO', state.navigationFrom - 1)
+      commit('LOCK_NAVIGATION')
+      setTimeout(function () {
+        commit('MODIFY_NAVIGATION_FROM', state.navigationFrom - 1)
+        commit('UNLOCK_NAVIGATION')
+      }, 4000)
+    } else {
+      return null
+    }
   }
 }
