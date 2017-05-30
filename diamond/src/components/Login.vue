@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <login-button @click="toggleLogin"></login-button>
+    <login-button @click="toggleLogin" :login-activated="loginActivated"></login-button>
     <login-main v-if="loginActivated"></login-main>
     <login-background v-if="loginActivated" @click="toggleLogin"></login-background>
   </div>

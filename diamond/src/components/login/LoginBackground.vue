@@ -1,5 +1,5 @@
 <template>
-  <transition name="fold">
+  <transition name="ease">
     <div class="login-background" @click="$emit('click')"></div>
   </transition>
 </template>
@@ -17,6 +17,16 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.ease-enter-active,
+.ease-leave-active {
+  transition: all .3s linear;
+}
+
+.ease-enter,
+.ease-leave-to {  
+  opacity: 0;
 }
 </style>

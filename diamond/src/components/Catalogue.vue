@@ -101,25 +101,25 @@ export default {
 
 .navigation-dot1 {
   div:nth-child(1) {
-    animation: red-pulse-nav 4s ease forwards;
+    animation: red-pulse-nav 2s ease forwards;
   }
 }
 
 .navigation-dot2 {
   div:nth-child(2) {
-    animation: red-pulse-nav 4s ease forwards;
+    animation: red-pulse-nav 2s ease forwards;
   }
 }
 
 .navigation-dot3 {
   div:nth-child(3) {
-    animation: red-pulse-nav 4s ease forwards;
+    animation: red-pulse-nav 2s ease forwards;
   }
 }
 
 .navigation-dot4 {
   div:nth-child(4) {
-    animation: red-pulse-nav 4s ease forwards;
+    animation: red-pulse-nav 2s ease forwards;
   }
 }
 
@@ -127,37 +127,28 @@ export default {
   0% {
     background: #1a1a1a;
   }
-  5% {
+  8% {
     background: #f33;
   }
-  10% {
-    background: #1a1a1a;
-  }
-  25% {
+  16% {
     background: #1a1a1a;
   }
   30% {
-    background: #f33;
-  }
-  35% {
     background: #1a1a1a;
   }
-  50% {
-    background: #1a1a1a;
-  }
-  55% {
+  38% {
     background: #f33;
+  }
+  46% {
+    background: #1a1a1a;
   }
   60% {
     background: #1a1a1a;
   }
-  75% {
-    background: #1a1a1a;
-  }
-  80% {
+  68% {
     background: #f33;
   }
-  85% {
+  76% {
     background: #1a1a1a;
   }
   100% {

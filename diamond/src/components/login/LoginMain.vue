@@ -36,7 +36,7 @@ export default {
   width: 50vh;
   height: 60vh;
   background: #fff;
-  box-shadow: 0 1px 1px -1px #333, 0 0 20px -6px #333;
+  box-shadow: 0 0 20px -8px #fff;
   text-align: right;
   h2 {
     text-align: center;

@@ -2,8 +2,8 @@
   <transition name="fade">
     <div id="copyright" v-show="!navigationLocked && navigationTo === 1">
       <span>Ethan Zhang © 2017</span>
-      <span>Last Modified: 2017/5/21</span>
-      <span>Completion: ------------------</span>
+      <span>Last Modified: 2017/5/31</span>
+      <span>Completion: ######-------------</span>
     </div>
   </transition>
 </template>
@@ -39,7 +39,7 @@ export default {
 }
 
 #copyright.fade-enter-active, #copyright.fade-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity .5s ease;
 }
 
 #copyright.fade-enter, #copyright.fade-leave-to {

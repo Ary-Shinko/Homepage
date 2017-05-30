@@ -15,6 +15,6 @@ export default {
   left: 145vh;
   width: 10vh;
   height: 10vh;
-  background: blue;
+  // background: blue;
 }
 </style>

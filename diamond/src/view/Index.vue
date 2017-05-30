@@ -7,6 +7,7 @@
     <copyright-status></copyright-status>
     <login></login>
     <global-background></global-background>
+    <div class="shelter"></div>
   </div>
 </template>
 
@@ -57,5 +58,11 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.shelter {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  margin-left: 250vh;
 }
 </style>

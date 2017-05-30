@@ -35,12 +35,12 @@ export default {
     border-bottom: 1px solid #333;
     background: transparent;
     font-family: 'Roboto Mono', Arial, sans-serif;
-    transition: all .2s ease;
+    transition: all .3s ease;
     &:focus {
       margin-bottom: 0;
       outline: none;
       border-bottom: 3px solid #333;
-      transition: all .2s ease;
+      transition: all .3s ease;
     }
     &+div {
       text-align: left;
@@ -49,7 +49,7 @@ export default {
       .password-mix;
       margin-top: -4.8vh;
       color: #aaa;
-      transition: all .2s ease;
+      transition: all .3s ease;
     }
     &:focus+div::after {
       .password-mix;
@@ -64,7 +64,7 @@ export default {
       .password-mix;
       margin-top: -4.8vh;
       opacity: 0;
-      transition: all .2s ease;
+      transition: all .3s ease;
     }
     &:focus+div::after {
       .password-mix;
