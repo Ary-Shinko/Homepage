@@ -30,7 +30,7 @@ body {
 
 .fold-enter-active,
 .fold-leave-active {
-  transition: all .3s linear;
+  transition: all .2s linear;
 }
 
 .fold-enter,
