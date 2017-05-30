@@ -16,7 +16,7 @@ export default {
   bottom: 0;
   z-index: -1;
   background: url(../assets/bg1.jpg);
-  animation: background-hover 5s steps(10) infinite;
+  animation: background-hover 2.5s steps(5) infinite;
 }
 
 @keyframes background-hover {

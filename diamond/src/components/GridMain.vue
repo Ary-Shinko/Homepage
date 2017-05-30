@@ -1,6 +1,6 @@
 <template>
   <div id="main" :class="navigationObject">
-    <login class="login1 absolute"></login>
+    <spliter class="spliter1 absolute"></spliter>
     <core class="core1 absolute">
       <!-- First screen -->
       <h1>Code Parenthesis<span>_</span></h1>
@@ -8,34 +8,35 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis a, pariatur atque eaque incidunt deserunt id!</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ad animi corporis suscipit ratione quidem vero temporibus consequatur aspernatur commodi quam tempora eaque necessitatibus dignissimos eveniet fugit ipsum. Inventore nobis, veritatis dolores cumque consectetur! Cum maxime, animi aspernatur ad nesciunt atque perspiciatis maiores nostrum accusantium, adipisci veritatis impedit iste! Recusandae.</p>
     </core>
-    <login class="login2 absolute"></login>
+    <spliter class="spliter2 absolute"></spliter>
     <core class="core2 absolute">
       <!-- Second screen -->
       <h1>Architecture &amp; Design</h1>
     </core>
-    <login class="login3 absolute"></login>
+    <spliter class="spliter3 absolute"></spliter>
     <core class="core3 absolute">
       <!-- Third screen -->
       <h1>Coding &amp; Algorithm</h1>
     </core>
-    <login class="login4 absolute"></login>
+    <spliter class="spliter4 absolute"></spliter>
     <core class="core4 absolute">
       <!-- Fourth screen -->
       <h1>Laboratory</h1>
+      <router-link to="werewolves">Werewovles</router-link>
     </core>
-    <login class="login5 absolute"></login>
+    <spliter class="spliter5 absolute"></spliter>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
-import Login from './Login.vue'
+import Spliter from './Spliter.vue'
 import Core from './Core.vue'
 
 export default {
   components: {
-    Login,
+    Spliter,
     Core
   },
   computed: {

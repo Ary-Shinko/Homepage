@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <router-link to="/">{}</router-link>
+    <router-link to="/">{ }</router-link>
   </div>
 </template>
 
@@ -17,24 +17,22 @@ export default {
   }
   a {
     position: fixed;
-    top: -1.5vh;
-    left: -0.5vh;
-    font-size: 10vh;
+    top: -0.5vh;
+    left: 0.5vh;
+    font-size: 8vh;
+    font-weight: 800;
     z-index: 10;
-    letter-spacing: -1.5vh;
-    text-decoration: none;
+    letter-spacing: -2.3vh;
     &:link {
-      color: #000;
+      color: #333;
     }
     &:visited {
       color: #333;
     }
     &:hover {
       color: #fff;
+      text-decoration: none;
       text-shadow: 0 0 2vh #fff;
-    }
-    &:active {
-      color: #000;
     }
   }
 }
