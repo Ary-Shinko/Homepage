@@ -4,14 +4,13 @@
       <player-list></player-list>
     </div>
     <global-background class="weather2"></global-background>
-    <login></login>
+    <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/werewolves' }}">Sign In</router-link>
     <logo></logo>
   </div>
 </template>
 
 <script>
 import Logo from '../components/Logo.vue'
-import Login from '../components/Login.vue'
 import GlobalBackground from '../components/GlobalBackground.vue'
 import PlayerList from '../components/werewolves/PlayerList.vue'
 
@@ -19,7 +18,6 @@ export default {
   name: 'app',
   components: {
     Logo,
-    Login,
     GlobalBackground,
     PlayerList
   }

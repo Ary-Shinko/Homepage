@@ -21,7 +21,7 @@ export default {
     left: 0.5vh;
     font-size: 8vh;
     font-weight: 800;
-    z-index: 10;
+    z-index: 20;
     letter-spacing: -2.3vh;
     &:link {
       color: #333;

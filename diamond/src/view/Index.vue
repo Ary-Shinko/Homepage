@@ -5,7 +5,7 @@
     <grid-news></grid-news>
     <grid-main></grid-main>
     <copyright-status></copyright-status>
-    <login></login>
+    <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/index' }}">Sign In</router-link>
     <global-background></global-background>
     <div class="shelter"></div>
   </div>
@@ -17,7 +17,6 @@ import GridCatalogue from '../components/GridCatalogue.vue'
 import GridNews from '../components/GridNews.vue'
 import GridMain from '../components/GridMain.vue'
 import CopyrightStatus from '../components/CopyrightStatus.vue'
-import Login from '../components/Login.vue'
 import GlobalBackground from '../components/GlobalBackground.vue'
 import { mapActions } from 'vuex'
 
@@ -29,7 +28,6 @@ export default {
     GridMain,
     GridCatalogue,
     CopyrightStatus,
-    Login,
     GlobalBackground
   },
   methods: {
@@ -51,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 #index {
   position: fixed;
   top: 0;
@@ -59,10 +57,18 @@ export default {
   left: 0;
   right: 0;
 }
+
 .shelter {
   width: 100%;
   height: 100%;
   background: #000;
   margin-left: 250vh;
+}
+
+.login-button {
+  position: fixed;
+  z-index: 15;
+  top: 1vh;
+  right: 3vh;
 }
 </style>

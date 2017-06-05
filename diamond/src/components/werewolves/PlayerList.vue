@@ -1,6 +1,6 @@
 <template>
   <div class="player-list">
-    <player-info v-for="n in 20"></player-info>
+    <player-info v-for="n in 20" :key="n"></player-info>
   </div>
 </template>
 

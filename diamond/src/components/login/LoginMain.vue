@@ -1,14 +1,12 @@
- <template>
-  <transition name="fold">
-    <div class="login-main">
-      <h2>Code Parenthesis</h2>
-      <account></account>
-      <password @enter=""></password>
-      <button tabindex="3" @click="">Sign in</button>
-      <a>Forgot password?</a><br>
-      <a>Create new account</a>
-    </div>
-  </transition>
+<template>
+  <div class="login-main">
+    <h2>Code Parenthesis</h2>
+    <account></account>
+    <password @enter=""></password>
+    <button tabindex="3" @click="">Sign in</button>
+    <a>Forgot password?</a><br>
+    <a>Create new account</a>
+  </div>
 </template>
 
 <script>
