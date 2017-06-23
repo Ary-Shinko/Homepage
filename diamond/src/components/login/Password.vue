@@ -1,21 +1,48 @@
 <template>
   <div class="login-password">
-    <input :class="filled" type="password" v-model="password" tabindex="2" @keyup.enter="$emit('enter')">
+    <input :class="[filled, wrongFormat]" type="password" maxlength="20" v-model="password" tabindex="2" @keyup.enter="enter" @blur="validate">
     <div></div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
-      password: ''
+      password: '',
+      wrongFormat: ''
     }
   },
   computed: {
     filled () {
       return this.password === '' ? '' : 'filled'
     }
+  },
+  methods: {
+    validate () {
+      if (/^\S{8,20}$/.test(this.password)) {
+        this.wrongFormat = ''
+        this.cacheAuthorization({
+          password: this.password
+        })
+        this.$emit('valid')
+      } else if (this.password !== '') {
+        this.wrongFormat = 'wrong-format'
+        this.$emit('invalid')
+      } else {
+        this.wrongFormat = ''
+        this.$emit('invalid')
+      }
+    },
+    enter () {
+      this.validate()
+      this.$emit('enter')
+    },
+    ...mapActions([
+      'cacheAuthorization'
+    ])
   }
 }
 </script>
@@ -47,12 +74,14 @@ export default {
     }
     &+div::after {
       .password-mix;
+      content: "Enter your password";
       margin-top: -4.8vh;
       color: #aaa;
       transition: all .3s ease;
     }
     &:focus+div::after {
       .password-mix;
+      content: "Enter your password";
       margin-top: -8.4vh;
       color: #333;
       font-size: 2vh;
@@ -62,22 +91,35 @@ export default {
   input.filled {
     &+div::after {
       .password-mix;
+      content: "Enter your password";
       margin-top: -4.8vh;
       opacity: 0;
       transition: all .3s ease;
     }
     &:focus+div::after {
       .password-mix;
+      content: "Enter your password";
       margin-top: -8.4vh;
       font-size: 2vh;
       opacity: 1;
       font-weight: 800;
     }
   }
+  input.wrong-format {
+    &+div::after,
+    &:focus+div::after {
+      .password-mix;
+      content: "Wrong format";
+      margin-top: -8.4vh;
+      font-size: 2vh;
+      opacity: 1;
+      color: #f33;
+      font-weight: 800;
+    }
+  }
 }
 
 .password-mix {
-  content: "Enter your password";
   display: block;
   position: relative;
   z-index: -1;

@@ -2,7 +2,7 @@
   "name": "diamond",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Ethan Zhang <shineax@qq.com>",
+  "author": "Ethan Zhang <ethanziz@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
+    "axios": "^0.16.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",

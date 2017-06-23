@@ -1,21 +1,44 @@
 <template>
   <div class="login-account">
-    <input :class="filled" type="text" v-model="account" tabindex="1">
+    <input :class="[filled, wrongFormat]" type="text" maxlength="40" v-model="account" tabindex="1" @blur="validate">
     <div></div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
-      account: ''
+      account: '',
+      wrongFormat: ''
     }
   },
   computed: {
     filled () {
       return this.account === '' ? '' : 'filled'
     }
+  },
+  methods: {
+    validate () {
+      if (/^[\w-+](\.?[\w-+])*@[\w-]+(\.[\w-]+)+$/.test(this.account)) {
+        this.wrongFormat = ''
+        this.cacheAuthorization({
+          account: this.account
+        })
+        this.$emit('valid')
+      } else if (this.account !== '') {
+        this.wrongFormat = 'wrong-format'
+        this.$emit('invalid')
+      } else {
+        this.wrongFormat = ''
+        this.$emit('invalid')
+      }
+    },
+    ...mapActions([
+      'cacheAuthorization'
+    ])
   }
 }
 </script>
@@ -47,12 +70,14 @@ export default {
     }
     &+div::after {
       .account-mix;
+      content: "Enter your account";
       margin-top: -4.8vh;
       color: #aaa;
       transition: all .3s ease;
     }
     &:focus+div::after {
       .account-mix;
+      content: "Enter your account";
       margin-top: -8.4vh;
       color: #333;
       font-size: 2vh;
@@ -62,22 +87,35 @@ export default {
   input.filled {
     &+div::after {
       .account-mix;
+      content: "Enter your account";
       margin-top: -4.8vh;
       opacity: 0;
       transition: all .3s ease;
     }
     &:focus+div::after {
       .account-mix;
+      content: "Enter your account";
       margin-top: -8.4vh;
       font-size: 2vh;
       opacity: 1;
       font-weight: 800;
     }
   }
+  input.wrong-format {
+    &+div::after,
+    &:focus+div::after {
+      .account-mix;
+      content: "Wrong format";
+      margin-top: -8.4vh;
+      font-size: 2vh;
+      opacity: 1;
+      color: #f33;
+      font-weight: 800;
+    }
+  }
 }
 
 .account-mix {
-  content: "Enter your account";
   display: block;
   position: relative;
   z-index: -1;

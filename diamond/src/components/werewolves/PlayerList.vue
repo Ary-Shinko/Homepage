@@ -1,6 +1,6 @@
 <template>
   <div class="player-list">
-    <player-info v-for="n in 20" :key="n"></player-info>
+    <player-info></player-info>
   </div>
 </template>
 
@@ -17,11 +17,10 @@ export default {
 <style>
 
 .player-list {
-  /*overflow: auto;*/
+  overflow: auto;
   position: absolute;
   height: 100%;
-  width: 55vh;
+  width: 165vh;
   right: 0;
-  background: red;
 }
 </style>

@@ -23,6 +23,7 @@
       <!-- Fourth screen -->
       <h1>Laboratory</h1>
       <router-link to="werewolves">Werewovles</router-link>
+      <router-link to="poker">Poker</router-link>
     </core>
     <spliter class="spliter5 absolute"></spliter>
   </div>

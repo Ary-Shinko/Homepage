@@ -1,9 +1,9 @@
 <template>
   <div class="login-main">
     <h2>Code Parenthesis</h2>
-    <account></account>
-    <password @enter=""></password>
-    <button tabindex="3" @click="">Sign in</button>
+    <account :class="shake" @valid="accountValid = true" @invalid="accountValid = false"></account>
+    <password :class="shake" @enter="checkInput" @valid="passwordValid = true" @invalid="passwordValid = false"></password>
+    <button tabindex="3" @click="checkInput">Sign in</button>
     <a>Forgot password?</a><br>
     <a>Create new account</a>
   </div>
@@ -12,11 +12,35 @@
 <script>
 import Account from './Account.vue'
 import Password from './Password.vue'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     Account,
     Password
+  },
+  data () {
+    return {
+      accountValid: false,
+      passwordValid: false,
+      shake: ''
+    }
+  },
+  methods: {
+    checkInput () {
+      let that = this
+      if (this.accountValid && this.passwordValid) {
+        this.requestAuthorization()
+      } else {
+        this.shake = 'shake'
+        setTimeout(function () {
+          that.shake = ''
+        }, 500)
+      }
+    },
+    ...mapActions([
+      'requestAuthorization'
+    ])
   }
 }
 </script>
@@ -73,5 +97,30 @@ export default {
   text-decoration: none;
   text-shadow: 0 0 1px #fff;
   animation: background-hover 2.5s steps(5) infinite;
+}
+
+.shake {
+  animation: shake .5s linear forwards;
+}
+
+@keyframes shake {
+  0%{
+    transform: translateX(0vh);
+  }
+  20%{
+    transform: translateX(-5vh);
+  }
+  40%{
+    transform: translateX(5vh);
+  }
+  60%{
+    transform: translateX(-3vh);
+  }
+  80%{
+    transform: translateX(3vh);
+  }
+  100% {
+    transform: translateX(0vh);
+  }
 }
 </style>

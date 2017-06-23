@@ -10,7 +10,9 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
-  authToken: ''
+  authToken: '',
+  authAccount: '',
+  authPassword: ''
 }
 
 export default new Vuex.Store({

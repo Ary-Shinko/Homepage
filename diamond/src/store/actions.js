@@ -1,3 +1,6 @@
+import axios from 'axios'
+import { serverAddress } from './config'
+
 export default {
   modifyNavigation ({ commit, state }, current) {
     if (state.navigationLocked === true) return null
@@ -30,5 +33,18 @@ export default {
     } else {
       return null
     }
+  },
+  cacheAuthorization ({ commit }, cache) {
+    commit('CACHE_AUTHORIZATION', cache)
+  },
+  requestAuthorization ({ commit, state }) {
+    axios.post(serverAddress, {
+      account: state.authAccount,
+      password: state.authPassword
+    }).then(reponse => {
+      console.log(reponse.token)
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }

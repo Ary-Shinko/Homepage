@@ -15,7 +15,6 @@ import GlobalBackground from '../components/GlobalBackground.vue'
 import PlayerList from '../components/werewolves/PlayerList.vue'
 
 export default {
-  name: 'app',
   components: {
     Logo,
     GlobalBackground,
