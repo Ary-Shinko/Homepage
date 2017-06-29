@@ -1,6 +1,10 @@
 <template>
   <div class="signin-bg">
-    <div class="signin-1"></div>
+    <div class="signin-1">
+      <div class="signin-logo">
+        <span>{ }</span>
+      </div>
+    </div>
     <div class="signin-2"></div>
     <div class="signin-3"></div>
     <div class="signin-4"></div>
@@ -21,8 +25,23 @@ export default {
 .signin-bg {
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle, #fff, #ddd, #666);
-  // background: radial-gradient(circle, #fff, #abf, #9dc, #5fa);
+  background: #fff;
+}
+
+.signin-logo {
+  position: absolute;
+  top: -15vh;
+  right: 0;
+  bottom: 0;
+  left: -5vh;
+  margin: auto;
+  font-size: 32vh;
+  font-weight: 800;
+  letter-spacing: -9.3vh;
+  text-align: center;
+  transform: rotate(-45deg);
+  color: #eee;
+  cursor: default;
 }
 
 .signin-1 {
@@ -34,7 +53,10 @@ export default {
   bottom: 0;
   left: 0;
   margin: auto;
+  width: 80vh;
+  height: 80vh;
   background: #fff;
+  overflow: hidden;
 }
 
 .signin-2 {
@@ -46,9 +68,9 @@ export default {
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 130vh;
-  height: 130vh;
-  background: #999;
+  width: 90vh;
+  height: 90vh;
+  background: #fff;
   opacity: 0.2;
 }
 
@@ -61,9 +83,9 @@ export default {
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 140vh;
-  height: 140vh;
-  background: #444;
+  width: 100vh;
+  height: 100vh;
+  background: #fff;
   opacity: 0.07;
 }
 
@@ -74,7 +96,7 @@ export default {
   margin: auto;
   width: 50vh;
   height: 50vh;
-  background: #444;
+  background: #fff;
   opacity: 0.05;
   transform: rotate(45deg);
   animation: flow1 10s linear infinite;
@@ -88,7 +110,7 @@ export default {
   margin: auto;
   width: 40vh;
   height: 40vh;
-  background: #444;
+  background: #fff;
   opacity: 0.05;
   transform: rotate(45deg);
   animation: flow2 7s linear infinite;
@@ -101,7 +123,7 @@ export default {
   margin: auto;
   width: 30vh;
   height: 30vh;
-  background: #444;
+  background: #fff;
   opacity: 0.05;
   transform: rotate(45deg);
   animation: flow3 11s linear infinite;
@@ -115,7 +137,7 @@ export default {
   margin: auto;
   width: 60vh;
   height: 60vh;
-  background: #444;
+  background: #fff;
   opacity: 0.05;
   transform: rotate(45deg);
   animation: flow4 13s linear infinite;

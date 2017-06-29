@@ -1,6 +1,6 @@
 <template>
-  <div class="card-table" @keypress.ctrl="reset">
-      <div class="controller">
+  <div class="card-table" @keypress.ctrl="reset" @contextmenu="showMenu" @click="hideMenu">
+      <div class="controller" ref="cardMenu">
         <button @click="reset">RESET</button>
         <button @click="deal(1)">DEAL</button>
         <button @click="shuffle(cards)">SHUFFLE CARDS</button>
@@ -82,6 +82,22 @@ export default {
       array.sort((a, b) => {
         return a[0] + a[1] - b[0] - b[1]
       })
+    },
+    showMenu (e) {
+      e.preventDefault()
+      let menu = this.$refs.cardMenu
+      let maxY = document.body.clientHeight - 152
+      let maxX = document.body.clientWidth - 182
+      console.log(maxX)
+      menu.style.top = (e.clientY > maxY ? maxY : e.clientY) + 'px'
+      menu.style.left = (e.clientX > maxX ? maxX : e.clientX) + 'px'
+      menu.style.visibility = 'visible'
+      menu.style.opacity = 1
+    },
+    hideMenu () {
+      let menu = this.$refs.cardMenu
+      menu.style.visibility = 'hidden'
+      menu.style.opacity = 0
     }
   },
   mounted () {
@@ -92,7 +108,9 @@ export default {
 
 <style lang="less">
 .card-table {
-  padding: 6vh 10vh;
+  padding: 12vh 5vw;
+  width: 90vw;
+  height: 76vh;
   .fade-leave-active {
     position: absolute;
   }
@@ -103,16 +121,6 @@ export default {
   }
   .fade-move {
     transition: all .2s;
-  }
-  button {
-    margin: 0 10px 10px;
-    background: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    &:hover {
-      color: #3a6;
-    }
   }
 }
 
@@ -135,6 +143,34 @@ export default {
   color: #fff;
   span {
     margin-left: 0.6rem;
+  }
+}
+
+.controller {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  border: 1px solid #eee;
+  box-shadow: 0 0 3px -1px #111;
+  transition: opacity .1s linear, visibility .1s linear;
+  button {
+    display: block;
+    width: 180px;
+    height: 30px;
+    color: #396;
+    outline: none;
+    border: none;
+    text-align: left;
+    text-indent: 1em;
+    background: #fff;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      background: #396;
+    }
   }
 }
 </style>

@@ -4,21 +4,21 @@
       <player-list></player-list>
     </div>
     <global-background class="weather2"></global-background>
-    <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/werewolves' }}">Sign In</router-link>
-    <logo></logo>
+    <router-link class="login-button white" :to="{ path: '/signin', query: { redirect: '/werewolves' }}">Sign In</router-link>
+    <header-title v-fade main-color="#111" sub-color="#111">WEREWOLVES</header-title>
   </div>
 </template>
 
 <script>
-import Logo from '../components/Logo.vue'
 import GlobalBackground from '../components/GlobalBackground.vue'
 import PlayerList from '../components/werewolves/PlayerList.vue'
+import HeaderTitle from '../components/HeaderTitle.vue'
 
 export default {
   components: {
-    Logo,
     GlobalBackground,
-    PlayerList
+    PlayerList,
+    HeaderTitle
   }
 }
 </script>

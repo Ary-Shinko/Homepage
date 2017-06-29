@@ -12,12 +12,11 @@ export default {
 <style lang="less">
 #not-found {
   padding-top: 43vh;
-  background: #aaa;
   height: 100vh;
   cursor: pointer;
   h1 {
     padding-left: 2vh;
-    background: red;
+    background: #f33;
   }
 }
 </style>

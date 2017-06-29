@@ -61,6 +61,7 @@ export default {
         transform: rotate(45deg);
         transform-origin: 4% 0;
       }
+
     }
     .nav2 {
       background: #111;

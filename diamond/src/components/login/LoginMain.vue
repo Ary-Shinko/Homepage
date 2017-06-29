@@ -1,6 +1,5 @@
 <template>
   <div class="login-main">
-    <h2>Code Parenthesis</h2>
     <account :class="shake" @valid="accountValid = true" @invalid="accountValid = false"></account>
     <password :class="shake" @enter="checkInput" @valid="passwordValid = true" @invalid="passwordValid = false"></password>
     <button tabindex="3" @click="checkInput">Sign in</button>
@@ -54,23 +53,17 @@ export default {
   bottom: 0;
   left: 0;
   margin: auto;
-  padding: 10vh 15vh;
   width: 50vh;
   height: 60vh;
-  background: #fff;
-  box-shadow: 0 0 20px -8px #fff;
   text-align: right;
-  h2 {
-    text-align: center;
-  }
   button {
-    margin-top: 25vh;
-    margin-bottom: 8vh;
+    margin-top: 35vh;
+    margin-bottom: 3.8vh;
     padding-top: 1.2vh;
     padding-bottom: 1.2vh; 
     width: 100%;
     border: 1px solid #333;
-    border-radius: 5px;
+    // border-radius: 5px;
     background: transparent;
     box-shadow: 0 1px 10px -4px #000;
     &:hover {
@@ -81,7 +74,7 @@ export default {
       opacity: 0.5;
     }
     &:focus {
-      outline: none;
+      outline: 2px solid #000;
     }
   }
   a {

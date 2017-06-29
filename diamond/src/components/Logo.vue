@@ -32,7 +32,10 @@ export default {
     &:hover {
       color: #fff;
       text-decoration: none;
-      text-shadow: 0 0 2vh #fff;
+      text-shadow: 0 0 2vh #aaa;
+    }
+    &:focus {
+      outline: none;
     }
   }
 }

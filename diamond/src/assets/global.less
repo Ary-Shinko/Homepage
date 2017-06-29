@@ -3,8 +3,8 @@
   height: 120vh;
   border:1vh solid transparent;
   border-image: url(../assets/border1.png) 4 4 stretch;
-  animation: border-breathing 5s ease infinite;
-  background: linear-gradient(45deg, #bbb, #ddd);
+  animation: border-breathing 7s ease infinite;
+  background: #fff;
 }
 
 .grid-unit-fat {
@@ -17,7 +17,7 @@
   }
   45%,
   55% {
-    transform: rotate(45deg) scale(0.999);
+    transform: rotate(45deg) scale(0.99);
   }
   100% {
     transform: rotate(45deg) scale(1.003);
@@ -41,3 +41,22 @@ a {
     color: #999;
   }
 }
+
+a.white {
+  text-decoration: none;
+  cursor: pointer;
+  &:link {
+    color: #eee;
+  }
+  &:visited { 
+    color: #eee;
+  }
+  &:hover {
+    color: #eee;
+    text-decoration: underline;
+  }
+  &:active {
+    color: #999;
+  }
+}
+

@@ -19,8 +19,6 @@ body {
 }
 
 #app {
-  /*zoom: .3;*/
-  /*transform: translateX(4000px);*/
   font-size: 2.4vh;
   font-family: 'Roboto Mono', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

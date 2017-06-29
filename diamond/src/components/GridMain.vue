@@ -67,7 +67,7 @@ export default {
   .core-grid {
     position: absolute;
     z-index: 2;
-    background: linear-gradient(45deg, #ddd, #fafafa);
+    background: #fff;
   }
   .core-content {
     position: absolute;
@@ -116,7 +116,7 @@ export default {
   .core-grid {
     position: absolute;
     z-index: 2;
-    background: linear-gradient(45deg, #ddd, #fff);
+    background: #fff;
   }
   .core-content {
     position: absolute;
@@ -134,7 +134,7 @@ export default {
   .core-grid {
     position: absolute;
     z-index: 2;
-    background: linear-gradient(45deg, #ddd, #fff);
+    background: #fff;
   }
   .core-content {
     position: absolute;
@@ -152,7 +152,7 @@ export default {
   .core-grid {
     position: absolute;
     z-index: 2;
-    background: linear-gradient(45deg, #ddd, #fff);
+    background: #fff;
   }
   .core-content {
     position: absolute;

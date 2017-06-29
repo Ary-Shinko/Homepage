@@ -38,7 +38,7 @@ export default {
     position: absolute;
     top: @TRANSLATE_CATALOGUE_Y;
     left: @TRANSLATE_CATALOGUE_X;
-    background: #eee;
+    background: #fff;
   }
 }
 </style>

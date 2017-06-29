@@ -2,18 +2,18 @@
   <div class="poker">
     <card-table></card-table>
     <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/poker' }}">Sign In</router-link>
-    <logo></logo>
+    <header-title v-fade main-color="#396" sub-color="#3a6">POKER</header-title>
   </div>
 </template>
 
 <script>
-import Logo from '../components/Logo.vue'
 import CardTable from '../components/poker/CardTable.vue'
+import HeaderTitle from '../components/HeaderTitle.vue'
 
 export default {
   components: {
-    Logo,
-    CardTable
+    CardTable,
+    HeaderTitle
   }
 }
 </script>
