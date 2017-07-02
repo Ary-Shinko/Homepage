@@ -3,11 +3,14 @@ let express = require('express')
 let bodyParser = require('body-parser')
 let app = express()
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.all('/access', function(req, res, next) {
+// app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
+
+app.option('/access', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With')
-  res.header('Access-Control-Allow-Methods', 'POST,GET,OPTIONS')
+  res.header('Access-Control-Allow-Credentials', 'true')
+  res.header('Access-Control-Allow-Methods', '*')
+  res.header('Access-Control-Allow-Headers', '*')
   next()
 })
 

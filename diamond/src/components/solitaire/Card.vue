@@ -1,32 +1,31 @@
 <template>
-<div class="card" :class="flipable ? '' : 'card-deck'" @click="flip">
+<div class="card" @click="flipCard">
   <transition name="flip">
-    <div class="card-front" v-show="orientation" :style="{ color: shape % 26 === 0 ? 'black' : 'red' }">
-      <p unselectable="on">{{ shapeChar[shape] }}<br>{{ pointChar[point - 1] }}</p>
+    <div class="card-front" v-show="card.upwards" :style="{ color: card.suit % 26 === 0 ? '#000' : '#f33' }">
+      <p>{{ cardSuitChar[card.suit] }}<br>{{ cardPointChar[card.point - 1] }}</p>
     </div>
   </transition>
   <transition name="flip">
-    <div class="card-back" v-show="!orientation"></div>
+    <div class="card-back" v-show="!card.upwards"></div>
   </transition>
 </div>
-
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  data () {
-    return {
-      orientation: this.active,
-      flipable: this.active,
-      shapeChar: {'0': '♠', '13': '♥', '26': '♣', '39': '♦'},
-      pointChar: ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-    }
+  computed: {
+    ...mapState([
+      'cardSuitChar',
+      'cardPointChar'
+    ])
   },
-  props: ['shape', 'point', 'active'],
+  props: ['card', 'index'],
   methods: {
-    flip () {
-      if (this.flipable) {
-        this.orientation = !this.orientation
+    flipCard () {
+      if (this.card.flipable) {
+        this.$store.commit('FLIP_CARD', this.index)
       }
     }
   }
@@ -34,10 +33,12 @@ export default {
 </script>
 
 <style lang="less">
+@card-height: 13.2vh;
+
 .card {
-  margin: 10px;
-  width: 60px;
-  height: 86px;
+  margin: .8vh 0;
+  width: 0.7 * @card-height;
+  height: @card-height;
   flex: 0 1 auto;
   transition: all .2s ease;
   cursor: pointer;
@@ -46,17 +47,16 @@ export default {
   }
   p {
     margin: 0;
-    font-size: 2rem;
-    line-height: 2.4rem;
+    font-size: 5vh;
+    line-height: 6vh;
     text-align: center;
-    user-select: none;
   }
 }
 
 .card-front {
   position: absolute;
-  width: 60px;
-  height: 86px;
+  width: 0.7 * @card-height;
+  height: @card-height;
   border: 1px solid #111;
   border-radius: 5px;
   background-color: #fff;
@@ -64,16 +64,12 @@ export default {
 
 .card-back {
   position: absolute;
-  width: 60px;
-  height: 86px;
+  width: 0.7 * @card-height;
+  height: @card-height;
   border: 1px solid #111;
   border-radius: 5px;
-  background-image: url("../../assets/poker/pokerBack.jpg");
+  background-image: url("../../assets/solitaire/back.jpg");
   background-size: cover;
-}
-
-.card-deck:not(:first-child) {
-  margin-left: -68px;
 }
 
 .flip-enter-active {

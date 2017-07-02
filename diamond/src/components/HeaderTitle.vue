@@ -29,6 +29,7 @@ export default {
   left: 0;
   right: 0;
   height: 10vh;
+  z-index: 10;
   padding-left: 11.4vh;
   padding-top: 0.8vh;
   font-size: 3vh;

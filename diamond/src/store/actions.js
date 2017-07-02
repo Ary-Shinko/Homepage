@@ -2,6 +2,7 @@ import axios from 'axios'
 import { serverAddress } from './config'
 
 export default {
+  // NAVIGATION
   modifyNavigation ({ commit, state }, current) {
     if (state.navigationLocked === true) return null
     commit('MODIFY_NAVIGATION_TO', current)
@@ -34,6 +35,7 @@ export default {
       return null
     }
   },
+  // AUTHORIZATION
   cacheAuthorization ({ commit }, cache) {
     commit('CACHE_AUTHORIZATION', cache)
   },
@@ -46,5 +48,24 @@ export default {
     }).catch(error => {
       console.log(error)
     })
+  },
+  // SOLITAIRE
+  initSolitaire ({ commit, dispatch, state }) {
+    commit('CREATE_CARD_DECK')
+    commit('SHUFFLE_CARD', state.cardDeck)
+    dispatch('dealCard', 5)
+  },
+  shuffleDeck ({ commit, state }) {
+    commit('SHUFFLE_CARD', state.cardDeck)
+  },
+  dealCard ({ commit, dispatch, state }, n) {
+    if (n > 0) {
+      commit('DEAL_CARD')
+      if (state.cardDeck.length !== 0) {
+        commit('SET_CARD_TIMER', setTimeout(function () {
+          dispatch('dealCard', n - 1)
+        }, 200))
+      }
+    }
   }
 }

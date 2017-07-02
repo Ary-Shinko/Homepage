@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../view/Index.vue'
 import Werewolves from '../view/Werewolves.vue'
-import Poker from '../view/Poker.vue'
+import Solitaire from '../view/Solitaire.vue'
 import NotFound from '../view/NotFound.vue'
 import SignIn from '../view/SignIn.vue'
 
@@ -30,8 +30,8 @@ export default new VueRouter({
     }
   },
   {
-    path: '/poker',
-    component: Poker,
+    path: '/solitaire',
+    component: Solitaire,
     meta: {
       requireAuth: false
     }
