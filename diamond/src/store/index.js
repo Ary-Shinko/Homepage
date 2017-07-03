@@ -15,15 +15,21 @@ const state = {
   authPassword: '',
   cardDeck: [],
   cardPlayer: [],
+  cardObsolete: [],
   cardSuitEnum: [0, 13, 26, 39], // suit order: spades, hearts, clubs, diamonds
   cardPointEnum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
   cardSuitChar: {'0': '♠', '13': '♥', '26': '♣', '39': '♦'},
-  cardPointChar: ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'],
+  cardPointChar: ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'],
   cardScore: 0,
-  cardMaxScore: 0,
+  cardMaxscore: 0,
   cardTimer: 0,
-  cardAvailableCount: 0,
-  cardScoreMargin: 0
+  cardCountableCount: 0,
+  cardScoreMargin: 0,
+  cardBalanceString: '',
+  cardBalanceScore: 0,
+  cardBalanceShow: false,
+  cardFinalBalanceShow: false,
+  cardFinalBalanceString: null
 }
 
 export default new Vuex.Store({

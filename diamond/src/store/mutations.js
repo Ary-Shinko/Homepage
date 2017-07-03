@@ -14,6 +14,12 @@ const SET_CARD_TIMER = 'SET_CARD_TIMER'
 const DEAL_CARD = 'DEAL_CARD'
 const FLIP_CARD = 'FLIP_CARD'
 const MODIFY_CARD_SCORE_MARGIN = 'MODIFY_CARD_SCORE_MARGIN'
+const OBSOLETE_CARD = 'OBSOLETE_CARD'
+const SCORE_CARD = 'SCORE_CARD'
+const HIDE_CARD_BALANCE = 'HIDE_CARD_BALANCE'
+const SHOW_CARD_FINAL_BALANCE = 'SHOW_CARD_FINAL_BALANCE'
+const HIDE_CARD_FINAL_BALANCE = 'HIDE_CARD_FINAL_BALANCE'
+const SET_CARD_MAXSCORE = 'SET_CARD_MAXSCORE'
 
 export default {
   // NAVIGATION
@@ -38,8 +44,21 @@ export default {
   [CREATE_CARD_DECK] (state) {
     state.cardDeck = []
     state.cardPlayer = []
+    state.cardObsolete = []
     state.cardScore = 0
-    state.cardAvailableCount = 0
+    state.cardCountableCount = 0
+    state.cardBalanceShow = false
+    state.cardFinalBalanceString = {
+      'Straight Flush': 0,
+      'Four of a Kind': 0,
+      'Full House': 0,
+      'Flush': 0,
+      'Straight': 0,
+      'Three of a Kind': 0,
+      'Two Pair': 0,
+      'One Pair': 0,
+      'High Card': 0
+    }
     clearTimeout(state.cardTimer)
     for (let suit of state.cardSuitEnum) {
       for (let point of state.cardPointEnum) {
@@ -63,9 +82,15 @@ export default {
     state.cardPlayer.sort((a, b) => {
       return a.suit + a.point - b.suit - b.point
     })
+    state.cardObsolete.sort((a, b) => {
+      return a.suit + a.point - b.suit - b.point
+    })
   },
   [SORT_CARD_BY_POINT] (state) {
     state.cardPlayer.sort((a, b) => {
+      return a.suit / 100 + a.point - b.suit / 100 - b.point
+    })
+    state.cardObsolete.sort((a, b) => {
       return a.suit / 100 + a.point - b.suit / 100 - b.point
     })
   },
@@ -73,37 +98,157 @@ export default {
     state.cardTimer = timer
   },
   [DEAL_CARD] (state) {
-    if (state.cardAvailableCount < 5) {
+    if (state.cardCountableCount < 5) {
       let card = state.cardDeck.pop()
       card.upwards = true
       card.flipable = true
-      card.available = true
+      card.countable = true
       state.cardPlayer.push(card)
-      state.cardAvailableCount++
+      state.cardCountableCount++
     }
   },
   [FLIP_CARD] (state, index) {
     let card = state.cardPlayer[index]
-    if (!card.obsoleted) {
+    if (card.available) {
       if (card.upwards) {
         card.upwards = false
       } else {
-        if (state.cardAvailableCount < 5) {
+        if (state.cardCountableCount < 5) {
           card.upwards = true
         }
       }
-      if (card.available) {
-        card.available = false
-        state.cardAvailableCount--
+      if (card.countable) {
+        card.countable = false
+        state.cardCountableCount--
       } else {
-        if (state.cardAvailableCount < 5) {
-          card.available = true
-          state.cardAvailableCount++
+        if (state.cardCountableCount < 5) {
+          card.countable = true
+          state.cardCountableCount++
         }
       }
     }
   },
   [MODIFY_CARD_SCORE_MARGIN] (state, margin) {
     state.cardScoreMargin = margin
+  },
+  [OBSOLETE_CARD] (state) {
+    for (let card of state.cardPlayer) {
+      card.upwards = true
+      card.available = false
+      card.countable = false
+      card.flipable = false
+      state.cardObsolete.push(card)
+    }
+    state.cardPlayer = []
+    state.cardCountableCount = 0
+  },
+  [SCORE_CARD] (state) {
+    let build = state.cardPlayer.filter(card => {
+      return card.countable
+    }).map(card => {
+      return [card.suit, card.point]
+    }).sort((a, b) => {
+      return a[0] / 100 + a[1] - b[0] / 100 - b[1]
+    })
+    if (build.length === 5) {
+      let score = 0
+      let type = ''
+      let base = build[0][1]
+      let flush = true
+      let straight = true
+      // straight/flush/straight flush
+      for (let i = 1; i < 5; i++) {
+        if (build[i - 1][0] !== build[i][0]) flush = false
+        if (build[i - 1][1] + 1 !== build[i][1]) straight = false
+        if (!flush && !straight) break
+      }
+      type = straight ? 'Straight' : type
+      type = flush ? 'Flush' : type
+      type = flush && straight ? 'Straight Flush' : type
+      // others
+      if (type === '') {
+        let points = []
+        let quantity = []
+        let index = 0
+        build.forEach(v => {
+          index = points.indexOf(v[1])
+          if (index === -1) {
+            points.push(v[1])
+            quantity.push(1)
+          } else {
+            quantity[index]++
+          }
+        })
+        index = Math.max(...quantity)
+        switch (quantity.length) {
+          case 2:
+            type = index === 4 ? 'Four of a Kind' : 'Full House'
+            base = points[quantity.indexOf(index)]
+            break
+          case 3:
+            type = index === 3 ? 'Three of a Kind' : 'Two Pair'
+            base = Math.min(points[quantity.indexOf(index)], points[quantity.lastIndexOf(index)])
+            break
+          case 4:
+            type = 'One Pair'
+            base = points[quantity.indexOf(index)]
+            break
+          case 5:
+            type = 'High Card'
+            break
+        }
+      }
+      // scoring
+      base = 100 - base
+      switch (type) {
+        case 'Straight Flush':
+          score = 6269 * base
+          break
+        case 'Four of a Kind':
+          score = 1823 * base
+          break
+        case 'Full House':
+          score = 593 * base
+          break
+        case 'Flush':
+          score = 425 * base
+          break
+        case 'Straight':
+          score = 280 * base
+          break
+        case 'Three of a Kind':
+          score = 72 * base
+          break
+        case 'Two Pair':
+          score = 39 * base
+          break
+        case 'One Pair':
+          score = 9 * base
+          break
+        case 'High Card':
+          score = 6 * base
+          break
+      }
+      if (type !== 'High Card' && type !== 'One Pair') {
+        score = parseInt(score * Math.pow(0.6, state.cardPlayer.length - 5))
+      }
+      state.cardFinalBalanceString[type]++
+      state.cardBalanceString = type
+      state.cardBalanceScore = score
+      state.cardBalanceShow = true
+      state.cardScore += score
+    }
+  },
+  [HIDE_CARD_BALANCE] (state) {
+    state.cardBalanceShow = false
+  },
+  [SHOW_CARD_FINAL_BALANCE] (state) {
+    state.cardFinalBalanceShow = true
+  },
+  [HIDE_CARD_FINAL_BALANCE] (state) {
+    state.cardFinalBalanceShow = false
+  },
+  [SET_CARD_MAXSCORE] (state, score) {
+    state.cardMaxscore = score
   }
 }

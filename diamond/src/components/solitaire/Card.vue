@@ -1,7 +1,7 @@
 <template>
 <div class="card" @click="flipCard">
   <transition name="flip">
-    <div class="card-front" v-show="card.upwards" :style="{ color: card.suit % 26 === 0 ? '#000' : '#f33' }">
+    <div class="card-front" v-show="card.upwards" :style="{ color: card.suit % 26 === 0 ? '#000' : '#f33', background: card.available ? '#fff' : '#454', cursor: card.available ? 'pointer' : 'default' }">
       <p>{{ cardSuitChar[card.suit] }}<br>{{ cardPointChar[card.point - 1] }}</p>
     </div>
   </transition>
@@ -40,7 +40,7 @@ export default {
   width: 0.7 * @card-height;
   height: @card-height;
   flex: 0 1 auto;
-  transition: all .2s ease;
+  transition: transform .2s cubic-bezier(.2,.69,.29,.83);
   cursor: pointer;
   &:hover {
     transform: translateY(-15px);
@@ -59,7 +59,7 @@ export default {
   height: @card-height;
   border: 1px solid #111;
   border-radius: 5px;
-  background-color: #fff;
+  transition: background-color 1s ease;
 }
 
 .card-back {

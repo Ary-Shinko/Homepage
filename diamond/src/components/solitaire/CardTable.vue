@@ -32,7 +32,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'initSolitaire'
+      'initSolitaire',
+      'dealCard'
     ]),
     showMenu (e) {
       let maxTop = document.body.clientHeight - 152
@@ -52,6 +53,13 @@ export default {
     window.addEventListener('keyup', e => {
       if (e.keyCode === 27) {
         this.hideMenu()
+        e.stopPropagation()
+      }
+    }, true)
+    window.addEventListener('keyup', e => {
+      if (e.keyCode === 32) {
+        e.preventDefault()
+        this.dealCard(1)
         e.stopPropagation()
       }
     }, true)

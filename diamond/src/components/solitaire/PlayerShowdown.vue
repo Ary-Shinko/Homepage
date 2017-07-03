@@ -1,23 +1,26 @@
 <template>
-  <div v-show="cardAvailableCount === 5" class="player-showdown" @click="showdown" :style="{ 'margin-right': cardScoreMargin - 5 + 'px' }">
-    <p>[SHOWDOWN]</p>
+  <div class="player-showdown" :style="{ 'margin-right': cardScoreMargin - 5 + 'px' }">
+    <p v-if="cardDeck.length > 0 && cardCountableCount === 5" @click="showdownBalance">[SHOWDOWN]</p>
+    <p v-else-if="cardDeck.length === 0" @click.once="finalBalance">[CONTINUE]</p>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   computed: {
     ...mapState([
       'cardScoreMargin',
-      'cardAvailableCount'
+      'cardCountableCount',
+      'cardDeck'
     ])
   },
   methods: {
-    showdown () {
-      console.log(1)
-    }
+    ...mapActions([
+      'showdownBalance',
+      'finalBalance'
+    ])
   }
 }
 </script>

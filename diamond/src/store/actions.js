@@ -67,5 +67,22 @@ export default {
         }, 200))
       }
     }
+  },
+  showdownBalance ({ commit, dispatch }) {
+    commit('SCORE_CARD')
+    commit('OBSOLETE_CARD')
+    dispatch('dealCard', 5)
+  },
+  finalBalance ({ commit, state }) {
+    if (state.cardCountableCount === 5) {
+      commit('SCORE_CARD')
+    }
+    if (state.cardPlayer.length > 0) {
+      commit('OBSOLETE_CARD')
+    }
+    if (state.cardScore > state.cardMaxscore) {
+      commit('SET_CARD_MAXSCORE', state.cardScore)
+    }
+    commit('SHOW_CARD_FINAL_BALANCE')
   }
 }

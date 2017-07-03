@@ -56,6 +56,18 @@ a.white {
   opacity: 0;
 }
 
+.move-enter-active, .move-leave-active {
+  transition: all .5s ease;
+}
+
+.move-enter {
+  transform: translateX(-80vw);
+}
+
+.move-leave-to {
+  opacity: 0;
+}
+
 @keyframes border-breathing {
   0% {
     transform: rotate(45deg) scale(1.003);

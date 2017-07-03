@@ -1,6 +1,7 @@
 <template>
   <transition-group tag="div" class="player-cards" name="fade">
-    <card v-for="(card, index) of cardPlayer" :key="'card' + (card.suit + card.point)" :card.sync="card" :index="index"></card>
+    <card v-for="(card, index) of cardObsolete" :key="'card' + (card.suit + card.point)" :card="card" :index="index"></card>
+    <card v-for="(card, index) of cardPlayer" :key="'card' + (card.suit + card.point)" :card="card" :index="index"></card>
   </transition-group>
 </template>
 
@@ -15,7 +16,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'cardPlayer'
+      'cardPlayer',
+      'cardObsolete'
     ])
   }
 }

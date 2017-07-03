@@ -26,6 +26,10 @@ Vue.directive('fade', {
   }
 })
 
+Vue.filter('uppercase', v => {
+  return v.toUpperCase()
+})
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
     if (store.state.authToken) {

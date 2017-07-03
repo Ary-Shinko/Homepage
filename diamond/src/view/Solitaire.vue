@@ -2,6 +2,7 @@
   <div class="solitaire">
     <card-table></card-table>
     <card-balance></card-balance>
+    <card-final-balance></card-final-balance>
     <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/solitaire' }}">Sign In</router-link>
     <header-title v-fade main-color="#396" sub-color="#3a6">SOLITAIRE</header-title>
   </div>
@@ -12,12 +13,14 @@ import HeaderTitle from '../components/HeaderTitle.vue'
 
 import CardTable from '../components/solitaire/CardTable.vue'
 import CardBalance from '../components/solitaire/CardBalance.vue'
+import CardFinalBalance from '../components/solitaire/CardFinalBalance.vue'
 
 export default {
   components: {
     HeaderTitle,
     CardTable,
-    CardBalance
+    CardBalance,
+    CardFinalBalance
   }
 }
 </script>
