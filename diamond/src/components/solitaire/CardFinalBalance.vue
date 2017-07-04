@@ -3,7 +3,7 @@
     <div class="card-final-balance-animation"></div>
     <div class="card-final-balance-background" @click="startNewGame">
       <div class="card-final-balance-text">
-        <h1>SOLITAIRE <span>v1.0.0</span></h1>
+        <h1>SOLITAIRE <span>v1.0.1</span></h1>
         <p>Creation by Code Parenthesis 2017</p>
         <ul>
           <li>Straight Flush: <span>{{ cardFinalBalanceString['Straight Flush'] }}</span></li>

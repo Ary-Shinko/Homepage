@@ -3,8 +3,8 @@
     <button @click="initSolitaire">START NEW GAME</button>
     <button @click="shuffleDeck">SHUFFLE DECK</button>
     <button @click="dealCard(5)">FILL HAND</button>
-    <button @click="sortCardBySuit">SORY BY SUIT</button>
-    <button @click="sortCardByPoint">SORY BY POINT</button>
+    <button @click="sortCardBySuit">SORT BY SUIT</button>
+    <button @click="sortCardByPoint">SORT BY POINT</button>
   </div>
 </template>
 
