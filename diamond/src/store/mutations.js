@@ -20,6 +20,7 @@ const HIDE_CARD_BALANCE = 'HIDE_CARD_BALANCE'
 const SHOW_CARD_FINAL_BALANCE = 'SHOW_CARD_FINAL_BALANCE'
 const HIDE_CARD_FINAL_BALANCE = 'HIDE_CARD_FINAL_BALANCE'
 const SET_CARD_HIGHSCORE = 'SET_CARD_HIGHSCORE'
+const DISABLE_CARD_HINT = 'DISABLE_CARD_HINT'
 
 export default {
   // NAVIGATION
@@ -250,5 +251,8 @@ export default {
   },
   [SET_CARD_HIGHSCORE] (state, score) {
     state.cardHighscore = score
+  },
+  [DISABLE_CARD_HINT] (state) {
+    state.cardHint = false
   }
 }

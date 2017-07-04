@@ -29,7 +29,9 @@ const state = {
   cardBalanceScore: 0,
   cardBalanceShow: false,
   cardFinalBalanceShow: false,
-  cardFinalBalanceString: null
+  cardFinalBalanceString: null,
+  cardHint: true,
+  cardVersion: 'v1.0.3'
 }
 
 export default new Vuex.Store({
