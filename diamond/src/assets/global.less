@@ -57,11 +57,13 @@ a.white {
 }
 
 .move-enter-active, .move-leave-active {
-  transition: all .5s ease;
+  transition: transform .2s linear, opacity .5s linear;
+  opacity: 1;
 }
 
 .move-enter {
   transform: translateX(-80vw);
+  opacity: 0;
 }
 
 .move-leave-to {

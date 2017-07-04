@@ -80,8 +80,8 @@ export default {
     if (state.cardPlayer.length > 0) {
       commit('OBSOLETE_CARD')
     }
-    if (state.cardScore > state.cardMaxscore) {
-      commit('SET_CARD_MAXSCORE', state.cardScore)
+    if (state.cardScore > state.cardHighscore) {
+      commit('SET_CARD_HIGHSCORE', state.cardScore)
     }
     commit('SHOW_CARD_FINAL_BALANCE')
   }

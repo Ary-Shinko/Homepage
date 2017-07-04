@@ -19,7 +19,7 @@ const SCORE_CARD = 'SCORE_CARD'
 const HIDE_CARD_BALANCE = 'HIDE_CARD_BALANCE'
 const SHOW_CARD_FINAL_BALANCE = 'SHOW_CARD_FINAL_BALANCE'
 const HIDE_CARD_FINAL_BALANCE = 'HIDE_CARD_FINAL_BALANCE'
-const SET_CARD_MAXSCORE = 'SET_CARD_MAXSCORE'
+const SET_CARD_HIGHSCORE = 'SET_CARD_HIGHSCORE'
 
 export default {
   // NAVIGATION
@@ -248,7 +248,7 @@ export default {
   [HIDE_CARD_FINAL_BALANCE] (state) {
     state.cardFinalBalanceShow = false
   },
-  [SET_CARD_MAXSCORE] (state, score) {
-    state.cardMaxscore = score
+  [SET_CARD_HIGHSCORE] (state, score) {
+    state.cardHighscore = score
   }
 }

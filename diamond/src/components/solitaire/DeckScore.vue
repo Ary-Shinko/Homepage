@@ -1,7 +1,7 @@
 <template>
   <div class="deck-score" :style="{ 'margin-right': cardScoreMargin + 'px' }">
     <p>SCORE:<span>{{ cardScore }}</span></p>
-    <p>MAXSCORE:<span>{{ cardMaxscore }}</span></p>
+    <p>HIGHSCORE:<span>{{ cardHighscore }}</span></p>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     ...mapState([
       'cardScoreMargin',
       'cardScore',
-      'cardMaxscore'
+      'cardHighscore'
     ])
   },
   methods: {

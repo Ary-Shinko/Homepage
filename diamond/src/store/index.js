@@ -21,7 +21,7 @@ const state = {
   cardSuitChar: {'0': '♠', '13': '♥', '26': '♣', '39': '♦'},
   cardPointChar: ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'],
   cardScore: 0,
-  cardMaxscore: 0,
+  cardHighscore: 0,
   cardTimer: 0,
   cardCountableCount: 0,
   cardScoreMargin: 0,
