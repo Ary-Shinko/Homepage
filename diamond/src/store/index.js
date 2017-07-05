@@ -31,7 +31,7 @@ const state = {
   cardFinalBalanceShow: false,
   cardFinalBalanceString: null,
   cardHint: true,
-  cardVersion: 'v1.0.4'
+  cardVersion: 'v1.0.5'
 }
 
 export default new Vuex.Store({

@@ -246,10 +246,10 @@ export default {
       hideCardHint: 'DISABLE_CARD_HINT',
       setHighscore: 'SET_CARD_HIGHSCORE'
     }),
-    scorllListener (e) {
+    scorllListener () {
       this.$refs.cardScrollbar.style.top = parseInt((this.$refs.cardHint.scrollTop / this.scrollHeight).toFixed(2) * 32 * this.viewHeight) + 'px'
     },
-    resizeListener (e) {
+    resizeListener () {
       this.scrollHeight = this.$refs.cardHintChild.clientHeight - this.$refs.cardHint.clientHeight
       this.viewHeight = document.body.clientHeight / 100
       this.$refs.cardScrollbar.style.top = parseInt((this.$refs.cardHint.scrollTop / this.scrollHeight).toFixed(2) * 32 * this.viewHeight) + 'px'
@@ -261,7 +261,9 @@ export default {
     } else if (document.cookie.match(/cardHighscore/)) {
       this.setHighscore(document.cookie.match(/cardHighscore=(\d+)/)[1])
     }
-    this.scrollHeight = this.$refs.cardHintChild.clientHeight - this.$refs.cardHint.clientHeight
+    setTimeout(() => {
+      this.scrollHeight = this.$refs.cardHintChild.clientHeight - this.$refs.cardHint.clientHeight
+    }, 500)
     this.viewHeight = document.body.clientHeight / 100
     this.$refs.cardHint.addEventListener('scroll', this.scorllListener, false)
     window.addEventListener('resize', this.resizeListener, false)
@@ -335,7 +337,7 @@ export default {
         &::before {
           content: "- ";
           position: relative;
-          margin-left: -2.4vh;
+          margin-left: -1.8vh;
         }
       }
       span {
@@ -348,8 +350,9 @@ export default {
 .card-hint-shader {
   position: fixed;
   top: 24vh;
-  left: 61vw;
-  width: 2vw;
+  left: 63vw;
+  margin-left: -20px;
+  width: 20px;
   height: 52vh;
   background: #111;
   .card-hint-scrollbar {
@@ -370,7 +373,7 @@ export default {
   &:hover .card-hint-scrollbar {
     background: #6fa;
   }
-  &:hover  .card-hint-scrollcore {
+  &:hover .card-hint-scrollcore {
     background: #aaa;
   }
 }
