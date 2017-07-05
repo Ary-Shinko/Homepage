@@ -251,6 +251,11 @@ export default {
   },
   [SET_CARD_HIGHSCORE] (state, score) {
     state.cardHighscore = score
+    if (window.localStorage) {
+      window.localStorage.setItem('cardHighscore', score)
+    } else {
+      document.cookie = `cardHighscore=${score}`
+    }
   },
   [DISABLE_CARD_HINT] (state) {
     state.cardHint = false

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="cardHint" class="card-hint" @contextmenu.prevent="void 0">
+  <div class="card-hint" @contextmenu.prevent="void 0">
     <div class="card-hint-title">
       <h1>SOLITAIRE <span>{{ cardVersion }}</span></h1>
       <p>Creation by Code Parenthesis 2017</p>
@@ -224,7 +224,6 @@
       </div>
     </div>
   </div>
-  <div v-else style="display: none"></div>
 </template>
 
 <script>
@@ -239,25 +238,37 @@ export default {
   },
   computed: {
     ...mapState([
-      'cardHint',
       'cardVersion'
     ])
   },
   methods: {
     ...mapMutations({
-      hideCardHint: 'DISABLE_CARD_HINT'
-    })
-  },
-  mounted () {
-    this.scrollHeight = this.$refs.cardHintChild.clientHeight - this.$refs.cardHint.clientHeight
-    this.viewHeight = document.body.clientHeight / 100
-    this.$refs.cardHint.addEventListener('scroll', e => {
+      hideCardHint: 'DISABLE_CARD_HINT',
+      setHighscore: 'SET_CARD_HIGHSCORE'
+    }),
+    scorllListener (e) {
       this.$refs.cardScrollbar.style.top = parseInt((this.$refs.cardHint.scrollTop / this.scrollHeight).toFixed(2) * 32 * this.viewHeight) + 'px'
-    }, false)
-    window.addEventListener('resize', () => {
+    },
+    resizeListener (e) {
       this.scrollHeight = this.$refs.cardHintChild.clientHeight - this.$refs.cardHint.clientHeight
       this.viewHeight = document.body.clientHeight / 100
-    }, false)
+      this.$refs.cardScrollbar.style.top = parseInt((this.$refs.cardHint.scrollTop / this.scrollHeight).toFixed(2) * 32 * this.viewHeight) + 'px'
+    }
+  },
+  mounted () {
+    if (window.localStorage.getItem('cardHighscore')) {
+      this.setHighscore(window.localStorage.getItem('cardHighscore'))
+    } else if (document.cookie.match(/cardHighscore/)) {
+      this.setHighscore(document.cookie.match(/cardHighscore=(\d+)/)[1])
+    }
+    this.scrollHeight = this.$refs.cardHintChild.clientHeight - this.$refs.cardHint.clientHeight
+    this.viewHeight = document.body.clientHeight / 100
+    this.$refs.cardHint.addEventListener('scroll', this.scorllListener, false)
+    window.addEventListener('resize', this.resizeListener, false)
+  },
+  beforeDestroy () {
+    this.$refs.cardHint.removeEventListener('scroll', this.scorllListener, false)
+    window.removeEventListener('resize', this.resizeListener, false)
   }
 }
 </script>

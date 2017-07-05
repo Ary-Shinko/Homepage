@@ -3,13 +3,15 @@
     <card-table></card-table>
     <card-balance></card-balance>
     <card-final-balance></card-final-balance>
-    <card-hint></card-hint>
+    <card-hint v-if="cardHint"></card-hint>
     <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/solitaire' }}">Sign In</router-link>
     <header-title v-fade main-color="#396" sub-color="#3a6">SOLITAIRE</header-title>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import HeaderTitle from '../components/HeaderTitle.vue'
 
 import CardTable from '../components/solitaire/CardTable.vue'
@@ -24,6 +26,11 @@ export default {
     CardBalance,
     CardFinalBalance,
     CardHint
+  },
+  computed: {
+    ...mapState([
+      'cardHint'
+    ])
   }
 }
 </script>
