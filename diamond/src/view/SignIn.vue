@@ -3,7 +3,7 @@
     <login-main></login-main>
     <login-background></login-background>
     <header-title>SIGN IN</header-title>
-    <a class="login-button" @click="$router.go(-1)">Back</a>
+    <a class="g-login-button" @click="$router.go(-1)">Back</a>
   </div>
 </template>
 

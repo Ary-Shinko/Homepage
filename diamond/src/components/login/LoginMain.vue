@@ -85,11 +85,11 @@ export default {
 }
 
 .button-mix {
-  background: url(../../assets/bg1.jpg);
+  background: url(../../assets/grid/bg1.jpg);
   color: #fff;
   text-decoration: none;
   text-shadow: 0 0 1px #fff;
-  animation: background-hover 2.5s steps(5) infinite;
+  animation: random-blink 2.5s steps(5) infinite;
 }
 
 .shake {

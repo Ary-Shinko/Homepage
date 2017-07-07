@@ -4,7 +4,7 @@
     <card-balance></card-balance>
     <card-final-balance></card-final-balance>
     <card-hint v-if="cardHint"></card-hint>
-    <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/solitaire' }}">Sign In</router-link>
+    <router-link class="g-login-button" :to="{ path: '/signin', query: { redirect: '/solitaire' }}">Sign In</router-link>
     <header-title v-fade main-color="#396" sub-color="#3a6">SOLITAIRE</header-title>
   </div>
 </template>

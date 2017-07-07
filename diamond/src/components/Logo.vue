@@ -12,8 +12,8 @@ export default {
 <style lang="less">
 .logo {
   &:hover+div {
-    background: url(../assets/bg2.png);
-    animation: border-breathing 5s ease infinite, background-hover 5s steps(10) infinite;
+    background: rgba(255, 255, 255, 0.7);
+    animation: rotate-breathing 5s ease infinite;
   }
   a {
     position: fixed;
@@ -37,24 +37,6 @@ export default {
     &:focus {
       outline: none;
     }
-  }
-}
-
-@keyframes background-hover {
-  0% {
-    background-position: 0 0;
-  }
-  25% {
-    background-position: 100% 0;
-  }
-  50% {
-    background-position: 0 100%;
-  }
-  75% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0 0;
   }
 }
 </style>

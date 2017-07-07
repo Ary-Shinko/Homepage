@@ -1,12 +1,12 @@
 <template>
-  <div id="logo">
+  <div class="grid-logo">
     <logo></logo>
-    <div class="grid-unit"></div>
+    <div class="g-grid-unit"></div>
   </div>
 </template>
 
 <script>
-import Logo from './Logo.vue'
+import Logo from '../Logo.vue'
 
 export default {
   components: {
@@ -16,9 +16,9 @@ export default {
 </script>
 
 <style lang="less">
-@import url(../assets/measure.less);
+@import url(../../assets/grid/navigationMeasure.less);
 
-#logo {
+.grid-logo {
   &>div:last-child {
     z-index: 5;
     position: fixed;

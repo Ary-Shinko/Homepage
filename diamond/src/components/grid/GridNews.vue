@@ -1,6 +1,6 @@
 <template>
-  <div id="news">
-    <div class="grid-unit"></div>
+  <div class="grid-news">
+    <div class="g-grid-unit"></div>
     <news></news>
   </div>
 </template>
@@ -16,12 +16,12 @@ export default {
 </script>
 
 <style lang="less">
-@import url(../assets/measure.less);
+@import url(../../assets/grid/navigationMeasure.less);
 
-#news {
+.grid-news {
   &>div:first-child {
-    z-index: 5;
     position: fixed;
+    z-index: 5;
     top: @TRANSLATE_NEWS_Y;
     left: @TRANSLATE_NEWS_X;
   }

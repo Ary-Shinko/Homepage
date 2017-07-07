@@ -10,6 +10,8 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
+  navigationLastModified: '2017/7/5',
+  navigationCompletion: '#######------------',
   authToken: '',
   authAccount: '',
   authPassword: '',

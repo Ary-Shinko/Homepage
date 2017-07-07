@@ -3,20 +3,20 @@
     <div class="werewolves">
       <player-list></player-list>
     </div>
-    <global-background class="weather2"></global-background>
-    <router-link class="login-button white" :to="{ path: '/signin', query: { redirect: '/werewolves' }}">Sign In</router-link>
+    <!--<global-background class="weather2"></global-background>-->
+    <router-link class="g-login-button white" :to="{ path: '/signin', query: { redirect: '/werewolves' }}">Sign In</router-link>
     <header-title v-fade main-color="#111" sub-color="#111">WEREWOLVES</header-title>
   </div>
 </template>
 
 <script>
-import GlobalBackground from '../components/GlobalBackground.vue'
+// import GlobalBackground from '../components/GlobalBackground.vue'
 import PlayerList from '../components/werewolves/PlayerList.vue'
 import HeaderTitle from '../components/HeaderTitle.vue'
 
 export default {
   components: {
-    GlobalBackground,
+    // GlobalBackground,
     PlayerList,
     HeaderTitle
   }

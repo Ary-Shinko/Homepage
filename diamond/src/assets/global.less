@@ -1,16 +1,27 @@
-.grid-unit {
+.g-grid-unit {
   width: 120vh;
   height: 120vh;
   border:1vh solid transparent;
   border-image: url(../assets/border1.png) 4 4 stretch;
-  animation: border-breathing 7s ease infinite;
+  animation: rotate-breathing 7s ease infinite;
   background: #fff;
 }
 
-.grid-unit-fat {
+.g-grid-unit-fat {
   width: 140vh;
 }
 
+.g-login-button {
+  position: fixed;
+  z-index: 15;
+  top: 1vh;
+  right: 3vh;
+}
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
 a {
   text-decoration: none;
   cursor: pointer;
@@ -46,6 +57,18 @@ a.white {
     color: #999;
   }
 }
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 
 .fade-fast-enter-active, .fade-fast-leave-active {
   transition: opacity .1s linear;
@@ -54,6 +77,15 @@ a.white {
 
 .fade-fast-enter, .fade-fast-leave-to {
   opacity: 0;
+}
+
+.fold-enter-active, .fold-leave-active {
+  transition: all .3s linear;
+}
+
+.fold-enter, .fold-leave-to {  
+  transform: rotateX(90deg);
+  transform-origin: 50% 50%;
 }
 
 .move-enter-active, .move-leave-active {
@@ -69,16 +101,82 @@ a.white {
 .move-leave-to {
   opacity: 0;
 }
-
-@keyframes border-breathing {
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+// ..................................................................................................
+@keyframes rotate-breathing {
   0% {
     transform: rotate(45deg) scale(1.003);
   }
-  45%,
-  55% {
+  45%, 55% {
     transform: rotate(45deg) scale(0.99);
   }
   100% {
     transform: rotate(45deg) scale(1.003);
+  }
+}
+
+@keyframes random-blink {
+  0% {
+    background-position: 0 0;
+  }
+  25% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 100%;
+  }
+  75% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes red-pulse {
+  0% {
+    background: #1a1a1a;
+  }
+  8% {
+    background: #f33;
+  }
+  16% {
+    background: #1a1a1a;
+  }
+  30% {
+    background: #1a1a1a;
+  }
+  38% {
+    background: #f33;
+  }
+  46% {
+    background: #1a1a1a;
+  }
+  60% {
+    background: #1a1a1a;
+  }
+  68% {
+    background: #f33;
+  }
+  76% {
+    background: #1a1a1a;
+  }
+  100% {
+    background: #f33;
   }
 }

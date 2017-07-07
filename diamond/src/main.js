@@ -5,7 +5,7 @@ import router from './router'
 
 import '../static/normalize.min.css'
 import './assets/global.less'
-import './assets/animation.less'
+import './assets/grid/navigationAnimation.less'
 
 Vue.config.productionTip = false
 

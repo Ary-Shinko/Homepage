@@ -1,56 +1,59 @@
 <template>
-  <div id="index" @wheel.prevent="scrollNavigation($event.deltaY)">
+  <div class="grid" @wheel.prevent="scrollNavigation($event.deltaY)">
     <grid-logo></grid-logo>
     <grid-catalogue></grid-catalogue>
     <grid-news></grid-news>
-    <grid-main></grid-main>
-    <copyright-status></copyright-status>
-    <router-link class="login-button" :to="{ path: '/signin', query: { redirect: '/index' }}">Sign In</router-link>
-    <global-background></global-background>
-    <div class="shelter"></div>
+    <grid-core></grid-core>
+    <grid-status></grid-status>
+    <grid-background></grid-background>
+    <div class="grid-background-shelter"></div>
+    <router-link class="g-login-button" :to="{ path: '/signin', query: { redirect: '/index' }}">Sign In</router-link>
   </div>
 </template>
 
 <script>
-import GridLogo from '../components/GridLogo.vue'
-import GridCatalogue from '../components/GridCatalogue.vue'
-import GridNews from '../components/GridNews.vue'
-import GridMain from '../components/GridMain.vue'
-import CopyrightStatus from '../components/CopyrightStatus.vue'
-import GlobalBackground from '../components/GlobalBackground.vue'
 import { mapActions } from 'vuex'
 
+import GridLogo from '../components/grid/GridLogo.vue'
+import GridCatalogue from '../components/grid/GridCatalogue.vue'
+import GridNews from '../components/grid/GridNews.vue'
+import GridCore from '../components/grid/GridCore.vue'
+import GridStatus from '../components/grid/GridStatus.vue'
+import GridBackground from '../components/grid/GridBackground.vue'
+
 export default {
-  name: 'app',
   components: {
     GridLogo,
-    GridNews,
-    GridMain,
     GridCatalogue,
-    CopyrightStatus,
-    GlobalBackground
+    GridNews,
+    GridCore,
+    GridStatus,
+    GridBackground
   },
   methods: {
     ...mapActions([
       'scrollNavigation'
-    ])
-  },
-  mounted () {
-    let that = this
-    window.addEventListener('keyup', function (e) {
+    ]),
+    scrollListener (e) {
       if (e.keyCode === 38) {
-        that.scrollNavigation(-1)
+        this.scrollNavigation(-1)
       } else if (e.keyCode === 40) {
-        that.scrollNavigation(1)
+        this.scrollNavigation(1)
       }
       e.stopPropagation()
-    }, true)
+    }
+  },
+  mounted () {
+    window.addEventListener('keyup', this.scrollListener, true)
+  },
+  beforeDestroy () {
+    window.removeEventListener('keyup', this.scrollListener, true)
   }
 }
 </script>
 
 <style lang="less">
-#index {
+.grid {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -58,17 +61,10 @@ export default {
   right: 0;
 }
 
-.shelter {
+.grid-background-shelter {
   width: 100%;
   height: 100%;
   background: #000;
   margin-left: 250vh;
-}
-
-.login-button {
-  position: fixed;
-  z-index: 15;
-  top: 1vh;
-  right: 3vh;
 }
 </style>

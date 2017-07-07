@@ -1,6 +1,6 @@
 <template>
-  <div id="catalogue" :class="navigationObject">
-    <div class="grid-unit grid-unit-fat">
+  <div class="grid-catalogue" :class="navigation">
+    <div class="g-grid-unit g-grid-unit-fat">
       <catalogue></catalogue>
     </div>
   </div>
@@ -8,6 +8,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 import Catalogue from './Catalogue.vue'
 
 export default {
@@ -18,7 +19,7 @@ export default {
     ...mapGetters([
       'navigationStep'
     ]),
-    navigationObject () {
+    navigation () {
       return {
         'navigation-catalogue': this.navigationStep !== 0
       }
@@ -28,9 +29,9 @@ export default {
 </script>
 
 <style lang="less">
-@import url(../assets/measure.less);
+@import url(../../assets/grid/navigationMeasure.less);
 
-#catalogue {
+.grid-catalogue {
   position: absolute;
   z-index: 1;
   &>div:first-child {

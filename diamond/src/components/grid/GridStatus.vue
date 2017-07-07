@@ -1,9 +1,9 @@
 <template>
   <transition name="fade">
-    <div id="copyright" v-show="!navigationLocked && navigationTo === 1">
+    <div class="grid-status" v-show="!navigationLocked && navigationTo === 1">
       <span>Ethan Zhang © 2017</span>
-      <span>Last Modified: 2017/5/31</span>
-      <span>Completion: ######-------------</span>
+      <span>Last Modified: {{ navigationLastModified }}</span>
+      <span>Completion: {{ navigationCompletion }}</span>
     </div>
   </transition>
 </template>
@@ -15,14 +15,16 @@ export default {
   computed: {
     ...mapState([
       'navigationTo',
-      'navigationLocked'
+      'navigationLocked',
+      'navigationLastModified',
+      'navigationCompletion'
     ])
   }
 }
 </script>
 
 <style lang="less">
-#copyright {
+.grid-status {
   position: fixed;
   left: 0;
   right: 0;
@@ -36,13 +38,5 @@ export default {
     color: #eee;
     font-size: 1.5vh;
   }
-}
-
-#copyright.fade-enter-active, #copyright.fade-leave-active {
-  transition: opacity .5s ease;
-}
-
-#copyright.fade-enter, #copyright.fade-leave-to {
-  opacity: 0;
 }
 </style>

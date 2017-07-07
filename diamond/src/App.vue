@@ -25,17 +25,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fold-enter-active,
-.fold-leave-active {
-  transition: all .2s linear;
-}
-
-.fold-enter,
-.fold-leave-to {  
-  transform: rotateX(90deg);
-  transform-origin: 50% 50%;
-}
-
 @font-face {
   font-family: 'Roboto Mono';
   src: url(../static/RobotoMono.ttf);

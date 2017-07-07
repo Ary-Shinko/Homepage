@@ -1,5 +1,5 @@
 <template>
-  <div class="news">News</div>
+  <div class="grid-news-content">News</div>
 </template>
 
 <script>
@@ -8,13 +8,13 @@ export default {
 </script>
 
 <style lang="less">
-.news {
+.grid-news-content {
   z-index: 5;
   position: fixed;
   top: 55vh;
   left: 145vh;
   width: 10vh;
   height: 10vh;
-  // background: blue;
+  background: blue;
 }
 </style>

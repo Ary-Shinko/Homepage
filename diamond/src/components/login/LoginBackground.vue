@@ -1,16 +1,16 @@
 <template>
   <div class="signin-bg">
-    <div class="signin-1">
+    <div class="g-grid-unit signin-1">
       <div class="signin-logo">
         <span>{ }</span>
       </div>
     </div>
-    <div class="signin-2"></div>
-    <div class="signin-3"></div>
-    <div class="signin-4"></div>
-    <div class="signin-5"></div>
-    <div class="signin-6"></div>
-    <div class="signin-7"></div>
+    <div class="g-grid-unit signin-2"></div>
+    <div class="g-grid-unit signin-3"></div>
+    <div class="g-grid-unit signin-4"></div>
+    <div class="g-grid-unit signin-5"></div>
+    <div class="g-grid-unit signin-6"></div>
+    <div class="g-grid-unit signin-7"></div>
   </div>
 </template>
 
@@ -20,8 +20,6 @@ export default {
 </script>
 
 <style lang="less">
-@import url(../../assets/global.less);
-
 .signin-bg {
   width: 100vw;
   height: 100vh;
@@ -45,102 +43,70 @@ export default {
 }
 
 .signin-1 {
-  .grid-unit;
-  position: absolute;
+  .m-login-1;
   z-index: 3;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 80vh;
-  height: 80vh;
-  background: #fff;
+  width: 80vh !important;
+  height: 80vh !important;
   overflow: hidden;
 }
 
 .signin-2 {
-  .grid-unit;
-  position: absolute;
+  .m-login-1;
   z-index: 2;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 90vh;
-  height: 90vh;
-  background: #fff;
+  width: 90vh !important;
+  height: 90vh !important;
   opacity: 0.2;
 }
 
 .signin-3 {
-  .grid-unit;
-  position: absolute;
+  .m-login-1;
   z-index: 1;
+  width: 100vh !important;
+  height: 100vh !important;
+  opacity: 0.07;
+}
+
+.m-login-1 {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 100vh;
-  height: 100vh;
-  background: #fff;
-  opacity: 0.07;
 }
-
-.signin-4 {
-  .grid-unit;
+.m-login-2 {
   position: absolute;
-  z-index: 0;
-  margin: auto;
-  width: 50vh;
-  height: 50vh;
-  background: #fff;
   opacity: 0.05;
   transform: rotate(45deg);
-  animation: flow1 10s linear infinite;
+}
+.signin-4 {
+  .m-login-2;
+  width: 50vh !important;
+  height: 50vh !important;
+  animation: flow1 10s linear infinite !important;
 }
 
 .signin-5 {
-  .grid-unit;
-  position: absolute;
-  z-index: 0;
+  .m-login-2;
   right: 10vh;
-  margin: auto;
-  width: 40vh;
-  height: 40vh;
-  background: #fff;
-  opacity: 0.05;
-  transform: rotate(45deg);
-  animation: flow2 7s linear infinite;
+  width: 40vh !important;
+  height: 40vh !important;
+  animation: flow2 7s linear infinite !important;
 }
 
 .signin-6 {
-  .grid-unit;
-  position: absolute;
-  z-index: 0;
-  margin: auto;
-  width: 30vh;
-  height: 30vh;
-  background: #fff;
-  opacity: 0.05;
-  transform: rotate(45deg);
-  animation: flow3 11s linear infinite;
+  .m-login-2;
+  width: 30vh !important;
+  height: 30vh !important;
+  animation: flow3 11s linear infinite !important;
 }
 
 .signin-7 {
-  .grid-unit;
-  position: absolute;
-  z-index: 0;
+  .m-login-2;
   top: 70vh;
-  margin: auto;
-  width: 60vh;
-  height: 60vh;
-  background: #fff;
-  opacity: 0.05;
-  transform: rotate(45deg);
-  animation: flow4 13s linear infinite;
+  width: 60vh !important;
+  height: 60vh !important;
+  animation: flow4 13s linear infinite !important;
 }
 
 @keyframes flow1 {
