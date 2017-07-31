@@ -37,9 +37,8 @@ export default {
     state.navigationLocked = false
   },
   // AUTHRIZATION
-  [CACHE_AUTHORIZATION] (state, { account, password }) {
-    state.authAccount = account || state.authAccount
-    state.authPassword = password || state.authPassword
+  [CACHE_AUTHORIZATION] (state, authData) {
+    state.authData = authData
   },
   // SOLITAIRE
   [CREATE_CARD_DECK] (state) {

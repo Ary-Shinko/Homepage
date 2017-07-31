@@ -1,17 +1,17 @@
 <template>
-  <div class="login-main">
-    <account :class="shake" @valid="accountValid = true" @invalid="accountValid = false"></account>
-    <password :class="shake" @enter="checkInput" @valid="passwordValid = true" @invalid="passwordValid = false"></password>
-    <button tabindex="3" @click="checkInput">Sign in</button>
-    <a>Forgot password?</a><br>
-    <a>Create new account</a>
+  <div class="signin-forget">
+    <account :class="signinShake" @valid="account = arguments[0]"></account>
+    <password :class="signinShake" @enter="checkInput" @valid="password = arguments[0]"></password>
+    <button tabindex="3" @click="checkInput">Submit</button>
+    <a @click="$emit('navigate', 'SigninMain')">Cancel</a>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import Account from './Account.vue'
 import Password from './Password.vue'
-import { mapActions } from 'vuex'
 
 export default {
   components: {
@@ -20,20 +20,22 @@ export default {
   },
   data () {
     return {
-      accountValid: false,
-      passwordValid: false,
-      shake: ''
+      account: false,
+      password: false,
+      signinShake: ''
     }
   },
   methods: {
     checkInput () {
-      let that = this
-      if (this.accountValid && this.passwordValid) {
-        this.requestAuthorization()
+      if (this.account && this.password) {
+        this.requestAuthorization({
+          account: this.account,
+          password: this.password
+        })
       } else {
-        this.shake = 'shake'
-        setTimeout(function () {
-          that.shake = ''
+        this.signinShake = 'signin-main-input-shake'
+        setTimeout(() => {
+          this.signinShake = ''
         }, 500)
       }
     },
@@ -45,7 +47,7 @@ export default {
 </script>
 
 <style lang="less">
-.login-main {
+.signin-forget {
   position: fixed;
   z-index: 15;
   top: 0;
@@ -63,14 +65,13 @@ export default {
     padding-bottom: 1.2vh; 
     width: 100%;
     border: 1px solid #333;
-    // border-radius: 5px;
     background: transparent;
     box-shadow: 0 1px 10px -4px #000;
     &:hover {
-      .button-mix;
+      .signin-main-button-press;
     }
     &:active {
-      .button-mix;
+      .signin-main-button-press;
       opacity: 0.5;
     }
     &:focus {
@@ -84,36 +85,15 @@ export default {
   }
 }
 
-.button-mix {
-  background: url(../../assets/grid/bg1.jpg);
+.signin-main-button-press {
+  background: url(../../../static/bg1.jpg);
   color: #fff;
   text-decoration: none;
   text-shadow: 0 0 1px #fff;
   animation: random-blink 2.5s steps(5) infinite;
 }
 
-.shake {
+.signin-main-input-shake {
   animation: shake .5s linear forwards;
-}
-
-@keyframes shake {
-  0%{
-    transform: translateX(0vh);
-  }
-  20%{
-    transform: translateX(-5vh);
-  }
-  40%{
-    transform: translateX(5vh);
-  }
-  60%{
-    transform: translateX(-3vh);
-  }
-  80%{
-    transform: translateX(3vh);
-  }
-  100% {
-    transform: translateX(0vh);
-  }
 }
 </style>

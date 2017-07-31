@@ -15,7 +15,7 @@ export default {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: url("../../assets/grid/bg1.jpg");
+  background: url(../../../static/bg1.jpg);
   animation: random-blink 2.5s steps(5) infinite;
 }
 </style>

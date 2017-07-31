@@ -32,7 +32,7 @@ Vue.filter('uppercase', v => {
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
-    if (store.state.authToken) {
+    if (store.state.authData.token) {
       next()
     } else {
       next({

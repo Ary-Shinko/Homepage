@@ -8,7 +8,17 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  mounted () {
+    if (window.localStorage.authToken) {
+      this.$store.commit('CACHE_AUTHORIZATION', {
+        id: window.localStorage.authId,
+        token: window.localStorage.authToken,
+        name: window.localStorage.authName,
+        icon: window.localStorage.authIcon
+      })
+    }
+  }
 }
 </script>
 

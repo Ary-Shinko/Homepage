@@ -36,17 +36,28 @@ export default {
     }
   },
   // AUTHORIZATION
-  cacheAuthorization ({ commit }, cache) {
-    commit('CACHE_AUTHORIZATION', cache)
-  },
-  requestAuthorization ({ commit, state }) {
-    axios.post(serverAddress, {
-      account: state.authAccount,
-      password: state.authPassword
-    }).then(reponse => {
-      console.log(reponse.token)
-    }).catch(error => {
-      console.log(error)
+  requestAuthorization ({ commit, state }, signinData) {
+    axios.post(serverAddress, signinData)
+    .then(res => {
+      if (res.status === 401) {
+        commit('CACHE_AUTHORIZATION', {
+          id: '',
+          token: '',
+          name: '',
+          icon: ''
+        })
+      } else {
+        commit('CACHE_AUTHORIZATION', {
+          id: signinData.id,
+          token: res.data.token,
+          name: res.data.name,
+          icon: res.data.icon
+        })
+      }
+    })
+    .catch(error => {
+      alert('Wrong Pass')
+      void error
     })
   },
   // SOLITAIRE

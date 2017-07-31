@@ -13,12 +13,14 @@
 // import GlobalBackground from '../components/GlobalBackground.vue'
 import PlayerList from '../components/werewolves/PlayerList.vue'
 import HeaderTitle from '../components/HeaderTitle.vue'
+import UserTag from '../components/UserTag.vue'
 
 export default {
   components: {
     // GlobalBackground,
     PlayerList,
-    HeaderTitle
+    HeaderTitle,
+    UserTag
   }
 }
 </script>

@@ -6,8 +6,8 @@
     <grid-core></grid-core>
     <grid-status></grid-status>
     <grid-background></grid-background>
+    <user-tag redirect="/index"></user-tag>
     <div class="grid-background-shelter"></div>
-    <router-link class="g-login-button" :to="{ path: '/signin', query: { redirect: '/index' }}">Sign In</router-link>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ import GridNews from '../components/grid/GridNews.vue'
 import GridCore from '../components/grid/GridCore.vue'
 import GridStatus from '../components/grid/GridStatus.vue'
 import GridBackground from '../components/grid/GridBackground.vue'
+import UserTag from '../components/UserTag.vue'
 
 export default {
   components: {
@@ -28,7 +29,8 @@ export default {
     GridNews,
     GridCore,
     GridStatus,
-    GridBackground
+    GridBackground,
+    UserTag
   },
   methods: {
     ...mapActions([

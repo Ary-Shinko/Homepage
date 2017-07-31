@@ -13,7 +13,7 @@
 import { mapState } from 'vuex'
 
 import HeaderTitle from '../components/HeaderTitle.vue'
-
+import UserTag from '../components/UserTag.vue'
 import CardTable from '../components/solitaire/CardTable.vue'
 import CardBalance from '../components/solitaire/CardBalance.vue'
 import CardFinalBalance from '../components/solitaire/CardFinalBalance.vue'
@@ -22,6 +22,7 @@ import CardHint from '../components/solitaire/CardHint.vue'
 export default {
   components: {
     HeaderTitle,
+    UserTag,
     CardTable,
     CardBalance,
     CardFinalBalance,

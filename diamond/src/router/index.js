@@ -4,7 +4,7 @@ import Index from '../view/Index.vue'
 import Werewolves from '../view/Werewolves.vue'
 import Solitaire from '../view/Solitaire.vue'
 import NotFound from '../view/NotFound.vue'
-import SignIn from '../view/SignIn.vue'
+import Signin from '../view/Signin.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +20,7 @@ export default new VueRouter({
   },
   {
     path: '/signin',
-    component: SignIn
+    component: Signin
   },
   {
     path: '/werewolves',

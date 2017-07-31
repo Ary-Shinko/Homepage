@@ -1,25 +1,42 @@
 <template>
-  <div id="sign-in">
-    <login-main></login-main>
-    <login-background></login-background>
+  <div class="signin">
+    <transition name="disappear" mode="out-in">
+      <component @navigate="view = arguments[0]" :is="view"></component>
+    </transition>
+    <signin-background :view="view"></signin-background>
     <header-title>SIGN IN</header-title>
-    <a class="g-login-button" @click="$router.go(-1)">Back</a>
+    <a class="signin-back" @click="$router.go(-1)">Back</a>
   </div>
 </template>
 
 <script>
-import LoginMain from '../components/login/LoginMain.vue'
-import LoginBackground from '../components/login/LoginBackground.vue'
+import SigninMain from '../components/signin/SigninMain.vue'
+import SigninForget from '../components/signin/SigninForget.vue'
+import SigninCreate from '../components/signin/SigninCreate.vue'
+import SigninBackground from '../components/signin/SigninBackground.vue'
 import HeaderTitle from '../components/HeaderTitle.vue'
 
 export default {
+  data () {
+    return {
+      view: 'SigninMain'
+    }
+  },
   components: {
-    LoginMain,
-    LoginBackground,
+    SigninMain,
+    SigninForget,
+    SigninCreate,
+    SigninBackground,
     HeaderTitle
   }
 }
 </script>
 
 <style>
+.signin-back {
+  position: fixed;
+  z-index: 15;
+  top: 1vh;
+  right: 3vh;
+}
 </style>

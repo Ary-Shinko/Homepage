@@ -1,53 +1,49 @@
 <template>
-  <div class="login-account">
-    <input :class="[filled, wrongFormat]" type="text" maxlength="40" v-model="account" tabindex="1" @blur="validate">
+  <div class="password">
+    <input :class="[passwordFilled, passwordWrongFormat]" type="password" maxlength="20" v-model="password" tabindex="2" @keyup.enter="enter" @blur="validate">
     <div></div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 export default {
   data () {
     return {
-      account: '',
-      wrongFormat: ''
+      password: '',
+      passwordWrongFormat: ''
     }
   },
   computed: {
-    filled () {
-      return this.account === '' ? '' : 'filled'
+    passwordFilled () {
+      return this.password === '' ? '' : 'password-filled'
     }
   },
   methods: {
     validate () {
-      if (/^[\w-+](\.?[\w-+])*@[\w-]+(\.[\w-]+)+$/.test(this.account)) {
-        this.wrongFormat = ''
-        this.cacheAuthorization({
-          account: this.account
-        })
-        this.$emit('valid')
-      } else if (this.account !== '') {
-        this.wrongFormat = 'wrong-format'
-        this.$emit('invalid')
+      if (/^\S{8,20}$/.test(this.password)) {
+        this.passwordWrongFormat = ''
+        this.$emit('valid', this.password)
+      } else if (this.password !== '') {
+        this.passwordWrongFormat = 'password-wrong-format'
+        this.$emit('valid', false)
       } else {
-        this.wrongFormat = ''
-        this.$emit('invalid')
+        this.passwordWrongFormat = ''
+        this.$emit('valid', false)
       }
     },
-    ...mapActions([
-      'cacheAuthorization'
-    ])
+    enter () {
+      this.validate()
+      this.$emit('enter')
+    }
   }
 }
 </script>
 
 <style lang="less">
-.login-account {
+.password {
   position: fixed;
   z-index: 15;
-  top: 30vh;
+  top: 39vh;
   height: 10vh;
   input {
     margin-top: 5vh;
@@ -69,42 +65,42 @@ export default {
       text-align: left;
     }
     &+div::after {
-      .account-mix;
-      content: "Enter your account";
+      .password-default;
+      content: "Enter your password";
       margin-top: -4.8vh;
       color: #aaa;
       transition: all .3s ease;
     }
     &:focus+div::after {
-      .account-mix;
-      content: "Enter your account";
+      .password-default;
+      content: "Enter your password";
       margin-top: -8.4vh;
       color: #333;
       font-size: 2vh;
       font-weight: 800;
     }
   }
-  input.filled {
+  input.password-filled {
     &+div::after {
-      .account-mix;
-      content: "Enter your account";
+      .password-default;
+      content: "Enter your password";
       margin-top: -4.8vh;
       opacity: 0;
       transition: all .3s ease;
     }
     &:focus+div::after {
-      .account-mix;
-      content: "Enter your account";
+      .password-default;
+      content: "Enter your password";
       margin-top: -8.4vh;
       font-size: 2vh;
       opacity: 1;
       font-weight: 800;
     }
   }
-  input.wrong-format {
+  input.password-wrong-format {
     &+div::after,
     &:focus+div::after {
-      .account-mix;
+      .password-default;
       content: "Wrong format";
       margin-top: -8.4vh;
       font-size: 2vh;
@@ -115,7 +111,7 @@ export default {
   }
 }
 
-.account-mix {
+.password-default {
   display: block;
   position: relative;
   z-index: -1;

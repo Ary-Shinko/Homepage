@@ -10,13 +10,6 @@
 .g-grid-unit-fat {
   width: 140vh;
 }
-
-.g-login-button {
-  position: fixed;
-  z-index: 15;
-  top: 1vh;
-  right: 3vh;
-}
 // ..................................................................................................
 // ..................................................................................................
 // ..................................................................................................
@@ -77,6 +70,14 @@ a.white {
 
 .fade-fast-enter, .fade-fast-leave-to {
   opacity: 0;
+}
+
+.disappear-enter-active {
+  animation: appear-slow 1s ease;
+}
+
+.disappear-leave-active {
+  animation: disappear-slow 1s ease;
 }
 
 .fold-enter-active, .fold-leave-active {
@@ -178,5 +179,62 @@ a.white {
   }
   100% {
     background: #f33;
+  }
+}
+
+@keyframes shake {
+  0%{
+    transform: translateX(0vh);
+  }
+  20%{
+    transform: translateX(-5vh);
+  }
+  40%{
+    transform: translateX(5vh);
+  }
+  60%{
+    transform: translateX(-3vh);
+  }
+  80%{
+    transform: translateX(3vh);
+  }
+  100% {
+    transform: translateX(0vh);
+  }
+}
+
+@keyframes disappear-slow {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    visibility: visible;
+    opacity: 0;
+  }
+  20.1% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes appear-slow {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  80% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  80.1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
