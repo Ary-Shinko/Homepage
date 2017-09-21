@@ -5,23 +5,26 @@
       <!-- First screen -->
       <h1>Code Parenthesis<span>_</span></h1>
       <img src="../../assets/grid/proto1.png" alt="">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis a, pariatur atque eaque incidunt deserunt id!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, ad animi corporis suscipit ratione quidem vero temporibus consequatur aspernatur commodi quam tempora eaque necessitatibus dignissimos eveniet fugit ipsum. Inventore nobis, veritatis dolores cumque consectetur! Cum maxime, animi aspernatur ad nesciunt atque perspiciatis maiores nostrum accusantium, adipisci veritatis impedit iste! Recusandae.</p>
+      <p>Enlightenment leads to benightedness, science entails nescience.</p>
+      <p>Welcome to Code Parenthesis.<br>
+      This site is built for technical sharing.<br>
+      Use up and down arrow keys or mouse wheel to navigate. <br>
+      Enjoy it!</p>
     </core-main>
     <core-sub class="core-sub-2"></core-sub>
     <core-main class="core-main-2">
       <!-- Second screen -->
-      <h1>Architecture &amp; Design</h1>
+      <h1>Code Library &amp; Blog</h1>
     </core-main>
     <core-sub class="core-sub-3"></core-sub>
     <core-main class="core-main-3">
       <!-- Third screen -->
-      <h1>Coding &amp; Algorithm</h1>
+      <h1>Mathematics &amp; Algorithm</h1>
     </core-main>
     <core-sub class="core-sub-4"></core-sub>
     <core-main class="core-main-4">
       <!-- Fourth screen -->
-      <h1>Laboratory</h1>
+      <h1>APP Laboratory</h1>
       <router-link to="werewolves">Werewovles</router-link>
       <router-link to="solitaire">Solitaire</router-link>
     </core-main>
@@ -59,49 +62,68 @@ export default {
 <style lang="less">
 @import url(../../assets/grid/navigationPosition.less);
 
+.core-main-1 .core-main-grid {
+  background: url(../../assets/grid/core1.png);
+  background-size: cover;
+}
+
+.core-main-2 .core-main-grid {
+  background: url(../../assets/grid/core2.png);
+  background-size: cover;
+}
+
+.core-main-3 .core-main-grid {
+  background: url(../../assets/grid/core3.png);
+  background-size: cover;
+}
+
+.core-main-4 .core-main-grid {
+  background: url(../../assets/grid/core4.png);
+  background-size: cover;
+}
+
 .core-main-1 .core-main-content {
   h1 {
-    color: #f33;
+    margin-left: 1vh;
+    color: #00d09c;
     font-size: 6vh;
+    width: 79.8vh;
     span {
       animation: text-flicker 1s ease infinite;
     }
   }
   img:first-of-type {
-    float: left;
-    margin: 2vh 0 0 0;
-    width: 70vh;
+    margin-left: 1vh;
+    width: 80vh;
   }
   p:first-of-type {
-    float: left;
-    margin: 2vh 0 0 5vh;
-    width: 50vh;
-  }
-  p:nth-of-type(2) {
-    clear: both;
+    margin: 0 0 0 1.1vh;
     font-size: 2vh;
-    margin: 25vh 0 0 0;
-    width: 110vh;
+  }
+  p:last-of-type {
+    margin: 3.5vh 0 0 1vh;
+    width: 100vh;
+    font-size: 2.4vh;
   }
 }
 
 .core-main-2 .core-main-content {
   h1 {
-    color: #f33;
+    color: #00a97f;
     font-size: 6vh;
   }
 }
 
 .core-main-3 .core-main-content {
   h1 {
-    color: #f33;
+    color: #fff;
     font-size: 6vh;
   }
 }
 
 .core-main-4 .core-main-content {
   h1 {
-    color: #f33;
+    color: #004735;
     font-size: 6vh;
   }
 }

@@ -1,15 +1,20 @@
 <template>
   <div class="user-tag">
-    <router-link v-if="!authData.name" class="user-tag-name" :to="{ path: '/signin', query: { redirect: '/index' }}">Sign In</router-link>
-    <a v-else class="user-tag-name" @click="infoShow = !infoShow">{{ authData.name }}</a>
-    <div v-if="infoShow" class="user-tag-info">
-      <a href="">ASD</a>
-    </div>
+    <router-link v-if="!authData.name" class="user-tag-name" :to="{ path: '/signin', query: { redirect: $route.path }}">Sign In</router-link>
+    <a v-else class="user-tag-name" @click="toggleInfoShow">{{ authData.name }}</a>
+    <transition name="slide-down">
+      <div v-if="infoShow" class="user-tag-info">
+        <br>
+        <a href="#">Edit Profile</a><br>
+        <a href="#">Statistics</a><br>
+        <a @click="exit">Exit</a><br>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data () {
@@ -22,7 +27,30 @@ export default {
       'authData'
     ])
   },
-  props: ['color', 'back', 'redirect']
+  methods: {
+    exit () {
+      this.authExit()
+      this.$router.push('/index')
+    },
+    ...mapActions([
+      'authExit'
+    ]),
+    toggleInfoShow () {
+      this.infoShow = !this.infoShow
+    }
+  },
+  props: ['color', 'back', 'redirect'],
+  watch: {
+    infoShow (showed) {
+      if (showed) {
+        setTimeout(() => {
+          document.addEventListener('click', this.toggleInfoShow, false)
+        }, 0)
+      } else {
+        document.removeEventListener('click', this.toggleInfoShow, false)
+      }
+    }
+  }
 }
 </script>
 
@@ -37,10 +65,10 @@ export default {
 .user-tag-info {
   position: fixed;
   z-index: 14;
-  top: 1vh;
-  right: 3vh;
-  height: 8vh;
-  width: 5vh;
-  background: red;
+  top: 0;
+  right: 0;
+  padding: 2vh 3vh;
+  text-align: right;
+  font-size: 0.5vh;
 }
 </style>

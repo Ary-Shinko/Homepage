@@ -1,19 +1,19 @@
 <template>
   <div class="core-sub" :class="navigation">
     <div class="core-sub-grid g-grid-unit"></div>
-    <div class="core-sub-content">
-      <img src="../../assets/grid/proto3.png" alt="Code Parenthesis">
-    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters([
       'navigationStep'
+    ]),
+    ...mapState([
+      'navigationLocked'
     ]),
     navigation () {
       return {
@@ -37,13 +37,7 @@ export default {
 .core-sub-grid {
   position: absolute;
   z-index: 2;
-}
-
-.core-sub-content {
-  img {
-    margin: 23vh 0 0 18vh;
-    width: 80vh;
-    opacity: .8;
-  }
+  background: url(../../assets/grid/sub1.png);
+  background-size: cover;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="account">
-    <input :class="[accountFilled, accountWrongFormat]" type="text" maxlength="40" v-model="account" :tabindex="index" @blur="validate">
+  <div class="account-register">
+    <input :class="[accountFilled, accountWrongFormat]" type="text" maxlength="40" v-model="account" :tabindex="index"  @input="validateInput" @blur="validate">
     <div></div>
   </div>
 </template>
@@ -24,15 +24,24 @@ export default {
     }
   },
   methods: {
-    validate () {
+    validateInput () {
       if (/^[\w-+](\.?[\w-+])*@[\w-]+(\.[\w-]+)+$/.test(this.account)) {
+        this.accountWrongFormat = 'account-right'
+      } else if (this.account === '') {
+        this.accountWrongFormat = 'account-undefined'
+      } else {
+        this.accountWrongFormat = 'account-wrong-format'
+      }
+    },
+    validate () {
+      if (this.account === '') {
+        this.accountWrongFormat = 'account-undefined'
+        this.$emit('valid', false)
+      } else if (/^[\w-+](\.?[\w-+])*@[\w-]+(\.[\w-]+)+$/.test(this.account)) {
         this.accountWrongFormat = ''
         this.$emit('valid', this.account)
-      } else if (this.account !== '') {
-        this.accountWrongFormat = 'account-wrong-format'
-        this.$emit('valid', false)
       } else {
-        this.accountWrongFormat = ''
+        this.accountWrongFormat = 'account-wrong-format'
         this.$emit('valid', false)
       }
     }
@@ -41,7 +50,7 @@ export default {
 </script>
 
 <style lang="less">
-.account {
+.account-register {
   position: fixed;
   z-index: 15;
   top: 30vh;
@@ -67,14 +76,14 @@ export default {
     }
     &+div::after {
       .account-default;
-      content: "Enter your account";
+      content: "Enter your email address";
       margin-top: -4.8vh;
       color: #aaa;
       transition: all .3s ease;
     }
     &:focus+div::after {
       .account-default;
-      content: "Enter your account";
+      content: "Enter your email address as account";
       margin-top: -8.4vh;
       color: #333;
       font-size: 2vh;
@@ -84,24 +93,36 @@ export default {
   input.account-filled {
     &+div::after {
       .account-default;
-      content: "Enter your account";
+      content: "Right";
       margin-top: -4.8vh;
       opacity: 0;
       transition: all .3s ease;
     }
     &:focus+div::after {
       .account-default;
-      content: "Enter your account";
+      content: "Right";
       margin-top: -8.4vh;
       font-size: 2vh;
       opacity: 1;
+      color: #00d09c;
       font-weight: 800;
     }
   }
   input.account-wrong-format {
     &+div::after, &:focus+div::after {
       .account-default;
-      content: "Wrong format";
+      content: "It looks like not a valid email address";
+      margin-top: -8.4vh;
+      font-size: 2vh;
+      opacity: 1;
+      color: #f33;
+      font-weight: 800;
+    }
+  }
+  input.account-undefined {
+    &+div::after, &:focus+div::after {
+      .account-default;
+      content: "Enter your email address as account";
       margin-top: -8.4vh;
       font-size: 2vh;
       opacity: 1;

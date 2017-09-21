@@ -11,7 +11,7 @@
 
 <script>
 import SigninMain from '../components/signin/SigninMain.vue'
-import SigninForget from '../components/signin/SigninForget.vue'
+import SigninForgot from '../components/signin/SigninForgot.vue'
 import SigninCreate from '../components/signin/SigninCreate.vue'
 import SigninBackground from '../components/signin/SigninBackground.vue'
 import HeaderTitle from '../components/HeaderTitle.vue'
@@ -24,7 +24,7 @@ export default {
   },
   components: {
     SigninMain,
-    SigninForget,
+    SigninForgot,
     SigninCreate,
     SigninBackground,
     HeaderTitle

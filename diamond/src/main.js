@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App'
+// import axios from 'axios'
 import store from './store'
 import router from './router'
 
 import '../static/normalize.min.css'
-import './assets/global.less'
+import './assets/grid/global.less'
 import './assets/grid/navigationAnimation.less'
 
 Vue.config.productionTip = false
@@ -30,11 +31,19 @@ Vue.filter('uppercase', v => {
   return v.toUpperCase()
 })
 
+// axios.interceptors.request.use(config => {
+//   config.timeout = 5000
+//   return config
+// }, error => {
+//   return Promise.reject(error)
+// })
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
     if (store.state.authData.token) {
       next()
     } else {
+      store.dispatch('postMessage', 'You must sign in to continue.')
       next({
         path: '/signin',
         query: {

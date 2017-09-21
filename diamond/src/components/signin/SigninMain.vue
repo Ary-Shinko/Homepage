@@ -1,9 +1,9 @@
 <template>
-  <div class="signin-main">
-    <account :class="signinShake" @valid="account = arguments[0]"></account>
-    <password :class="signinShake" @enter="checkInput" @valid="password = arguments[0]"></password>
+  <div class="signin-main" @error="this.shakeWindow">
+    <account index="1" :class="signinShake" @valid="account = arguments[0]"></account>
+    <password index="2" :class="signinShake" @enter="checkInput" @valid="password = arguments[0]"></password>
     <button tabindex="3" @click="checkInput">Sign in</button>
-    <a tabindex="4" @click="$emit('navigate', 'SigninForget')">Forgot password?</a><br>
+    <a tabindex="4" @click="$emit('navigate', 'SigninForgot')">Forgot password?</a><br>
     <a tabindex="5" @click="$emit('navigate', 'SigninCreate')">Create new account</a>
   </div>
 </template>
@@ -31,10 +31,11 @@ export default {
     authToken (newToken) {
       if (newToken !== '') {
         this.$router.replace(this.$route.query.redirect)
-        window.localStorage.setItem('authId', this.authData.id)
-        window.localStorage.setItem('authToken', this.authData.token)
+        window.localStorage.setItem('authAccount', this.authData.account)
         window.localStorage.setItem('authName', this.authData.name)
-        window.localStorage.setItem('authIcon', this.authData.icon)
+        window.localStorage.setItem('authPhone', this.authData.phone)
+        window.localStorage.setItem('authToken', this.authData.token)
+        window.localStorage.setItem('authAvatar', this.authData.avatar)
       }
     }
   },
@@ -49,8 +50,8 @@ export default {
   methods: {
     checkInput () {
       if (this.account && this.password) {
-        this.requestAuthorization({
-          id: this.account,
+        this.authSignin({
+          account: this.account,
           password: this.password
         })
       } else {
@@ -65,7 +66,7 @@ export default {
       }, 500)
     },
     ...mapActions([
-      'requestAuthorization'
+      'authSignin'
     ])
   }
 }

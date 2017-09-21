@@ -64,7 +64,7 @@ export default {
   .catalogue-dot2 {
     background: #111;
     &:hover::after {
-      content: '{ Architecture & Design }';
+      content: '{ Code Library & Blog }';
       display: block;
       padding-left: 6vh;
       width: 60vh;
@@ -75,7 +75,7 @@ export default {
   .catalogue-dot3 {
     background: #222;
     &:hover::after {
-      content: '{ Coding & Algorithm }';
+      content: '{ Mathematics & Algorithm }';
       display: block;
       padding-left: 6vh;
       width: 60vh;
@@ -86,7 +86,7 @@ export default {
   .catalogue-dot4 {
     background: #333;
     &:hover::after {
-      content: '{ Laboratory }';
+      content: '{ APP Laboratory }';
       display: block;
       padding-left: 6vh;
       width: 60vh;

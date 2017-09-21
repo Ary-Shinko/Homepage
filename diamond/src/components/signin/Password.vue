@@ -1,6 +1,6 @@
 <template>
   <div class="password">
-    <input :class="[passwordFilled, passwordWrongFormat]" type="password" maxlength="20" v-model="password" tabindex="2" @keyup.enter="enter" @blur="validate">
+    <input :class="[passwordFilled, passwordWrongFormat]" type="password" maxlength="20" v-model="password" :tabindex="index" @keyup.enter="enter" @blur="validate">
     <div></div>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
       return this.password === '' ? '' : 'password-filled'
     }
   },
+  props: ['index'],
   methods: {
     validate () {
       if (/^\S{8,20}$/.test(this.password)) {

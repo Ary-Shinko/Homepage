@@ -26,14 +26,14 @@ export default new VueRouter({
     path: '/werewolves',
     component: Werewolves,
     meta: {
-      requireAuth: false
+      requireAuth: true
     }
   },
   {
     path: '/solitaire',
     component: Solitaire,
     meta: {
-      requireAuth: false
+      requireAuth: true
     }
   },
   {

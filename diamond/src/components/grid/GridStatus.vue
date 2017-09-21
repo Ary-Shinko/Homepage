@@ -1,9 +1,10 @@
 <template>
   <transition name="fade">
     <div class="grid-status" v-show="!navigationLocked && navigationTo === 1">
-      <span>Ethan Zhang © 2017</span>
+      <span>Arylab © 2017</span>
+      <span>Contact Me: ary@arylab.me</span>
       <span>Last Modified: {{ navigationLastModified }}</span>
-      <span>Completion: {{ navigationCompletion }}</span>
+      <span>Index Version: {{ navigationVersion }}</span>
     </div>
   </transition>
 </template>
@@ -17,7 +18,7 @@ export default {
       'navigationTo',
       'navigationLocked',
       'navigationLastModified',
-      'navigationCompletion'
+      'navigationVersion'
     ])
   }
 }
@@ -30,13 +31,17 @@ export default {
   right: 0;
   bottom: 0;
   z-index: 10;
-  padding: 0.2vh 0.3vh 0.5vh;
+  padding: 0 0.4vh 0.5vh;
   opacity: 0.9;
-  background: #f33;
+  background: #5affad;
   span {
     margin-left: 7.9vh;
-    color: #eee;
+    margin-right: 1.1vh;
+    color: #001f10;
     font-size: 1.5vh;
+    &:first-child {
+      font-weight: 800;
+    }
   }
 }
 </style>

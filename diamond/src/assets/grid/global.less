@@ -2,9 +2,9 @@
   width: 120vh;
   height: 120vh;
   border:1vh solid transparent;
-  border-image: url(../assets/border1.png) 4 4 stretch;
+  border-image: url(./border1.png) 9 9 stretch;
   animation: rotate-breathing 7s ease infinite;
-  background: #fff;
+  background-color: #fff;
 }
 
 .g-grid-unit-fat {
@@ -31,6 +31,10 @@ a {
   &:active {
     color: #999;
   }
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
 }
 
 a.white {
@@ -48,6 +52,10 @@ a.white {
   }
   &:active {
     color: #999;
+  }
+  &:focus {
+    outline: none;
+    text-decoration: underline;
   }
 }
 // ..................................................................................................
@@ -102,6 +110,15 @@ a.white {
 .move-leave-to {
   opacity: 0;
 }
+
+.slide-down-enter-active, .slide-down-leave-active {
+  transition: all .1s linear;
+}
+
+.slide-down-enter, .slide-down-leave-to {  
+  transform: translateY(-1em);
+  opacity: 0;
+}
 // ..................................................................................................
 // ..................................................................................................
 // ..................................................................................................
@@ -154,7 +171,7 @@ a.white {
     background: #1a1a1a;
   }
   8% {
-    background: #f33;
+    background: #5affd6;
   }
   16% {
     background: #1a1a1a;
@@ -163,7 +180,7 @@ a.white {
     background: #1a1a1a;
   }
   38% {
-    background: #f33;
+    background: #5affd6;
   }
   46% {
     background: #1a1a1a;
@@ -172,13 +189,13 @@ a.white {
     background: #1a1a1a;
   }
   68% {
-    background: #f33;
+    background: #5affd6;
   }
   76% {
     background: #1a1a1a;
   }
   100% {
-    background: #f33;
+    background: #00f7b9
   }
 }
 

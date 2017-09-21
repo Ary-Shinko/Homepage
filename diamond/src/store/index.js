@@ -10,14 +10,18 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
-  navigationLastModified: '2017/7/7',
-  navigationCompletion: '#######------------',
+  navigationLastModified: '2017/9/21',
+  navigationVersion: 'v0.2.3 alpha',
   authData: {
-    id: '',
-    token: '',
+    account: '',
     name: '',
-    icon: ''
+    phone: '',
+    token: '',
+    avatar: ''
   },
+  messageShow: false,
+  messageData: '',
+  messageTimer: 0,
   cardDeck: [],
   cardPlayer: [],
   cardObsolete: [],

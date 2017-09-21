@@ -6,7 +6,8 @@
     <grid-core></grid-core>
     <grid-status></grid-status>
     <grid-background></grid-background>
-    <user-tag redirect="/index"></user-tag>
+    <grid-arrow></grid-arrow>
+    <user-tag></user-tag>
     <div class="grid-background-shelter"></div>
   </div>
 </template>
@@ -20,6 +21,7 @@ import GridNews from '../components/grid/GridNews.vue'
 import GridCore from '../components/grid/GridCore.vue'
 import GridStatus from '../components/grid/GridStatus.vue'
 import GridBackground from '../components/grid/GridBackground.vue'
+import GridArrow from '../components/grid/GridArrow.vue'
 import UserTag from '../components/UserTag.vue'
 
 export default {
@@ -30,6 +32,7 @@ export default {
     GridCore,
     GridStatus,
     GridBackground,
+    GridArrow,
     UserTag
   },
   methods: {

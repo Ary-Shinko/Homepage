@@ -4,7 +4,7 @@
       <player-list></player-list>
     </div>
     <!--<global-background class="weather2"></global-background>-->
-    <router-link class="g-login-button white" :to="{ path: '/signin', query: { redirect: '/werewolves' }}">Sign In</router-link>
+    <user-tag></user-tag>
     <header-title v-fade main-color="#111" sub-color="#111">WEREWOLVES</header-title>
   </div>
 </template>

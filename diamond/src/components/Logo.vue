@@ -36,6 +36,7 @@ export default {
     }
     &:focus {
       outline: none;
+      text-decoration: none;
     }
   }
 }

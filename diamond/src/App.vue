@@ -3,19 +3,26 @@
     <transition name="fold">
       <router-view></router-view>
     </transition>
+    <message-tip></message-tip>
   </div>
 </template>
 
 <script>
+import MessageTip from './components/MessageTip.vue'
+
 export default {
   name: 'app',
+  components: {
+    MessageTip
+  },
   mounted () {
     if (window.localStorage.authToken) {
       this.$store.commit('CACHE_AUTHORIZATION', {
-        id: window.localStorage.authId,
-        token: window.localStorage.authToken,
+        account: window.localStorage.authAccount,
         name: window.localStorage.authName,
-        icon: window.localStorage.authIcon
+        phone: window.localStorage.authPhone,
+        token: window.localStorage.authToken,
+        avatar: window.localStorage.authAvatar
       })
     }
   }
@@ -26,6 +33,7 @@ export default {
 html,
 body {
   overflow: hidden;
+  
 }
 
 #app {

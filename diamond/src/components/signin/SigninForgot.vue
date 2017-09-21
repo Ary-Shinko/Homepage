@@ -1,9 +1,8 @@
 <template>
-  <div class="signin-forget">
-    <account :class="signinShake" @valid="account = arguments[0]"></account>
-    <password :class="signinShake" @enter="checkInput" @valid="password = arguments[0]"></password>
-    <button tabindex="3" @click="checkInput">Submit</button>
-    <a @click="$emit('navigate', 'SigninMain')">Cancel</a>
+  <div class="signin-forgot">
+    <account :class="signinShake" class="signin-forgot-account" @valid="account = arguments[0]"></account>
+    <button tabindex="2" @click="checkInput">Reset account</button>
+    <a tabindex="3" @click="$emit('navigate', 'SigninMain')">Cancel</a>
   </div>
 </template>
 
@@ -11,27 +10,22 @@
 import { mapActions } from 'vuex'
 
 import Account from './Account.vue'
-import Password from './Password.vue'
 
 export default {
   components: {
-    Account,
-    Password
+    Account
   },
   data () {
     return {
       account: false,
-      password: false,
-      signinShake: ''
+      signinShake: '',
+      shakeTimer: 0
     }
   },
   methods: {
     checkInput () {
-      if (this.account && this.password) {
-        this.requestAuthorization({
-          account: this.account,
-          password: this.password
-        })
+      if (this.account) {
+        this.authForgot(this.account)
       } else {
         this.signinShake = 'signin-main-input-shake'
         setTimeout(() => {
@@ -40,14 +34,14 @@ export default {
       }
     },
     ...mapActions([
-      'requestAuthorization'
+      'authForgot'
     ])
   }
 }
 </script>
 
 <style lang="less">
-.signin-forget {
+.signin-forgot {
   position: fixed;
   z-index: 15;
   top: 0;
@@ -56,7 +50,7 @@ export default {
   left: 0;
   margin: auto;
   width: 50vh;
-  height: 60vh;
+  height: 65vh;
   text-align: right;
   button {
     margin-top: 35vh;
@@ -95,5 +89,9 @@ export default {
 
 .signin-main-input-shake {
   animation: shake .5s linear forwards;
+}
+
+.signin-forgot-account.account {
+  top: 36.5vh;
 }
 </style>

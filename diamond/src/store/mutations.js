@@ -5,6 +5,11 @@ const LOCK_NAVIGATION = 'LOCK_NAVIGATION'
 const UNLOCK_NAVIGATION = 'UNLOCK_NAVIGATION'
 // AUTHRIZATION
 const CACHE_AUTHORIZATION = 'CACHE_AUTHORIZATION'
+const EXIT_AUTHORIZATION = 'EXIT_AUTHORIZATION'
+// MESSAGE
+const CLOSE_MESSAGE = 'CLOSE_MESSAGE'
+const POST_MESSAGE = 'POST_MESSAGE'
+const SET_MESSAGE_TIMER = 'SET_MESSAGE_TIMER'
 // SOLITAIRE
 const CREATE_CARD_DECK = 'CREATE_CARD_DECK'
 const SHUFFLE_CARD = 'SHUFFLE_CARD'
@@ -39,6 +44,26 @@ export default {
   // AUTHRIZATION
   [CACHE_AUTHORIZATION] (state, authData) {
     state.authData = authData
+  },
+  [EXIT_AUTHORIZATION] (state) {
+    state.authData.account = ''
+    state.authData.name = ''
+    state.authData.phone = ''
+    state.authData.token = ''
+    state.authData.avatar = ''
+  },
+  // MESSAGE
+  [CLOSE_MESSAGE] (state) {
+    state.messageShow = false
+    state.messageData = ''
+    state.messageTimer = 0
+  },
+  [POST_MESSAGE] (state, message) {
+    state.messageData = message
+    state.messageShow = true
+  },
+  [SET_MESSAGE_TIMER] (state, timer) {
+    state.messageTimer = timer
   },
   // SOLITAIRE
   [CREATE_CARD_DECK] (state) {
