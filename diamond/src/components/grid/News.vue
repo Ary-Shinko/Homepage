@@ -1,29 +1,20 @@
 <template>
   <div class="grid-news-content">
-    <a href="#" @click="showNews">Mirrorquest</a>
-    <div class="mq" v-if="newsShow" @click="newsShow = false">
-      {{detail}}
-    </div>
+    <p class="grid-news-1">Last Modified: {{ navigationLastModified }}</p>
+    <router-link class="grid-news-2" :to="'/signin'">08/17 Have your own account now!</router-link>
+    <router-link class="grid-news-3" :to="'/solitaire'">09/05 Play Solitaire to be a billionaire!</router-link>
+    <router-link class="grid-news-4" :to="'/shadowsocks'">09/22 Try our amazing shadowsocks service!</router-link>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import { mapState } from 'vuex'
+
 export default {
-  data () {
-    return {
-      newsShow: false,
-      detail: ','
-    }
-  },
-  methods: {
-    showNews () {
-      this.newsShow = true
-      axios.get('https://huanlijing.mm.iduoku.cn/xianjian/notice20170824.json')
-      .then(res => {
-        console.log(res.data)
-      })
-    }
+  computed: {
+    ...mapState([
+      'navigationLastModified'
+    ])
   }
 }
 </script>
@@ -32,26 +23,37 @@ export default {
 .grid-news-content {
   position: fixed;
   z-index: 6;
-  top: 55vh;
-  left: 145vh;
-  width: 10vh;
-  height: 10vh;
-  background: blue;
-}
-.mq {
-  position: fixed;
-  overflow: auto;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  height: 90vh;
-  width: 90vw;
-  padding: 5vh 5vw;
-  background-color: #fff;
+  top: 80vh;
+  left: 111vh;
+  width: 80vh;
+  height: 20vh;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+  a {
+    margin-top: 1vh;
+    display: block;
+  }
+  .grid-news-1 {
+    color: #777;
+    font-size: 2vh;
+  }
+  .grid-news-2 {
+    color: #555;
+    font-size: 2.2vh;
+  }
+  .grid-news-3 {
+    color: #333;
+    font-size: 2.4vh;
+  }
+  .grid-news-4 {
+    color: #111;
+    font-size: 2.6vh;
+  }
 }
 
 .grid-news-content+div{
-  background: ~'#f33 url(../../assets/grid/core4.png) no-repeat scroll 0 0/80%';
-  // background-size: cover;
+  background-color: #e4fff8;
 }
 </style>

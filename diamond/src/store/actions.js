@@ -47,16 +47,19 @@ export default {
   },
   // AUTHORIZATION
   authSignin ({ commit, dispatch }, signinData) {
-    axios.post(serverAddress + '/signin/main', signinData)
-    .then(res => {
-      if (res.data.status === true) { // 登陆成功，然后？
+    commit('SHOW_LOADING')
+    axios.post(serverAddress + '/signin/main', signinData, {
+      timeout: 12000
+    }).then(res => {
+      commit('HIDE_LOADING')
+      if (res.data.status === true) {
         // Signin succeeded
         commit('CACHE_AUTHORIZATION', {
           account: signinData.account,
-          name: res.data.name,
-          phone: res.data.phone,
-          token: res.data.token,
-          avatar: res.data.avatar
+          name: res.data.data.name,
+          phone: res.data.data.phone,
+          token: res.data.data.token,
+          avatar: res.data.data.avatar
         })
       } else {
         // Signin failed
@@ -71,6 +74,7 @@ export default {
       dispatch('postMessage', res.data.message)
     })
     .catch(err => {
+      commit('HIDE_LOADING')
       if (err.request.status === 0) {
         dispatch('postMessage', 'Network error.')
       } else {
@@ -79,19 +83,27 @@ export default {
     })
   },
   authExit ({ commit, dispatch }, callback) {
-    // 检查一下是否正确
     commit('EXIT_AUTHORIZATION')
-    window.localStorage.clear()
+    window.localStorage.setItem('authAccount', '')
+    window.localStorage.setItem('authName', '')
+    window.localStorage.setItem('authPhone', '')
+    window.localStorage.setItem('authToken', '')
+    window.localStorage.setItem('authAvatar', '')
     dispatch('postMessage', 'You have been logged out safely. See you next time.')
   },
-  authForgot ({ dispatch }, account) {
-    axios.post(serverAddress + '/signin/forget', { account })
-    .then(res => {
-      if (res.data.status === true) { // 发送成功，返回？
+  authForgot ({ commit, dispatch }, { account, callback }) {
+    commit('SHOW_LOADING')
+    axios.post(serverAddress + '/signin/forget', { account }, {
+      timeout: 12000
+    }).then(res => {
+      commit('HIDE_LOADING')
+      if (res.data.status === true) {
+        callback()
         dispatch('postMessage', res.data.message)
       }
     })
     .catch(err => {
+      commit('HIDE_LOADING')
       if (err.request.status === 0) {
         dispatch('postMessage', 'Network error.')
       } else {
@@ -100,8 +112,9 @@ export default {
     })
   },
   authRequestVcode ({ dispatch }, phonePayloads) {
-    axios.post(serverAddress + '/signin/create/requestvcode', phonePayloads.data)
-    .then(res => {
+    axios.post(serverAddress + '/signin/create/requestvcode', phonePayloads.data, {
+      timeout: 12000
+    }).then(res => {
       if (res.data.status === true) {
         let self = phonePayloads.self
         self.verificationClicked = true
@@ -120,14 +133,20 @@ export default {
       }
     })
   },
-  authCreateAccount ({ commit, dispatch }, registgerData) {
-    axios.post(serverAddress + '/signin/create', registgerData)
-    .then(res => {
-      if (res.data.status === true) { // 跳转页面
+  authCreateAccount ({ commit, dispatch }, { registgerData, callback }) {
+    commit('SHOW_LOADING')
+    axios.post(serverAddress + '/signin/create', registgerData, {
+      timeout: 30000
+    }).then(res => {
+      commit('HIDE_LOADING')
+      if (res.data.status === true) {
+        callback(res.data.message)
+      } else {
+        dispatch('postMessage', res.data.message)
       }
-      dispatch('postMessage', res.data.message)
     })
     .catch(err => {
+      commit('HIDE_LOADING')
       if (err.request.status === 0) {
         dispatch('postMessage', 'Network error.')
       } else {

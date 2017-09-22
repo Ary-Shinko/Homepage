@@ -27,6 +27,10 @@
       <h1>APP Laboratory</h1>
       <router-link to="werewolves">Werewovles</router-link>
       <router-link to="solitaire">Solitaire</router-link>
+      <router-link to="shadowsocks">Shadowsocks</router-link>
+      <router-link to="tarot">Tarot</router-link>
+      <router-link to="tapcity">Tapcity</router-link>
+      <router-link to="app">More...</router-link>
     </core-main>
     <core-sub class="core-sub-5"></core-sub>
   </div>
@@ -88,6 +92,7 @@ export default {
     color: #00d09c;
     font-size: 6vh;
     width: 79.8vh;
+    user-select: none;
     span {
       animation: text-flicker 1s ease infinite;
     }

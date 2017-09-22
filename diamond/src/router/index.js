@@ -23,6 +23,10 @@ export default new VueRouter({
     component: Signin
   },
   {
+    path: '/logout',
+    redirect: '/index'
+  },
+  {
     path: '/werewolves',
     component: Werewolves,
     meta: {
@@ -31,13 +35,11 @@ export default new VueRouter({
   },
   {
     path: '/solitaire',
-    component: Solitaire,
-    meta: {
-      requireAuth: true
-    }
+    component: Solitaire
   },
   {
     path: '/*',
     component: NotFound
   }]
 })
+// shadowsocks, tarot, ENTRY.HTML, [blog], [algorithm], [app]

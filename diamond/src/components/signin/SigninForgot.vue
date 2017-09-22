@@ -1,7 +1,7 @@
 <template>
   <div class="signin-forgot">
     <account :class="signinShake" class="signin-forgot-account" @valid="account = arguments[0]"></account>
-    <button tabindex="2" @click="checkInput">Reset account</button>
+    <button tabindex="2" @click="checkInput"><del>Reset account</del></button>
     <a tabindex="3" @click="$emit('navigate', 'SigninMain')">Cancel</a>
   </div>
 </template>
@@ -25,7 +25,12 @@ export default {
   methods: {
     checkInput () {
       if (this.account) {
-        this.authForgot(this.account)
+        this.authForgot({
+          account: this.account,
+          callback: () => {
+            this.$emit('navigate', 'SigninMain')
+          }
+        })
       } else {
         this.signinShake = 'signin-main-input-shake'
         setTimeout(() => {

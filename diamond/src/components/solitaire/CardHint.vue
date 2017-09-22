@@ -216,7 +216,7 @@
     </div>
     <div class="card-hint-footer card-hint-webfont">
       <div @click="hideCardHint">我知道了</div>
-      <div>我不同意</div>
+      <div @click="$router.go(-1)">我不同意</div>
     </div>
     <div class="card-hint-shader">
       <div class="card-hint-scrollbar">

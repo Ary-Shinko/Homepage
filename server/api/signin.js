@@ -165,7 +165,7 @@ module.exports = {
               console.log(`${color('[SIGNIN]', 'green')} Registered account [${account}] by [${req.ip}] at [${Date.now()}]`)
               res.json({
                 status: true,
-                message: `Sign up successfully! You can use your email ${account} as account to sign in now.`,
+                message: `Hit on "Start exploring" to sign in now.`,
                 time: Date.now()
               })
             }

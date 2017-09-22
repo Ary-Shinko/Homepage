@@ -3,8 +3,6 @@
     <div class="grid-status" v-show="!navigationLocked && navigationTo === 1">
       <span>Arylab © 2017</span>
       <span>Contact Me: ary@arylab.me</span>
-      <span>Last Modified: {{ navigationLastModified }}</span>
-      <span>Index Version: {{ navigationVersion }}</span>
     </div>
   </transition>
 </template>
@@ -16,9 +14,7 @@ export default {
   computed: {
     ...mapState([
       'navigationTo',
-      'navigationLocked',
-      'navigationLastModified',
-      'navigationVersion'
+      'navigationLocked'
     ])
   }
 }

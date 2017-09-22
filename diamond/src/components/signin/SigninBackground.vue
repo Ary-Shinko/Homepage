@@ -40,7 +40,7 @@ export default {
       switch (this.view) {
         case 'SigninMain':
           return 'rotateY(0deg)'
-        case 'SigninForget':
+        case 'SigninForgot':
           return 'rotateY(240deg)'
         case 'SigninCreate':
           return 'rotateY(120deg)'

@@ -5,8 +5,8 @@
     <transition name="slide-down">
       <div v-if="infoShow" class="user-tag-info">
         <br>
-        <a href="#">Edit Profile</a><br>
-        <a href="#">Statistics</a><br>
+        <a href="#"><del>Configurations</del></a><br>
+        <a href="#"><del>Messages</del></a><br>
         <a @click="exit">Exit</a><br>
       </div>
     </transition>
@@ -30,7 +30,9 @@ export default {
   methods: {
     exit () {
       this.authExit()
-      this.$router.push('/index')
+      if (this.$route.path !== '/solitaire') {
+        this.$router.push('/logout')
+      }
     },
     ...mapActions([
       'authExit'

@@ -10,6 +10,12 @@ const EXIT_AUTHORIZATION = 'EXIT_AUTHORIZATION'
 const CLOSE_MESSAGE = 'CLOSE_MESSAGE'
 const POST_MESSAGE = 'POST_MESSAGE'
 const SET_MESSAGE_TIMER = 'SET_MESSAGE_TIMER'
+// LOADING
+const SHOW_LOADING = 'SHOW_LOADING'
+const HIDE_LOADING = 'HIDE_LOADING'
+// LEAVE-HINT
+const SHOW_LEAVE_HINT = 'SHOW_LEAVE_HINT'
+const HIDE_LEAVE_HINT = 'HIDE_LEAVE_HINT'
 // SOLITAIRE
 const CREATE_CARD_DECK = 'CREATE_CARD_DECK'
 const SHUFFLE_CARD = 'SHUFFLE_CARD'
@@ -64,6 +70,20 @@ export default {
   },
   [SET_MESSAGE_TIMER] (state, timer) {
     state.messageTimer = timer
+  },
+  // LOADING
+  [SHOW_LOADING] (state) {
+    state.loadingShow = true
+  },
+  [HIDE_LOADING] (state) {
+    state.loadingShow = false
+  },
+  // LEAVE-HINT
+  [SHOW_LEAVE_HINT] (state) {
+    state.leaveHintShow = true
+  },
+  [HIDE_LEAVE_HINT] (state) {
+    state.leaveHintShow = false
   },
   // SOLITAIRE
   [CREATE_CARD_DECK] (state) {

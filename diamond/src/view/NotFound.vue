@@ -1,6 +1,6 @@
 <template>
-  <router-link id="not-found" tag="div" to="" @click.native="$router.go(-1)">
-    <h1>PAGE NOT FOUND 404, CLICK ANYWHERE TO RETURN TO THE PREVIOUS PAGE</h1>
+  <router-link id="not-found" tag="div" to="" @click.native="$router.push('/index')">
+    <h1>Page not found 404 <span>(click to redirect to home page)</span></h1>
   </router-link>
 </template>
 
@@ -13,10 +13,14 @@ export default {
 #not-found {
   padding-top: 43vh;
   height: 100vh;
+  text-align: center;
   cursor: pointer;
   h1 {
     padding-left: 2vh;
     background: #f33;
+  }
+  span {
+    font-size: 3vh;
   }
 }
 </style>

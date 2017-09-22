@@ -255,3 +255,39 @@ a.white {
     opacity: 1;
   }
 }
+
+@keyframes spin-square {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(225deg);
+  }
+  75% {
+    transform: rotate(315deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes rotate-spin {
+  0%, 10% {
+    transform: rotate(45deg);
+  }
+  15%, 35% {
+    transform: rotate(135deg);
+  }
+  40%, 60% {
+    transform: rotate(225deg);
+  }
+  65%, 85% {
+    transform: rotate(315deg);
+  }
+  90%, 100% {
+    transform: rotate(405deg);
+  }
+}

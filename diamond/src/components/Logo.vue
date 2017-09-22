@@ -23,6 +23,7 @@ export default {
     font-weight: 800;
     z-index: 20;
     letter-spacing: -2.3vh;
+    user-select: none;
     &:link {
       color: #333;
     }

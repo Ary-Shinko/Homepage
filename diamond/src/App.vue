@@ -4,16 +4,19 @@
       <router-view></router-view>
     </transition>
     <message-tip></message-tip>
+    <loading></loading>
   </div>
 </template>
 
 <script>
 import MessageTip from './components/MessageTip.vue'
+import Loading from './components/Loading.vue'
 
 export default {
   name: 'app',
   components: {
-    MessageTip
+    MessageTip,
+    Loading
   },
   mounted () {
     if (window.localStorage.authToken) {

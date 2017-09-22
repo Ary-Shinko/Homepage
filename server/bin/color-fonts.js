@@ -40,6 +40,39 @@
         forePrev = '\x1B[35m'
         break
     }
+  } else if (back) {
+    switch (back) {
+      case 'black':
+        forePrev = '\x1B[37m'
+        break
+      case 'grey':
+        forePrev = '\x1B[37m'
+        break
+      case 'gray':
+        forePrev = '\x1B[37m'
+        break
+      case 'white':
+        forePrev = '\x1B[30m'
+        break
+      case 'red':
+        forePrev = '\x1B[37m'
+        break
+      case 'yellow':
+        forePrev = '\x1B[30m'
+        break
+      case 'blue':
+        forePrev = '\x1B[37m'
+        break
+      case 'green':
+        forePrev = '\x1B[30m'
+        break
+      case 'cyan':
+        forerev = '\x1B[30m'
+        break
+      case 'magenta':
+        forePrev = '\x1B[37m'
+        break
+    }
   }
   if (back) {
     switch (back) {

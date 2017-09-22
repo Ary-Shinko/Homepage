@@ -32,7 +32,7 @@ Vue.filter('uppercase', v => {
 })
 
 // axios.interceptors.request.use(config => {
-//   config.timeout = 5000
+//   config.timeout = 12000
 //   return config
 // }, error => {
 //   return Promise.reject(error)
