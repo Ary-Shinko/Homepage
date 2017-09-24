@@ -25,7 +25,7 @@ export default {
 .grid-news {
   &>div:last-child {
     position: fixed;
-    z-index: 5;
+    z-index: 1;
     top: @TRANSLATE_NEWS_Y;
     left: @TRANSLATE_NEWS_X;
   }
@@ -37,13 +37,12 @@ export default {
 
 .grid-news-logo {
   position: absolute;
-  z-index: 10000;
+  z-index: -1;
   top: -14vh;
   left: -1vh;
   font-size: 32vh;
   font-weight: 800;
   letter-spacing: -9.3vh;
-  text-align: center;
   color: #fff;
   transform: rotate(-45deg);
   cursor: default;

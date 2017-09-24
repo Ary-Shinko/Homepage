@@ -6,7 +6,7 @@
     <card-hint v-if="cardHint"></card-hint>
     <before-leave :nextHandle="nextHandle"></before-leave>
     <user-tag></user-tag>
-    <header-title v-fade main-color="#396" sub-color="#3a6">SOLITAIRE</header-title>
+    <header-title v-fade main-color="#565" sub-color="#676">SOLITAIRE</header-title>
   </div>
 </template>
 
@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style>
 .solitaire {
   width: 100vw;
   height: 100vh;

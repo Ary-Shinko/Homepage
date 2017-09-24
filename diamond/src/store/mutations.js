@@ -3,6 +3,7 @@ const MODIFY_NAVIGATION_FROM = 'MODIFY_NAVIGATION_FROM'
 const MODIFY_NAVIGATION_TO = 'MODIFY_NAVIGATION_TO'
 const LOCK_NAVIGATION = 'LOCK_NAVIGATION'
 const UNLOCK_NAVIGATION = 'UNLOCK_NAVIGATION'
+const MODIFY_NAVIGATION_BACKGROUND = 'MODIFY_NAVIGATION_BACKGROUND'
 // AUTHRIZATION
 const CACHE_AUTHORIZATION = 'CACHE_AUTHORIZATION'
 const EXIT_AUTHORIZATION = 'EXIT_AUTHORIZATION'
@@ -46,6 +47,13 @@ export default {
   },
   [UNLOCK_NAVIGATION] (state) {
     state.navigationLocked = false
+  },
+  [MODIFY_NAVIGATION_BACKGROUND] (state, className) {
+    if (className) {
+      state.navigationBackground = className
+    } else {
+      state.navigationBackground = ''
+    }
   },
   // AUTHRIZATION
   [CACHE_AUTHORIZATION] (state, authData) {

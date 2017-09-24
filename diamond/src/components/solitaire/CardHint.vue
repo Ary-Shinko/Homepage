@@ -13,10 +13,13 @@
           <p>开牌之后，手牌区域中所有手牌均会作废。</p>
           <p>当牌库被清空的时候，游戏结束。</p>
           <br>
+          <h2>得分要点</h2>
+          <p>弃牌越少，每次开牌的牌型越好，得分越高。</p>
+          <br>
           <h2>基本操作</h2>
           <h3>开始新游戏</h3>
           <p>点击<span>[右键]</span> -> 选择<span>[START NEW GAME]</span>开始新游戏；</p>
-          <p>按下<span>[F5键]</span>刷新浏览器。</p>
+          <p>每局结束后会自动开始新游戏。</p>
           <h3>发牌（正面朝上的手牌不足五张时）</h3>
           <p>点击<span>[牌库]</span>获得一张手牌；</p>
           <p>按下<span>[空格键]</span>获得一张手牌；</p>
@@ -412,19 +415,22 @@ export default {
 }
 
 .card-hint-webfont {
-    font-family:"card-hint-webfont" !important;
-    font-size:16px;font-style:normal;
+    font-family: "fontSolitaire" !important;
+    font-size: 16px;
+    font-style: normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
-  font-family: 'card-hint-webfont';
-  src: url('../../assets/solitaire/webfont.eot');
-  src: url('../../assets/solitaire/webfont.eot?#iefix') format('embedded-opentype'),
-  url('../../assets/solitaire/webfont.woff') format('woff'),
-  url('../../assets/solitaire/webfont.ttf') format('truetype'),
-  url('../../assets/solitaire/webfont.svg#webfont') format('svg');
+    font-family: "fontSolitaire";
+    src: url("../../assets/solitaire/fontSolitaire.eot"); /* IE9 */
+    src: url("../../assets/solitaire/fontSolitaire.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../../assets/solitaire/fontSolitaire.woff") format("woff"), /* chrome、firefox */
+    url("../../assets/solitaire/fontSolitaire.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("../../assets/solitaire/fontSolitaire.svg#fontSolitaire") format("svg"); /* iOS 4.1- */
+    // font-style: normal;
+    // font-weight: normal;
 }
 </style>

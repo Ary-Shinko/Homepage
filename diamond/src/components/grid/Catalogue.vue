@@ -5,6 +5,7 @@
       <div class="catalogue-dot catalogue-dot2" @click="modifyNavigation(2)"></div>
       <div class="catalogue-dot catalogue-dot3" @click="modifyNavigation(3)"></div>
       <div class="catalogue-dot catalogue-dot4" @click="modifyNavigation(4)"></div>
+      <div class="catalogue-background" :class="navigationBackground"></div>
     </div>
   </div>
 </template>
@@ -15,7 +16,8 @@ import { mapActions, mapState } from 'vuex'
 export default {
   computed: {
     ...mapState([
-      'navigationTo'
+      'navigationTo',
+      'navigationBackground'
     ]),
     navigation () {
       return {
@@ -36,12 +38,12 @@ export default {
 
 <style lang="less">
 .catalogue-navbar {
-  z-index: 12;
   position: absolute;
+  z-index: 12;
   bottom: 0vh;
   left: 0vh;
-  width: 50vh;
-  height: 50vh;
+  width: 120vh;
+  height: 120vh;
   transform: rotate(-90deg);
   .catalogue-dot {
     width: 2.4vh;
@@ -94,6 +96,18 @@ export default {
       transform-origin: 3.7% 0;
     }
   }
+}
+
+.catalogue-background {
+  position: absolute;
+  z-index: -13;
+  top: 0;
+  left: 0;
+  margin-top: -1px;
+  margin-left: -1px;
+  width: 120vh;
+  height: 120vh;
+  background-size: 120vh 120vh;
 }
 
 .navigation-dot1 {

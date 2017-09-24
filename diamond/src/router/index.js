@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../view/Index.vue'
-import Werewolves from '../view/Werewolves.vue'
-import Solitaire from '../view/Solitaire.vue'
 import NotFound from '../view/NotFound.vue'
 import Signin from '../view/Signin.vue'
+import Laboratory from '../view/Laboratory.vue'
+import Blog from '../view/Blog.vue'
+import Algorithm from '../view/Algorithm.vue'
+import Werewolves from '../view/Werewolves.vue'
+import Solitaire from '../view/Solitaire.vue'
+import Shadowsocks from '../view/Shadowsocks.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +31,22 @@ export default new VueRouter({
     redirect: '/index'
   },
   {
+    path: '/blog',
+    component: Blog
+  },
+  {
+    path: '/algorithm',
+    component: Algorithm
+  },
+  {
+    path: '/app',
+    component: Laboratory
+  },
+  {
+    path: '/solitaire',
+    component: Solitaire
+  },
+  {
     path: '/werewolves',
     component: Werewolves,
     meta: {
@@ -34,12 +54,22 @@ export default new VueRouter({
     }
   },
   {
-    path: '/solitaire',
-    component: Solitaire
+    path: '/shadowsocks',
+    component: Shadowsocks,
+    meta: {
+      requireAuth: false
+    }
   },
+  // {
+  //   path: '/tarot',
+  //   component: Tarot
+  // },
+  // {
+  //   path: '/tapcity',
+  //   component: Tapcity
+  // },
   {
     path: '/*',
     component: NotFound
   }]
 })
-// shadowsocks, tarot, ENTRY.HTML, [blog], [algorithm], [app]
