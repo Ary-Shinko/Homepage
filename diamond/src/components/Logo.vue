@@ -11,10 +11,10 @@ export default {
 
 <style lang="less">
 .logo {
-  &:hover+div {
-    background: rgba(255, 255, 255, 0.7);
-    animation: rotate-breathing 5s ease infinite;
-  }
+  // &:hover+div {
+  //   background: rgba(255, 255, 255, 0.7);
+  //   animation: rotate-breathing 5s ease infinite;
+  // }
   a {
     position: fixed;
     top: -0.5vh;
