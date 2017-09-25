@@ -14,37 +14,37 @@
     <core-sub class="core-sub-2"></core-sub>
     <core-main class="core-main-2">
       <!-- Second screen -->
-      <h1><router-link to="blog">Code Library &amp; Blog<span>[ More... ]</span></router-link></h1>
+      <h1><router-link to="article/blog">Code Library &amp; Blog<span>[ More... ]</span></router-link></h1>
       <core-article-list>
-        <core-article to="/solitaire" back-ground="1">Build an authentication system<br>Ary 2017/08/20 Authentication / JWT / Vue-router / Backend</core-article>
-        <core-article to="/solitaire" back-ground="2">Guide for using SMS(Short Message Service) API<br>Ary 2017/08/30 Mobile / SMS / Node.js / Backend</core-article>
-        <core-article to="/solitaire" back-ground="3">CSS3 topic: background<br>Ary 2017/09/06 CSS3 / Background / Frontend</core-article>
-        <core-article to="/solitaire" back-ground="4">ES6 topic: Promise<br>Ary 2017/09/19 Javascript / ES6 / Promise / Frontend</core-article>
-        <core-article to="/solitaire" back-ground="5">Colorize.js: colorful console log<br>Ary 2017/09/24 Lib / Node.js / Console / Backend</core-article>
+        <core-article :to="'/article/blog/' + articleData.blog1.title" back-ground="1">{{ articleData.blog1.title }}<br>{{ articleData.blog1.misc }}</core-article>
+        <core-article :to="'/article/blog/' + articleData.blog2.title" back-ground="2">{{ articleData.blog2.title }}<br>{{ articleData.blog2.misc }}</core-article>
+        <core-article :to="'/article/blog/' + articleData.blog3.title" back-ground="3">{{ articleData.blog3.title }}<br>{{ articleData.blog3.misc }}</core-article>
+        <core-article :to="'/article/blog/' + articleData.blog4.title" back-ground="4">{{ articleData.blog4.title }}<br>{{ articleData.blog4.misc }}</core-article>
+        <core-article :to="'/article/blog/' + articleData.blog5.title" back-ground="5">{{ articleData.blog5.title }}<br>{{ articleData.blog5.misc }}</core-article>
       </core-article-list>
     </core-main>
     <core-sub class="core-sub-3"></core-sub>
     <core-main class="core-main-3">
       <!-- Third screen -->
-      <h1><router-link to="algorithm">Mathematics &amp; Algorithm<span>[ More... ]</span></router-link></h1>
+      <h1><router-link to="article/algorithm">Mathematics &amp; Algorithm<span>[ More... ]</span></router-link></h1>
       <core-article-list theme="grey">
-        <core-article to="/solitaire" back-ground="6"><del>Consectetur adipisicing elit. Nihil, repellendus?</del><br>Ary 2017/09/05 Solitaire / Game / Poker</core-article>
-        <core-article to="/solitaire" back-ground="7"><del>A harum amet doloremque vel reprehenderit itaque modi, officia.</del><br>Ary 2017/09/05 Solitaire / Game / Poker</core-article>
-        <core-article to="/solitaire" back-ground="8"><del>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, repellendus?</del><br>Ary 2017/09/05 Solitaire / Poker</core-article>
-        <core-article to="/solitaire" back-ground="9"><del>Deleniti, magni ratione rerum paqui iure nesciunt.</del><br>Ary 2017/09/05 Solitaire / Game / Com</core-article>
-        <core-article to="/solitaire" back-ground="10"><del>Sapiente accusamus aperiam error.</del><br>Ary 2017/09/05 Solitaire / Game / Poker</core-article>
+        <core-article :to="'/article/algorithm/' + articleData.algorithm1.title" back-ground="6">{{ articleData.algorithm1.title }}<br>{{ articleData.algorithm1.misc }}</core-article>
+        <core-article :to="'/article/algorithm/' + articleData.algorithm2.title" back-ground="7">{{ articleData.algorithm2.title }}<br>{{ articleData.algorithm2.misc }}</core-article>
+        <core-article :to="'/article/algorithm/' + articleData.algorithm3.title" back-ground="8">{{ articleData.algorithm3.title }}<br>{{ articleData.algorithm3.misc }}</core-article>
+        <core-article :to="'/article/algorithm/' + articleData.algorithm4.title" back-ground="9">{{ articleData.algorithm4.title }}<br>{{ articleData.algorithm4.misc }}</core-article>
+        <core-article :to="'/article/algorithm/' + articleData.algorithm5.title" back-ground="10">{{ articleData.algorithm5.title }}<br>{{ articleData.algorithm5.misc }}</core-article>
       </core-article-list>
     </core-main>
     <core-sub class="core-sub-4"></core-sub>
     <core-main class="core-main-4">
       <!-- Fourth screen -->
-      <h1><router-link to="app">APP Laboratory<span>[ More... ]</span></router-link></h1>
+      <h1><router-link to="article/app">APP Laboratory<span>[ More... ]</span></router-link></h1>
       <core-article-list theme="white">
-        <core-article to="/werewolves" back-ground="11">Werewolves<br>Ary 2017/08/13 Werewolves / Multiplayer Game / Social</core-article>
-        <core-article to="/solitaire" back-ground="12">Solitaire "Texas Hold'em Poker"<br>Ary 2017/09/05 Solitaire / Game / Poker</core-article>
-        <core-article to="/shadowsocks" back-ground="13">Shadowsocks proxy<br>Ary 2017/09/27 Shadowsocks / Network / Proxy</core-article>
-        <core-article to="/tarot" back-ground="14"><del>Tarot, divination and fortune telling</del><br>Ary 20XX/XX/XX Tarot / Game / Divination</core-article>
-        <core-article to="/tapcity" back-ground="15"><del>Tapcity, to be a mayor as city manager</del><br>Ary 20XX/XX/XX Tapcity / Game / Low-poly</core-article>
+        <core-article :to="articleData.app1.url" back-ground="11">{{ articleData.app1.title }}<br>{{ articleData.app1.misc }}</core-article>
+        <core-article :to="articleData.app2.url" back-ground="12">{{ articleData.app2.title }}<br>{{ articleData.app2.misc }}</core-article>
+        <core-article :to="articleData.app3.url" back-ground="13">{{ articleData.app3.title }}<br>{{ articleData.app3.misc }}</core-article>
+        <core-article :to="articleData.app4.url" back-ground="14">{{ articleData.app4.title }}<br>{{ articleData.app4.misc }}</core-article>
+        <core-article :to="articleData.app5.url" back-ground="15">{{ articleData.app5.title }}<br>{{ articleData.app5.misc }}</core-article>
       </core-article-list>
     </core-main>
     <core-sub class="core-sub-5"></core-sub>
@@ -68,7 +68,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'navigationFrom'
+      'navigationFrom',
+      'articleData'
     ]),
     navigation () {
       return {

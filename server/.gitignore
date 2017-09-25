@@ -3,3 +3,4 @@ node_modules/
 dist/
 cert/
 server-config.js
+server/counter.bat

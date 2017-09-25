@@ -22,6 +22,7 @@ export default {
       infoShow: false
     }
   },
+  props: ['color', 'back', 'redirect', 'nameOnly'],
   computed: {
     ...mapState([
       'authData'
@@ -38,10 +39,11 @@ export default {
       'authExit'
     ]),
     toggleInfoShow () {
-      this.infoShow = !this.infoShow
+      if (!this.nameOnly) {
+        this.infoShow = !this.infoShow
+      }
     }
   },
-  props: ['color', 'back', 'redirect'],
   watch: {
     infoShow (showed) {
       if (showed) {

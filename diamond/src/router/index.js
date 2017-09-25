@@ -3,9 +3,7 @@ import VueRouter from 'vue-router'
 import Index from '../view/Index.vue'
 import NotFound from '../view/NotFound.vue'
 import Signin from '../view/Signin.vue'
-import Laboratory from '../view/Laboratory.vue'
-import Blog from '../view/Blog.vue'
-import Algorithm from '../view/Algorithm.vue'
+import Article from '../view/Article.vue'
 import Werewolves from '../view/Werewolves.vue'
 import Solitaire from '../view/Solitaire.vue'
 import Shadowsocks from '../view/Shadowsocks.vue'
@@ -31,16 +29,12 @@ export default new VueRouter({
     redirect: '/index'
   },
   {
-    path: '/blog',
-    component: Blog
+    path: '/article',
+    component: Article
   },
   {
-    path: '/algorithm',
-    component: Algorithm
-  },
-  {
-    path: '/app',
-    component: Laboratory
+    path: '/article/*',
+    component: Article
   },
   {
     path: '/solitaire',
