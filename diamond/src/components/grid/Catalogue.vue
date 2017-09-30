@@ -88,7 +88,7 @@ export default {
   .catalogue-dot4 {
     background: #333;
     &:hover::after {
-      content: '{ APP Laboratory }';
+      content: '{ App Laboratory }';
       display: block;
       padding-left: 6vh;
       width: 60vh;

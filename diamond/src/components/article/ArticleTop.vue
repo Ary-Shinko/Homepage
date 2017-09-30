@@ -59,6 +59,6 @@ export default {
   right: 0;
   height: 3rem;
   background: #fff;
-  box-shadow: 0 0 20px -8px #000;
+  box-shadow: 0 0 20px -7px #000;
 }
 </style>

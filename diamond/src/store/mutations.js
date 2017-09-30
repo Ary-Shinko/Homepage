@@ -7,6 +7,10 @@ const MODIFY_NAVIGATION_BACKGROUND = 'MODIFY_NAVIGATION_BACKGROUND'
 // AUTHRIZATION
 const CACHE_AUTHORIZATION = 'CACHE_AUTHORIZATION'
 const EXIT_AUTHORIZATION = 'EXIT_AUTHORIZATION'
+// ARTICLE
+const CACHE_ARTICLE_CONTENT = 'CACHE_ARTICLE_CONTENT'
+const CACHE_ARTICLE_MISC = 'CACHE_ARTICLE_MISC'
+const CACHE_ARTICLE = 'CACHE_ARTICLE'
 // MESSAGE
 const CLOSE_MESSAGE = 'CLOSE_MESSAGE'
 const POST_MESSAGE = 'POST_MESSAGE'
@@ -65,6 +69,21 @@ export default {
     state.authData.phone = ''
     state.authData.token = ''
     state.authData.avatar = ''
+  },
+  // ARTICLE
+  [CACHE_ARTICLE_CONTENT] (state, data) {
+    state.articleCurrent.content = data
+  },
+  [CACHE_ARTICLE_MISC] (state, { type, license, author, date, title, keywords }) {
+    state.articleCurrent.type = type
+    state.articleCurrent.license = license
+    state.articleCurrent.author = author
+    state.articleCurrent.date = date
+    state.articleCurrent.title = title
+    state.articleCurrent.keywords = keywords
+  },
+  [CACHE_ARTICLE] (state, articleObject) {
+    state.articleCurrent = articleObject
   },
   // MESSAGE
   [CLOSE_MESSAGE] (state) {

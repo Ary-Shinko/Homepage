@@ -1,6 +1,8 @@
 <template>
   <div class="article-top-logo">
-    <div class="article-top-logo-shelter"><img class="article-top-logo-img" src="../../assets/article/logo.png" alt="Back to homepage" @click="$router.push('/')"></div>
+    <div class="article-top-logo-shelter">
+      <span class="article-top-logo-img" @click="$router.push('/')"></span>
+    </div>
   </div>
 </template>
 
@@ -11,6 +13,7 @@ export default {
 
 <style lang="less">
 .article-top-logo {
+  overflow: hidden;
   float: left;
   margin-left: 6rem;
   width: 6rem;
@@ -30,14 +33,31 @@ export default {
     }
   }
   .article-top-logo-img {
+    display: inline-block;
     position: relative;
     z-index: 20;
-    left: 0.25rem;
-    top: 0.25rem;
-    width: 5.5rem;
+    margin-left: 0.25rem;
+    margin-top: 0.25rem;
+    width: 5.5 * 32rem;
     height: 5.5rem;
     cursor: pointer;
+    background: url(../../assets/article/logo.png);
+    background-size: contain;
     user-select: none;
+    &:hover {
+      background: url(../../assets/article/logoAnimation.png);
+      background-size: contain;
+      animation: fake-animation 1s steps(32) infinite;
+    }
+  }
+}
+
+@keyframes fake-animation {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -5.5 * 32rem;
   }
 }
 </style>

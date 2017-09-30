@@ -1,12 +1,12 @@
-let http = require('http')
-let https = require('https')
-let express = require('express')
-let bodyParser = require('body-parser')
+const http = require('http')
+const https = require('https')
+const express = require('express')
+const bodyParser = require('body-parser')
 
-let routes = require('./routes/main')
-let redirectRoutes = require('./routes/redicect')
-let credentials = require('./bin/credentials')
-let color = require('./bin/color-fonts')
+const routes = require('./routes/main')
+const redirectRoutes = require('./routes/redicect')
+const credentials = require('./bin/credentials')
+const colorize = require('./bin/colorize')
 const { SERVER_SSLPORT, SERVER_REDIRECTPORT } = require('./server-config')
 
 let app = express()
@@ -24,5 +24,5 @@ redirectApp.set('x-powered-by', false)
 redirectRoutes(redirectApp)
 
 // Start servers
-https.createServer(credentials, app).listen(SERVER_SSLPORT, () => console.log(color('[HTTPS]', 'white', 'black'), ' Server port:', SERVER_SSLPORT))
-http.createServer(redirectApp).listen(SERVER_REDIRECTPORT, () => console.log(color('[HTTP]', 'white', 'black'), ' Redirect port:', SERVER_REDIRECTPORT))
+https.createServer(credentials, app).listen(SERVER_SSLPORT, () => console.log(colorize('[HTTPS--]', 'white', 'black'), 'Server port:', SERVER_SSLPORT))
+http.createServer(redirectApp).listen(SERVER_REDIRECTPORT, () => console.log(colorize('[HTTP---]', 'white', 'black'), 'Redirect port:', SERVER_REDIRECTPORT))

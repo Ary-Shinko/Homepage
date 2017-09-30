@@ -1,7 +1,7 @@
 <template>
   <div class="article">
-    <div class="article-wrapper" @scroll="updateScroll">
-      <scroll-bar :scrollValue="scrollValue"></scroll-bar>
+    <div id="articleWrapper" class="article-wrapper" @scroll="updateScroll">
+      <scroll-bar :scrollValue="100 - scrollValue"></scroll-bar>
       <article-top :scroll-top="scrollTop"></article-top>
       <article-main></article-main>
     </div>
@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import ArticleTop from '../components/article/ArticleTop.vue'
 import ArticleMain from '../components/article/ArticleMain.vue'
 import ScrollBar from '../components/ScrollBar.vue'
@@ -31,10 +33,23 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'getArticleContent'
+    ]),
     updateScroll (e) {
       this.scrollTop = e.target.scrollTop
       this.scrollHeight = e.target.scrollHeight - e.target.clientHeight
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.getArticleContent(to.fullPath)
+    })
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.getArticleContent(to.fullPath)
+    next()
   }
 }
 </script>
@@ -46,7 +61,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif;
+  font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif, Arial, serif;
   background: linear-gradient(180deg, #fff, #ddd);
 }
 
@@ -58,10 +73,5 @@ export default {
   padding-right: 3rem; 
   right: -18px;
   height: 100%;
-}
-
-@font-face {
-  font-family: 'SourceHanSansCN';
-  src: url(../../static/SourceHanSansCN-Normal.otf);
 }
 </style>

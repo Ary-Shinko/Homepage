@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-bar">
-    <div class="scroll-bar-measure" :style="{ right: scrollValue + '%' }"></div>
+    <div class="scroll-bar-measure" :style="{ left: scrollValue + '%' }"></div>
   </div>
 </template>
 
@@ -18,15 +18,16 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: #fff;
+  background: #81ffe0;
+  background: linear-gradient(90deg, #81ffe0, #57ffe0); 
 }
 
 .scroll-bar-measure {
   position: fixed;
   z-index: 99;
-  left: 0;
-  right: 100%;
+  right: 0;
+  left: 100%;
   height: 3px;
-  background: #e74c3c; 
+  background: #fff;
 }
 </style>

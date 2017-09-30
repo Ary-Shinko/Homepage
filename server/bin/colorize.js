@@ -1,5 +1,5 @@
  // Colorize text
- module.exports = function color(text, back, fore) {
+ module.exports = function colorize(text, back, fore) {
   let forePrev = ''
   let foreNext = ''
   let backPrev = ''

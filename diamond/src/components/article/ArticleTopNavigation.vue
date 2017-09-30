@@ -1,25 +1,32 @@
 <template>
   <div class="article-top-navigation">
     <a v-if="!searchShow" @click="searchShow = true"><del>Search</del></a>
-    <input v-if="searchShow" @keyup.enter="searchShow = false" type="text" placeholder="Input keywords that you will search">
+    <input class="article-top-navigation-search" v-if="searchShow" @keyup.enter="searchShow = false" type="text" placeholder="Input keywords that you will search">
     <a class="article-top-navigation-close" v-if="searchShow" @click="searchShow = false">X</a>
     <router-link to="/article/blog">Blog</router-link>
     <router-link to="/article/algorithm">Algorithm</router-link>
     <router-link to="/article/app">APP</router-link>
+    <a @click="submitShow = true">Submit...</a>
+    <transition name="fade">
+      <article-submit v-if="submitShow" :status="submitShow" @close="submitShow = false"></article-submit>   
+    </transition>
     <user-tag name-only="true" class="article-user-tag"></user-tag>
   </div>
 </template>
 
 <script>
+import ArticleSubmit from './ArticleSubmit.vue'
 import UserTag from '../UserTag.vue'
 
 export default {
   components: {
+    ArticleSubmit,
     UserTag
   },
   data () {
     return {
-      searchShow: false
+      searchShow: false,
+      submitShow: false
     }
   }
 }
@@ -52,7 +59,7 @@ export default {
       color: #213040 !important;
     }
   }
-  input {
+  .article-top-navigation-search {
     position: absolute;
     left: 1rem;
     top: ~'calc(3px + .66rem)';

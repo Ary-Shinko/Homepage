@@ -3,8 +3,8 @@
     <transition name="fade">
       <div v-if="leaveHintShow" class="leave-hint-background">
         <div class="leave-hint-center"></div>
-        <p class="leave-hint-info">Leaving now without save your data?<br>
-        All your unsaved changes will be lost.</p>
+        <p class="leave-hint-info">Leave now without saving your data?<br>
+        All your unsaved change will be lost.</p>
         <p class="leave-hint-yes" @click="confirmExit">Continue leaving</p>
         <p class="leave-hint-no" @click="hideLeaveHint">Cancel</p>
       </div>

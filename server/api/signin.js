@@ -1,12 +1,13 @@
-let jwt = require('../lib/json-web-token')
-let sms = require('../lib/short-message')
-let db = require('../lib/database-control')
-let color = require('../bin/color-fonts')
+const jwt = require('../lib/json-web-token')
+const sms = require('../lib/short-message')
+const db = require('../lib/database-control')
+const log = require('../bin/log')
 
 let vcodeStack = {}
+let tokenVersionStack = {}
 
-function setTokenVersion (account, version) {
-  //................................
+function setTokenVersion (account, tokenVersion) {
+  db.updateData({ account }, { tokenVersion }, 'users')
 }
 
 function generateVcode (phone) {
@@ -30,17 +31,17 @@ function getVcode (phone) {
   } 
 }
 
-function authenticate (account, password, onValid, onInvalid) {
+function authenticate (account, password, ip, onValid, onInvalid) {
   db.findData({ account }, 'users', result => {
     if (result.length !== 0) {
       if (result[0]['account'] === account && result[0]['password'] === password) {
         onValid(result[0])
       } else {
-        // Wrong password
+        log('SIGN-IN', 'yellow', `Wrong password [${account}]`, ip)  
         onInvalid()
       }
     } else {
-      // Account not found
+      log('SIGN-IN', 'yellow', `Account not found [${account}]`, ip)  
       onInvalid()
     }
   })
@@ -50,13 +51,14 @@ module.exports = {
   signinMain (req, res) {
     let requestAccount = req.body.account
     let requestPassword = req.body.password
-    authenticate(requestAccount, requestPassword, profile => {
+    authenticate(requestAccount, requestPassword, req.ip, profile => {
       let { account, name, phone, avatar, tokenVersion } = profile
       phone = phone.replace(/\d{4}(?=\d{4}$)/, '****')
       tokenVersion++
       setTokenVersion(account, tokenVersion)
+      tokenVersionStack[account] = tokenVersion
       let token = jwt.generateToken(account, tokenVersion)
-      console.log(`${color('[SIGNIN]', 'green')} Signin account [${account}] by [${req.ip}] at [${Date.now()}]`)  
+      log('SIGN-IN', 'green', `Signin account [${account}]`, req.ip)  
       res.json({
         status: true,
         message: `Welcome back, ${name}.`,
@@ -69,7 +71,6 @@ module.exports = {
         }
       })
     }, () => {
-      console.log(`${color('[SIGNIN]', 'yellow')} Bad attempt in [${requestAccount}] by [${req.ip}] at [${Date.now()}]`)            
       res.json({
         status: false,
         message: 'Authentication failed. Please check your input.',
@@ -82,22 +83,22 @@ module.exports = {
     if (checkVcodePrepared(phone)) {
       let vcode = generateVcode(phone)
       sms.sendSMS(phone, vcode, () => {
-        console.log(`${color('[SMS]', 'blue')} Vcode [${vcode}] has been sent to [${phone}] by [${req.ip}] at [${Date.now()}]`)
+        log('REG-SMS', 'blue', `Vcode [${vcode}] has been sent to [${phone}]`, req.ip)  
         res.json({
           status: true,
           message: `The verification code has been already sent to ${phone}, don't forget to check your inbox.`,
           time: Date.now()
         })
-      }, err => {
-        console.log(`${color('[SMS]', 'red')} Server Error [${err}] occured at [${Date.now()}]`)      
+      }, err => {  
+        log('REG-SMS', 'red', `Server Error. [${phone}]`, req.ip)  
         res.json({
           status: false,
-          message: 'Oops, there is something wrong occured on our SMS server.',
+          message: 'Oops, there is something wrong occured on the SMS server.',
           time: Date.now()
         })
       })
-    } else {
-      console.log(`${color('[SMS]', 'yellow')} Vcode requested too frequently by [${req.ip}] at [${Date.now()}]`)      
+    } else {    
+      log('REG-SMS', 'yellow', `Vcode requested too frequently [${phone}]`, req.ip)
       res.json({
         status: false,
         message: 'You are limited to request 1 verification code every 10 minutes.',
@@ -161,8 +162,8 @@ module.exports = {
                 tokenVersion: 0,
               }
               db.insertData(data, 'users')
-              console.log(`${color('[DB-INS]', 'blue')} Incerted account [${account}] by [${req.ip}] at [${Date.now()}]`)
-              console.log(`${color('[SIGNIN]', 'green')} Registered account [${account}] by [${req.ip}] at [${Date.now()}]`)
+              log('DB-INSR', 'blue', `Incerted account [${account}]`, req.ip)
+              log('SIGN-IN', 'green', `Registered account [${account}]`, req.ip)
               res.json({
                 status: true,
                 message: `Hit on "Start exploring" to sign in now.`,
@@ -177,7 +178,7 @@ module.exports = {
             } else {
               prompt = `${prompt[0]}, ${prompt[1]} and ${prompt[2]} have`
             }
-            console.log(`${color('[SIGNIN]', 'yellow')} Repeating register on [${account}] by [${req.ip}] at [${Date.now()}]`)
+            log('SIGN-IN', 'yellow', `Repeating register on [${account}]`, req.ip)
             res.json({
               status: false,
               message: `The ${prompt} been used. You should pick another instead.`,
@@ -187,7 +188,7 @@ module.exports = {
         })
       }
     } else {
-      console.log(`${color('[SIGNIN]', 'yellow')} Bad vcode on [${phone}] by [${req.ip}] at [${Date.now()}]`)
+      log('SIGN-IN', 'yellow', `Bad vcode on [${phone}]`, req.ip)
       res.json({
         status: false,
         message: 'The verification code is not matched, please check it.',
@@ -196,8 +197,7 @@ module.exports = {
     }
   },
   signinForget (req, res) {
-    // We sent an e-mail to ${account}, please check it.
-    console.log(`${color('[SIGNIN]', 'green')} Forget account [${req.body.account}] by [${req.ip}] at [${Date.now()}]`)   
+    log('SIGN-IN', 'green', `Forget account [${req.body.account}]`, req.ip)
     res.json({
       status: true,
       message: 'Not developed yet.',

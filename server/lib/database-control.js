@@ -1,5 +1,5 @@
 const mongodb = require('mongodb')
-const color = require('../bin/color-fonts')
+const log = require('../bin/log')
 const { DATABASE_URL } = require('../server-config')
 
 const MongoClient = mongodb.MongoClient
@@ -7,7 +7,7 @@ const MongoClient = mongodb.MongoClient
 function connectDb(callback) {
   MongoClient.connect(DATABASE_URL, (err, db) => {
     if (err) {
-      console.log(`${color('[DB-CNT]', 'red')} Can not connect to mongodb server at [${Date.now()}]`)   
+      log('DB-CNCT', 'red', `Mongodb connect error`, 'localhost')
       return false
     }
     callback(db)
@@ -17,7 +17,7 @@ function connectDb(callback) {
 function insertToCollection(data, collection, db, callback) {  
   db.collection(collection).insert(data, (err, result) => { 
     if (err) {
-      console.log(`${color('[DB-INS]', 'red')} Can not insert data into mongodb server at [${Date.now()}]`)   
+      log('DB-INSR', 'red', `Mongodb insert error`, 'localhost')
       return false
     }
     callback(result)
@@ -27,7 +27,17 @@ function insertToCollection(data, collection, db, callback) {
 function findFromCollection(data, collection, db, callback) {  
   db.collection(collection).find(data).toArray((err, result) => { 
     if (err) {
-      console.log(`${color('[DB-FND]', 'red')} Can not find data from mongodb server at [${Date.now()}]`)   
+      log('DB-FIND', 'red', `Mongodb find error`, 'localhost')
+      return false
+    }
+    callback(result)
+  })
+}
+
+function updateFromCollection(data, newData, collection, db, callback) {  
+  db.collection(collection).update(data, { $set: newData }, (err, result) => { 
+    if (err) {
+      log('DB-UPDT', 'red', `Mongodb update error`, 'localhost')
       return false
     }
     callback(result)
@@ -67,5 +77,12 @@ module.exports = {
         db.close()
       })
     })
-  }
+  },
+  updateData (data, newData, collection) {
+    connectDb(db => {
+      updateFromCollection(data, newData, collection, db, result => {
+        db.close()
+      })
+    })
+  },
 }

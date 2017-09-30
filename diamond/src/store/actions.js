@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { serverAddress } from './config'
-
+let globalTimer = 0
 export default {
   // NAVIGATION
   modifyNavigation ({ commit, state }, current) {
@@ -153,6 +153,70 @@ export default {
         dispatch('postMessage', 'Unknown error.')
       }
     })
+  },
+  // ARTICLE
+  getArticleContent ({ commit, dispatch }, requestPath) {
+    let placeholder = `<p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p><p class="article-placeholder1"></p><p class="article-placeholder3"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p><p class="article-placeholder1"></p><p class="article-placeholder3"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder3"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p><p class="article-placeholder1"></p><p class="article-placeholder3"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p><p class="article-placeholder1"></p><p class="article-placeholder3"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p><p class="article-placeholder1"></p><p class="article-placeholder3"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder1"></p><p class="article-placeholder2"></p>`
+    globalTimer++
+    let ajaxTimer = globalTimer
+    commit('CACHE_ARTICLE_CONTENT', placeholder)
+    axios.get(serverAddress + requestPath, {
+      timeout: 12000
+    }).then(res => {
+      if (globalTimer === ajaxTimer) {
+        if (res.data.status === true) {
+          commit('CACHE_ARTICLE', res.data.data)
+        } else {
+          commit('CACHE_ARTICLE', {
+            title: '',
+            content: res.data.message,
+            author: '',
+            date: '',
+            keywords: ['', '', '', ''],
+            license: '',
+            type: ''
+          })
+        }
+      }
+    })
+    .catch(err => {
+      if (globalTimer === ajaxTimer) {
+        if (err.request.status === 0) {
+          commit('CACHE_ARTICLE_CONTENT', 'Nekwork error.')
+        } else {
+          commit('CACHE_ARTICLE_CONTENT', 'Loading failed.')
+        }
+      }
+    })
+  },
+  submitArticle ({ commit, state, dispatch }, { articleData, callback }) {
+    if (state.authData.token === '') {
+      dispatch('postMessage', 'You should sign in before submission.')
+    } else {
+      commit('SHOW_LOADING')
+      axios.post(serverAddress + '/article/submit', articleData, {
+        timeout: 12000,
+        headers: {
+          Authorization: state.authData.token
+        }
+      }).then(res => {
+        commit('HIDE_LOADING')
+        if (res.data.status === true) {
+          dispatch('postMessage', res.data.message)
+          callback()
+        } else {
+          dispatch('postMessage', res.data.message)
+        }
+      })
+      .catch(err => {
+        commit('HIDE_LOADING')
+        if (err.request.status === 0) {
+          dispatch('postMessage', 'Network error.')
+        } else {
+          dispatch('postMessage', 'Unknown error.')
+        }
+      })
+    }
   },
   // MEESSAGE
   postMessage ({ commit, state }, message) {

@@ -1,23 +1,26 @@
-let signin = require('../api/signin')
+const signin = require('../api/signin')
+const article = require('../api/article')
 
 module.exports = function (app) {
-  // Redirect for SPA index
-  app.get('*', function (req, res, next) {
-    req.url = '/index.html'
-    next()
-  })
   // CORS for local development
   app.options('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
     res.header('Access-Control-Max-Age', '3600')
-    res.header('Access-Control-Allow-Headers', 'Content-Type')
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
     next()
   })
   app.post('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
     res.header('Access-Control-Max-Age', '3600')
-    res.header('Access-Control-Allow-Headers', 'Content-Type')
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+    next()
+  })
+  app.get('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
+    res.header('Access-Control-Max-Age', '3600')
+    res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
     next()
   })
@@ -26,4 +29,16 @@ module.exports = function (app) {
   app.post('/signin/forget', signin.signinForget)
   app.post('/signin/create/requestvcode', signin.signinSendVcode)
   app.post('/signin/create', signin.signinCreate)
+  // Article API
+  app.get('/article/blog/*', article.getArticle)
+  // app.get('/article/algorithm/*', article.getArticle)
+  app.get('/article/blog', article.getArticleList)
+  app.get('/article/algorithm', article.getArticleList)
+  // app.get('/article/app', article.getAppList)
+  app.post('/article/submit', article.submitArticle)
+  // Redirect for SPA index
+  app.get('*', function (req, res, next) {
+    req.url = '/index.html'
+    next()
+  })
 }

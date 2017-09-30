@@ -41,7 +41,7 @@ body {
 
 #app {
   font-size: 2.4vh;
-  font-family: 'Roboto Mono', sans-serif, Arial, serif;
+  font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif, Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -49,5 +49,10 @@ body {
 @font-face {
   font-family: 'Roboto Mono';
   src: url(../static/RobotoMono.ttf);
+}
+
+@font-face {
+  font-family: 'SourceHanSansCN';
+  src: url(../static/SourceHanSansCN-Normal.otf);
 }
 </style>

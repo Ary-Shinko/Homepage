@@ -17,36 +17,36 @@ const state = {
       misc: 'Ary 2017/08/30 Mobile / SMS / Node.js / Backend'
     },
     blog3: {
-      title: 'CSS3 topic: background',
+      title: 'CSS3: background',
       misc: 'Ary 2017/09/06 CSS3 / Background / Frontend'
     },
     blog4: {
-      title: 'ES6 topic: Promise',
-      misc: 'Ary 2017/09/19 Javascript / ES6 / Promise / Frontend'
+      title: 'Migration to HTTPS',
+      misc: 'Ary 2017/09/19 HTTPS /Security / Backend'
     },
     blog5: {
       title: 'Colorize.js: colorful console.log',
       misc: 'Ary 2017/09/24 Lib / Node.js / Console / Backend'
     },
     algorithm1: {
-      title: '/?/:"',
-      misc: 'Ary 2017/08/20 Authentication / JWT / Vue-router / Backend'
+      title: 'Disjoint-set & Ackermann function',
+      misc: 'Ary 20XX/XX/XX Disjoint-set / Data Structure / Ackermann Function'
     },
     algorithm2: {
-      title: 'A harum amet doloremque vel reprehenderit itaque modi, officia',
-      misc: 'Ary 2017/08/30 Mobile / SMS / Node.js / Backend'
+      title: 'From Markov chain to Bayesian network',
+      misc: 'Ary 20XX/XX/XX Markov Chain / Bayesian Network / Probability / Math'
     },
     algorithm3: {
-      title: 'Lorem, ipsum dolor sit amet consectetur adipisicing',
-      misc: 'Ary 2017/09/06 CSS3 / Background / Frontend'
+      title: 'Algorithm: BFPRT(Blum Floyd Pratt Rivest Tarjan)',
+      misc: 'Ary 20XX/XX/XX Algorithm / BFPRT / ACM / Top-K'
     },
     algorithm4: {
-      title: 'Deleniti, magni ratione rerum paqui iure nesciunt',
-      misc: 'Ary 2017/09/19 Javascript / ES6 / Promise / Frontend'
+      title: 'ACM: Catalan number',
+      misc: 'Ary 20XX/XX/XX Catalan Number / ACM'
     },
     algorithm5: {
-      title: 'Sapiente accusamus aperiam error',
-      misc: 'Ary 2017/09/24 Lib / Node.js / Console / Backend'
+      title: 'Algorithm: KMP(Knuth Morris Pratt)',
+      misc: 'Ary 20XX/XX/XX Algorithm / KMP / String'
     },
     app1: {
       title: 'Werewolves',
@@ -73,6 +73,15 @@ const state = {
       misc: 'Ary 20XX/XX/XX Tapcity / Game / Lowpoly',
       url: '/tapcity'
     }
+  },
+  articleCurrent: {
+    title: '',
+    content: '',
+    author: '',
+    date: '',
+    keywords: ['', '', '', ''],
+    type: '',
+    license: ''
   },
   navigationFrom: 1,
   navigationTo: 1,

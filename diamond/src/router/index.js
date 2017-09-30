@@ -7,6 +7,8 @@ import Article from '../view/Article.vue'
 import Werewolves from '../view/Werewolves.vue'
 import Solitaire from '../view/Solitaire.vue'
 import Shadowsocks from '../view/Shadowsocks.vue'
+// import Tarot from '../view/Tarot.vue'
+// import Tapcity from '../view/Tapcity.vue'
 
 Vue.use(VueRouter)
 
@@ -51,7 +53,7 @@ export default new VueRouter({
     path: '/shadowsocks',
     component: Shadowsocks,
     meta: {
-      requireAuth: false
+      requireAuth: true
     }
   },
   // {
@@ -60,7 +62,10 @@ export default new VueRouter({
   // },
   // {
   //   path: '/tapcity',
-  //   component: Tapcity
+  //   component: Tapcity,
+  //   meta: {
+  //     requireAuth: true
+  //   }
   // },
   {
     path: '/*',

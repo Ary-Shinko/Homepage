@@ -38,13 +38,13 @@
     <core-sub class="core-sub-4"></core-sub>
     <core-main class="core-main-4">
       <!-- Fourth screen -->
-      <h1><router-link to="article/app">APP Laboratory<span>[ More... ]</span></router-link></h1>
+      <h1><router-link to="article/app">App Laboratory<span>[ More... ]</span></router-link></h1>
       <core-article-list theme="white">
         <core-article :to="articleData.app1.url" back-ground="11">{{ articleData.app1.title }}<br>{{ articleData.app1.misc }}</core-article>
         <core-article :to="articleData.app2.url" back-ground="12">{{ articleData.app2.title }}<br>{{ articleData.app2.misc }}</core-article>
         <core-article :to="articleData.app3.url" back-ground="13">{{ articleData.app3.title }}<br>{{ articleData.app3.misc }}</core-article>
-        <core-article :to="articleData.app4.url" back-ground="14">{{ articleData.app4.title }}<br>{{ articleData.app4.misc }}</core-article>
-        <core-article :to="articleData.app5.url" back-ground="15">{{ articleData.app5.title }}<br>{{ articleData.app5.misc }}</core-article>
+        <core-article :to="articleData.app4.url" back-ground="14"><del>{{ articleData.app4.title }}</del><br>{{ articleData.app4.misc }}</core-article>
+        <core-article :to="articleData.app5.url" back-ground="15"><del>{{ articleData.app5.title }}</del><br>{{ articleData.app5.misc }}</core-article>
       </core-article-list>
     </core-main>
     <core-sub class="core-sub-5"></core-sub>

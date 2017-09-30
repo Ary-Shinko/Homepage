@@ -12,9 +12,17 @@ module.exports = {
     })
   },
   verifyToken (token) {
-    jwt.verify(token, JSON_WEB_TOKEN_SECRET_KEY, function (err, decoded) {
-      console.log(decoded.foo)
-      // ..xxxxxxxxxxxxxxxxxxxxxxxxxxx
+    return new Promise((resolve, reject) => {
+      jwt.verify(token, JSON_WEB_TOKEN_SECRET_KEY, {
+        maxAge: '20 days',
+        issuer: JSON_WEB_TOKEN_ISSUER,
+      },(err, decoded) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(decoded)
+        }
+      })
     })
   }
 }
