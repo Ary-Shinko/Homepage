@@ -60,7 +60,7 @@ const state = {
     },
     app3: {
       title: 'Shadowsocks proxy',
-      misc: 'Ary 2017/09/27 Shadowsocks / Network / Proxy',
+      misc: 'Ary 2017/10/03 Shadowsocks / Network / Proxy',
       url: '/shadowsocks'
     },
     app4: {
@@ -86,7 +86,7 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
-  navigationLastModified: '2017/9/25',
+  navigationLastModified: '2017/10/03',
   navigationVersion: 'v0.3.0 alpha',
   navigationBackground: '',
   authData: {

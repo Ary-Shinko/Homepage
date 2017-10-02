@@ -120,14 +120,14 @@ export default {
       border-radius: .3rem;
       background: #eee;
       resize : none;
-      font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif;
+      font-family: 'Roboto Mono', 'SourceHanSansCNNormal', sans-serif;
       &:focus {
         background: #f8f8f8;
         outline: none;
       }
       &::placeholder {
         color: #aaa;
-        font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif;
+        font-family: 'Roboto Mono', 'SourceHanSansCNNormal', sans-serif;
       }
     }
     input {
@@ -139,14 +139,14 @@ export default {
       border-bottom: 1px solid #aaa;
       transition: all ease .3s;
       background: #f8f8f8;
-      font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif;
+      font-family: 'Roboto Mono', 'SourceHanSansCNNormal', sans-serif;
       &:focus {
         border-bottom: 1px solid #213040;
         outline: none;
       }
       &::placeholder {
         color: #aaa;
-        font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif;
+        font-family: 'Roboto Mono', 'SourceHanSansCNNormal', sans-serif;
       }
       &.article-submit-title {
         margin-top: 2rem;
@@ -166,7 +166,7 @@ export default {
       border-radius: .3rem;
       background: #e0e0e0;
       font-weight: 800;
-      font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif;
+      font-family: 'Roboto Mono', 'SourceHanSansCNNormal', sans-serif;
       &:focus {
         background: #eee;
         outline: none;

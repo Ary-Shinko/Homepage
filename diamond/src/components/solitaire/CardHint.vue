@@ -415,8 +415,8 @@ export default {
 }
 
 .card-hint-webfont {
-    font-family: "fontSolitaire" !important;
-    font-size: 16px;
+    font-family: "SourceHanSansCNLight" !important;
+    font-size: 1rem;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
@@ -424,13 +424,11 @@ export default {
 }
 
 @font-face {
-    font-family: "fontSolitaire";
-    src: url("../../assets/solitaire/fontSolitaire.eot"); /* IE9 */
-    src: url("../../assets/solitaire/fontSolitaire.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("../../assets/solitaire/fontSolitaire.woff") format("woff"), /* chrome、firefox */
-    url("../../assets/solitaire/fontSolitaire.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
-    url("../../assets/solitaire/fontSolitaire.svg#fontSolitaire") format("svg"); /* iOS 4.1- */
-    // font-style: normal;
-    // font-weight: normal;
+    font-family: "SourceHanSansCNLight";
+    src: url("../../assets/solitaire/SourceHanSansCNLight.eot"); /* IE9 */
+    src: url("../../assets/solitaire/SourceHanSansCNLight.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../../assets/solitaire/SourceHanSansCNLight.woff") format("woff"), /* chrome、firefox */
+    url("../../assets/solitaire/SourceHanSansCNLight.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("../../assets/solitaire/SourceHanSansCNLight.svg#SourceHanSansCNLight") format("svg"); /* iOS 4.1- */
 }
 </style>

@@ -3,7 +3,7 @@
     <p class="grid-news-1">Last Modified: {{ navigationLastModified }}</p>
     <router-link class="grid-news-2" :to="'/signin'">08/17 Have your own account now!</router-link>
     <router-link class="grid-news-3" :to="'/solitaire'">09/05 Play Solitaire to be a billionaire!</router-link>
-    <router-link class="grid-news-4" :to="'/shadowsocks'">09/27 Try our amazing shadowsocks service!</router-link>
+    <router-link class="grid-news-4" :to="'/shadowsocks'">10/03 Try our amazing shadowsocks service!</router-link>
   </div>
 </template>
 

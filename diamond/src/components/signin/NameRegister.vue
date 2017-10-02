@@ -70,7 +70,7 @@ export default {
     border: none;
     border-bottom: 1px solid #333;
     background: transparent;
-    font-family: 'Roboto Mono', Arial, sans-serif;
+    font-family: "Roboto Mono", "SourceHanSansCNNormal", sans-serif, Arial, serif;
     transition: all .3s ease;
     &:focus {
       margin-bottom: 0;

@@ -2,11 +2,18 @@
   <div class="article-main-view">
     <h1>{{ articleTitle }}</h1>
     <div v-if="!Array.isArray(articleCurrent.content)" v-html="articleCurrent.content"></div>
-    <div v-if="Array.isArray(articleCurrent.content)">
+    <div v-if="Array.isArray(articleCurrent.content) && (articleCurrent.type === 'Blog' || articleCurrent.type === 'Algorithm')">
       <router-link tag="div" v-for="(detail, index) of articleCurrent.content" :key="index + 1" class="article-main-list" :to="'/article/' + detail.type.toLowerCase() + '/' + detail.title">
         <router-link class="article-main-list-title" :to="'/article/' + detail.type.toLowerCase() + '/' + detail.title">{{ detail.title }}</router-link>
         <p class="article-main-list-detail">{{ detail.author }} {{ detail.date }} {{ articleKeywords(detail.keywords) }}</p>
         <router-link class="article-main-list-url" :to="'/article/' + detail.type.toLowerCase() + '/' + detail.title">{{ 'https://arylab.me/article/' + detail.type.toLowerCase() + '/' + detail.title }}</router-link>
+      </router-link>
+    </div>
+    <div v-if="Array.isArray(articleCurrent.content) && articleCurrent.type === 'App'">
+      <router-link tag="div" v-for="(detail, index) of articleCurrent.content" :key="index + 1" class="article-main-list" :to="detail.license">
+        <router-link class="article-main-list-title" :to="detail.license">{{ detail.title }}</router-link>
+        <p class="article-main-list-detail">{{ detail.author }} {{ detail.date }} {{ articleKeywords(detail.keywords) }}</p>
+        <router-link class="article-main-list-url" :to="detail.license">{{ 'https://arylab.me' + detail.license }}</router-link>
       </router-link>
     </div>
   </div>

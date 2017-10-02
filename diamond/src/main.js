@@ -40,7 +40,7 @@ Vue.filter('uppercase', v => {
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
-    if (store.state.authData.token) {
+    if (window.localStorage['authToken']) {
       next()
     } else {
       store.dispatch('postMessage', 'You must sign in to continue.')

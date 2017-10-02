@@ -41,18 +41,22 @@ body {
 
 #app {
   font-size: 2.4vh;
-  font-family: 'Roboto Mono', 'SourceHanSansCN', sans-serif, Arial, serif;
+  font-family: "Roboto Mono", "SourceHanSansCNNormal", sans-serif, Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
-  font-family: 'Roboto Mono';
+  font-family: "Roboto Mono";
   src: url(../static/RobotoMono.ttf);
 }
 
 @font-face {
-  font-family: 'SourceHanSansCN';
-  src: url(../static/SourceHanSansCN-Normal.otf);
+  font-family: "SourceHanSansCNNormal";
+  src: url("./assets/grid/SourceHanSansCNNormal.eot");
+  src: url("./assets/grid/SourceHanSansCNNormal.eot?#iefix") format("embedded-opentype"),
+  url("./assets/grid/SourceHanSansCNNormal.woff") format("woff"),
+  url("./assets/grid/SourceHanSansCNNormal.ttf") format("truetype"),
+  url("./assets/grid/SourceHanSansCNNormal.svg#SourceHanSansCNNormal") format("svg");
 }
 </style>

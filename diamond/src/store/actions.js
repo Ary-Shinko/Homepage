@@ -46,7 +46,7 @@ export default {
     }
   },
   // AUTHORIZATION
-  authSignin ({ commit, dispatch }, signinData) {
+  authSignin ({ commit, dispatch }, { signinData, callback }) {
     commit('SHOW_LOADING')
     axios.post(serverAddress + '/signin/main', signinData, {
       timeout: 12000
@@ -61,6 +61,7 @@ export default {
           token: res.data.data.token,
           avatar: res.data.data.avatar
         })
+        callback()
       } else {
         // Signin failed
         commit('CACHE_AUTHORIZATION', {
@@ -151,6 +152,24 @@ export default {
         dispatch('postMessage', 'Network error.')
       } else {
         dispatch('postMessage', 'Unknown error.')
+      }
+    })
+  },
+  // SHADOWSOCKS
+  getSocks ({ state }, messageCallback) {
+    axios.get(serverAddress + '/shadowsocks/info', {
+      timeout: 12000,
+      headers: {
+        Authorization: state.authData.token
+      }
+    }).then(res => {
+      messageCallback(res.data.message)
+    })
+    .catch(err => {
+      if (err.request.status === 0) {
+        messageCallback('Nekwork error.')
+      } else {
+        messageCallback('Server error.')
       }
     })
   },

@@ -27,18 +27,6 @@ export default {
       shakeTimer: 0
     }
   },
-  watch: {
-    authToken (newToken) {
-      if (newToken !== '') {
-        this.$router.replace(this.$route.query.redirect)
-        window.localStorage.setItem('authAccount', this.authData.account)
-        window.localStorage.setItem('authName', this.authData.name)
-        window.localStorage.setItem('authPhone', this.authData.phone)
-        window.localStorage.setItem('authToken', this.authData.token)
-        window.localStorage.setItem('authAvatar', this.authData.avatar)
-      }
-    }
-  },
   computed: {
     ...mapState([
       'authData'
@@ -51,8 +39,18 @@ export default {
     checkInput () {
       if (this.account && this.password) {
         this.authSignin({
-          account: this.account,
-          password: this.password
+          signinData: {
+            account: this.account,
+            password: this.password
+          },
+          callback: () => {
+            window.localStorage.setItem('authAccount', this.authData.account)
+            window.localStorage.setItem('authName', this.authData.name)
+            window.localStorage.setItem('authPhone', this.authData.phone)
+            window.localStorage.setItem('authToken', this.authData.token)
+            window.localStorage.setItem('authAvatar', this.authData.avatar)
+            this.$router.replace(this.$route.query.redirect)
+          }
         })
       } else {
         this.shakeWindow()
