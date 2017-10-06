@@ -39,7 +39,6 @@ function getVcode (phone) {
 
 function authenticate (account, password, ip, onValid, onInvalid) {
   db.findData({ account }, 'users', result => {
-    console.log(cryptPassword(account + password))
     if (result.length !== 0) {
       if (result[0]['account'] === account && result[0]['password'] === cryptPassword(account + password)) {
         onValid(result[0])
