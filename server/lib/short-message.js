@@ -8,7 +8,6 @@ let smsClient = new SMSClient({ accessKeyId, secretAccessKey })
 module.exports = {
   sendSMS (phone=null, vcode=null, onSucceeded, onFailed) {
     if (phone.toString().match(/^1\d{10}$/)) {
-      // onSucceeded()
       smsClient.sendSMS({
         PhoneNumbers: phone,
         SignName: 'Ary实验室',

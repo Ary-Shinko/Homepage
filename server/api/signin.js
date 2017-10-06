@@ -1,3 +1,4 @@
+const crypto = require('crypto')
 const jwt = require('../lib/json-web-token')
 const sms = require('../lib/short-message')
 const db = require('../lib/database-control')
@@ -5,6 +6,11 @@ const log = require('../bin/log')
 
 let vcodeStack = {}
 let tokenVersionStack = {}
+
+function cryptPassword (password) {
+  let md5 = crypto.createHash('md5')
+  return md5.update(password).digest('hex')
+}
 
 function setTokenVersion (account, tokenVersion) {
   db.updateData({ account }, { tokenVersion }, 'users')
@@ -33,8 +39,9 @@ function getVcode (phone) {
 
 function authenticate (account, password, ip, onValid, onInvalid) {
   db.findData({ account }, 'users', result => {
+    console.log(cryptPassword(account + password))
     if (result.length !== 0) {
-      if (result[0]['account'] === account && result[0]['password'] === password) {
+      if (result[0]['account'] === account && result[0]['password'] === cryptPassword(account + password)) {
         onValid(result[0])
       } else {
         log('SIGN-IN', 'yellow', `Wrong password [${account}]`, ip)  
@@ -154,7 +161,7 @@ module.exports = {
             if (passwordFlag) {
               let data = {
                 account,
-                password,
+                password: cryptPassword(account + password),
                 name,
                 phone,
                 avatar: '',
