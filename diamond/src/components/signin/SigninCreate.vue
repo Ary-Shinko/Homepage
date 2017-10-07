@@ -86,10 +86,7 @@ export default {
       }
     },
     getStart () {
-      this.authSignin({
-        account: this.account,
-        password: this.password
-      })
+      this.$emit('navigate', 'SigninMain')
     },
     ...mapActions([
       'authCreateAccount',
