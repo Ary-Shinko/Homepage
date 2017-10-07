@@ -19,7 +19,7 @@ To preview please visit [https://arylab.me](https://arylab.me).
 * A low-poly simcity game(coming soon)
 
 ### Contact me:
-* ary@arylab.me (job hunting)
+* ary@arylab.me (job hunting now)
 
 ### Screenshots:
 ![image](https://github.com/Winterwrath/Diamond/raw/dev/1.png)
