@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <global-loading></global-loading>
     <transition name="fold">
       <router-view></router-view>
     </transition>
@@ -9,12 +10,14 @@
 </template>
 
 <script>
+import GlobalLoading from './components/GlobalLoading.vue'
 import MessageTip from './components/MessageTip.vue'
 import Loading from './components/Loading.vue'
 
 export default {
   name: 'app',
   components: {
+    GlobalLoading,
     MessageTip,
     Loading
   },
