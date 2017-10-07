@@ -1,7 +1,8 @@
-##Diamond
+## Diamond
 
 To preview please visit [https://arylab.me](https://arylab.me).
-###Features:
+
+### Features:
 * SPA depend on Vue.js + Express.js
 * Authentication system 
 * Article management system
@@ -17,10 +18,10 @@ To preview please visit [https://arylab.me](https://arylab.me).
 * A tarot game(coming soon)
 * A low-poly simcity game(coming soon)
 
-###Contact me:
+### Contact me:
 * ary@arylab.me
 
-###Screenshots:
+### Screenshots:
 ![image](https://github.com/Winterwrath/Diamond/raw/dev/1.png)
 ![image](https://github.com/Winterwrath/Diamond/raw/dev/2.png)
 ![image](https://github.com/Winterwrath/Diamond/raw/dev/3.png)
