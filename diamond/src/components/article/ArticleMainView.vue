@@ -88,6 +88,12 @@ export default {
     overflow: auto;
     background: #ddd;
   }
+  img {
+    max-width: 100%;
+  }
+  video {
+    max-width: 100%;
+  }
 }
 
 .article-main-list {
