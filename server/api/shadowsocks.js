@@ -14,7 +14,7 @@ module.exports = {
             log('SHADOWS', 'yellow', `Token low version. [${decoded.account}]`, req.ip)
             res.json({
               status: false,
-              message: `Token expired.`,
+              message: `Session expired.`,
               time: Date.now()
             })
           } else {

@@ -167,7 +167,7 @@ export default {
     })
     .catch(err => {
       if (err.request.status === 0) {
-        messageCallback('Nekwork error.')
+        messageCallback('Network error.')
       } else {
         messageCallback('Server error.')
       }
