@@ -9,24 +9,24 @@ Vue.use(Vuex)
 const state = {
   articleData: {
     blog1: {
-      title: 'Build an authentication system',
-      misc: 'Ary 2017/08/20 Authentication / JWT / Vue-router / Backend'
+      title: 'The way to shuffle an array',
+      misc: 'Ary 2017/10/18 Shuffle / Array / Javascript / Fisher-Yates'
     },
     blog2: {
-      title: 'Guide for using SMS(Short Message Service) API',
-      misc: 'Ary 2017/08/30 Mobile / SMS / Node.js / Backend'
+      title: 'CSS: background-position',
+      misc: 'Ary 2017/10/12 CSS / Background / Frontend / Position'
     },
     blog3: {
-      title: 'CSS3: background',
-      misc: 'Ary 2017/09/06 CSS3 / Background / Frontend'
+      title: 'Colorize.js: colorful console.log',
+      misc: 'Ary 2017/09/24 Lib / Node.js / Console / Backend'
     },
     blog4: {
       title: 'Migration to HTTPS',
       misc: 'Ary 2017/09/19 HTTPS /Security / Backend'
     },
     blog5: {
-      title: 'Colorize.js: colorful console.log',
-      misc: 'Ary 2017/09/24 Lib / Node.js / Console / Backend'
+      title: 'Guide for using SMS(Short Message Service) API',
+      misc: 'Ary 2017/08/30 Mobile / SMS / Node.js / Backend'
     },
     algorithm1: {
       title: 'Disjoint-set & Ackermann function',
@@ -49,9 +49,9 @@ const state = {
       misc: 'Ary 20XX/XX/XX Algorithm / KMP / String'
     },
     app1: {
-      title: 'Werewolves',
-      misc: 'Ary 2017/08/13 Werewolves / Multiplayer Game / Social',
-      url: '/werewolves'
+      title: 'Shadowsocks proxy',
+      misc: 'Ary 2017/10/03 Shadowsocks / Network / Proxy',
+      url: '/shadowsocks'
     },
     app2: {
       title: 'Solitaire "Texas Hold\'em Poker"',
@@ -59,9 +59,9 @@ const state = {
       url: '/solitaire'
     },
     app3: {
-      title: 'Shadowsocks proxy',
-      misc: 'Ary 2017/10/03 Shadowsocks / Network / Proxy',
-      url: '/shadowsocks'
+      title: 'Werewolves',
+      misc: 'Ary 2017/08/13 Werewolves / Multiplayer Game / Social',
+      url: '/werewolves'
     },
     app4: {
       title: 'Tarot, divination and fortune telling',
@@ -86,8 +86,8 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
-  navigationLastModified: '2017/10/03',
-  navigationVersion: 'v0.3.0 alpha',
+  navigationLastModified: '2017/10/20',
+  navigationVersion: 'v0.3.1 alpha',
   navigationBackground: '',
   authData: {
     account: '',

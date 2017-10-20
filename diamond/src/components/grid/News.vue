@@ -1,9 +1,9 @@
 <template>
   <div class="grid-news-content">
     <p class="grid-news-1">Last Modified: {{ navigationLastModified }}</p>
-    <router-link class="grid-news-2" :to="'/signin'">08/17 Have your own account now!</router-link>
-    <router-link class="grid-news-3" :to="'/solitaire'">09/05 Play Solitaire to be a billionaire!</router-link>
-    <router-link class="grid-news-4" :to="'/shadowsocks'">10/03 Try our amazing shadowsocks service!</router-link>
+    <router-link class="grid-news-2" :to="'/shadowsocks'">10/03 App - Try our amazing shadowsocks service!</router-link>
+    <router-link class="grid-news-3" :to="'/article/blog/CSS:%20background-position'">10/12 Blog - CSS: background-position</router-link>
+    <router-link class="grid-news-4" :to="'/article/blog/The%20way%20to%20shuffle%20an%20array'">10/18 Blog - The way to shuffle an array</router-link>
   </div>
 </template>
 

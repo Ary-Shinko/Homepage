@@ -33,6 +33,9 @@ export default {
         joined = joined.replace(/ \/ $/, '')
       }
       return joined
+    },
+    routeFullPath () {
+      return this.$route.fullPath
     }
   },
   methods: {
@@ -45,6 +48,11 @@ export default {
           articleWrapper.scrollTop = parseInt(value * scrollBottom)
         }, index * 10)
       })
+    }
+  },
+  watch: {
+    routeFullPath () {
+      document.getElementById('articleWrapper').scrollTop = 0
     }
   }
 }
