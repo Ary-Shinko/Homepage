@@ -4,7 +4,7 @@ const log = require('../bin/log')
 
 module.exports = {
   getInfo (req, res) {
-    let token = req.headers['authorization']
+    let token = req.headers['authorization'] || req.headers['Authorization']
     jwt.verifyToken(token)
     .then(decoded => {
       return new Promise((resolve, reject) => {

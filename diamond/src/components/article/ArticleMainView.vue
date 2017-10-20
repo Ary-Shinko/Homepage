@@ -83,7 +83,7 @@ export default {
     background: #ddd;
   }
   code {
-    padding: .1rem .5rem;
+    padding: 0 .5rem;
     font-size: 0.8rem;
     overflow: auto;
     background: #ddd;

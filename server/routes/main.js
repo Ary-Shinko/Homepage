@@ -31,14 +31,14 @@ module.exports = function (app) {
   app.post('/signin/create/requestvcode', signin.signinSendVcode)
   app.post('/signin/create', signin.signinCreate)
   // Article API
-  app.get('/article/blog/*', article.getArticle)
-  app.get('/article/algorithm/*', article.getArticle)
-  app.get('/article/blog', article.getArticleList)
-  app.get('/article/algorithm', article.getArticleList)
-  app.get('/article/app', article.getAppList)
+  app.post('/article/blog/*', article.getArticle)
+  app.post('/article/algorithm/*', article.getArticle)
+  app.post('/article/blog', article.getArticleList)
+  app.post('/article/algorithm', article.getArticleList)
+  app.post('/article/app', article.getAppList)
   app.post('/article/submit', article.submitArticle)
   // Shadowsocks API
-  app.get('/shadowsocks/info', shadowsocks.getInfo)
+  app.post('/shadowsocks/info', shadowsocks.getInfo)
   // Redirect for SPA index
   app.get('*', function (req, res, next) {
     req.url = '/index.html'

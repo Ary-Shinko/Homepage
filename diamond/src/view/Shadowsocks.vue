@@ -107,8 +107,10 @@ export default {
     }
   },
   mounted () {
-    this.getSocks(message => {
-      this.portPassword = message
+    this.$nextTick(() => {
+      this.getSocks(message => {
+        this.portPassword = message
+      })
     })
   }
 }

@@ -157,7 +157,7 @@ export default {
   },
   // SHADOWSOCKS
   getSocks ({ state }, messageCallback) {
-    axios.get(serverAddress + '/shadowsocks/info', {
+    axios.post(serverAddress + '/shadowsocks/info', null, {
       timeout: 12000,
       headers: {
         Authorization: state.authData.token
@@ -179,7 +179,7 @@ export default {
     globalTimer++
     let ajaxTimer = globalTimer
     commit('CACHE_ARTICLE_CONTENT', placeholder)
-    axios.get(serverAddress + requestPath, {
+    axios.post(serverAddress + requestPath, {
       timeout: 12000
     }).then(res => {
       if (globalTimer === ajaxTimer) {
@@ -201,7 +201,7 @@ export default {
     .catch(err => {
       if (globalTimer === ajaxTimer) {
         if (err.request.status === 0) {
-          commit('CACHE_ARTICLE_CONTENT', 'Nekwork error.')
+          commit('CACHE_ARTICLE_CONTENT', 'Network error.')
         } else {
           commit('CACHE_ARTICLE_CONTENT', 'Loading failed.')
         }
