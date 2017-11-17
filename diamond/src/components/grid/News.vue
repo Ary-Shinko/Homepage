@@ -1,9 +1,9 @@
 <template>
   <div class="grid-news-content">
     <p class="grid-news-1">Last Modified: {{ navigationLastModified }}</p>
-    <router-link class="grid-news-2" :to="'/shadowsocks'">10/03 App - Try our amazing shadowsocks service!</router-link>
-    <router-link class="grid-news-3" :to="'/article/blog/CSS:%20background-position'">10/12 Blog - CSS: background-position</router-link>
-    <router-link class="grid-news-4" :to="'/article/blog/The%20way%20to%20shuffle%20an%20array'">10/18 Blog - The way to shuffle an array</router-link>
+    <router-link class="grid-news-2" :to="navigationNews.news1.url">{{ navigationNews.news1.title }}</router-link>
+    <router-link class="grid-news-3" :to="navigationNews.news2.url">{{ navigationNews.news2.title }}</router-link>
+    <router-link class="grid-news-4" :to="navigationNews.news3.url">{{ navigationNews.news3.title }}</router-link>
   </div>
 </template>
 
@@ -13,7 +13,8 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState([
-      'navigationLastModified'
+      'navigationLastModified',
+      'navigationNews'
     ])
   }
 }

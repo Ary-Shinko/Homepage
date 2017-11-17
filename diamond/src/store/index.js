@@ -9,28 +9,28 @@ Vue.use(Vuex)
 const state = {
   articleData: {
     blog1: {
+      title: 'CSS: Typography II',
+      misc: 'Ary 2017/11/17 CSS / Typography / IFC / Layout'
+    },
+    blog2: {
+      title: 'CSS: Typography I',
+      misc: 'Ary 2017/11/09 CSS / Typography / Font / Layout'
+    },
+    blog3: {
+      title: 'CSS: the reason for order "link-visited-hover-active"',
+      misc: 'Ary 2017/10/29 CSS / Priority / LVHA'
+    },
+    blog4: {
       title: 'The way to shuffle an array',
       misc: 'Ary 2017/10/18 Shuffle / Array / Javascript / Fisher-Yates'
     },
-    blog2: {
-      title: 'CSS: background-position',
-      misc: 'Ary 2017/10/12 CSS / Background / Frontend / Position'
-    },
-    blog3: {
-      title: 'Colorize.js: colorful console.log',
-      misc: 'Ary 2017/09/24 Lib / Node.js / Console / Backend'
-    },
-    blog4: {
-      title: 'Migration to HTTPS',
-      misc: 'Ary 2017/09/19 HTTPS /Security / Backend'
-    },
     blog5: {
-      title: 'Guide for using SMS(Short Message Service) API',
-      misc: 'Ary 2017/08/30 Mobile / SMS / Node.js / Backend'
+      title: 'CSS: background-position',
+      misc: 'Ary 2017/10/12 CSS / Background / Frontend / Sprites'
     },
     algorithm1: {
-      title: 'Disjoint-set & Ackermann function',
-      misc: 'Ary 20XX/XX/XX Disjoint-set / Data Structure / Ackermann Function'
+      title: 'Algorithm: AKS(Agrawal Kayal Saxena)',
+      misc: 'Ary 20XX/XX/XX Algorithm / AKS / Primality Test'
     },
     algorithm2: {
       title: 'From Markov chain to Bayesian network',
@@ -49,29 +49,29 @@ const state = {
       misc: 'Ary 20XX/XX/XX Algorithm / KMP / String'
     },
     app1: {
+      title: 'Tapcity, to be a mayor as city manager',
+      misc: 'Ary 20XX/XX/XX Tapcity / Game / Lowpoly',
+      url: '/tapcity'
+    },
+    app2: {
+      title: 'Tarot, divination and fortune telling',
+      misc: 'Ary 2017/10/21 Tarot / Game / Divination',
+      url: '/tarot'
+    },
+    app3: {
       title: 'Shadowsocks proxy',
       misc: 'Ary 2017/10/03 Shadowsocks / Network / Proxy',
       url: '/shadowsocks'
     },
-    app2: {
+    app4: {
       title: 'Solitaire "Texas Hold\'em Poker"',
       misc: 'Ary 2017/09/05 Solitaire / Game / Poker',
       url: '/solitaire'
     },
-    app3: {
+    app5: {
       title: 'Werewolves',
       misc: 'Ary 2017/08/13 Werewolves / Multiplayer Game / Social',
       url: '/werewolves'
-    },
-    app4: {
-      title: 'Tarot, divination and fortune telling',
-      misc: 'Ary 20XX/XX/XX Tarot / Game / Divination',
-      url: '/tarot'
-    },
-    app5: {
-      title: 'Tapcity, to be a mayor as city manager',
-      misc: 'Ary 20XX/XX/XX Tapcity / Game / Lowpoly',
-      url: '/tapcity'
     }
   },
   articleCurrent: {
@@ -86,8 +86,22 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
-  navigationLastModified: '2017/10/20',
-  navigationVersion: 'v0.3.1 alpha',
+  navigationLastModified: '2017/11/17',
+  navigationVersion: 'v0.3.3 alpha',
+  navigationNews: {
+    news1: {
+      title: '10/29 Blog - "link-visited-hover-active"',
+      url: '/article/blog/CSS:%20the%20reason%20for%20order%20%22link-visited-hover-active%22'
+    },
+    news2: {
+      title: '11/09 Blog - CSS: Typography I',
+      url: '/article/blog/CSS:%20Typography%20I'
+    },
+    news3: {
+      title: '11/17 Blog - CSS: Typography II',
+      url: '/article/blog/CSS:%20Typography%20II'
+    }
+  },
   navigationBackground: '',
   authData: {
     account: '',

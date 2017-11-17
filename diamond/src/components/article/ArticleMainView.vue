@@ -80,12 +80,14 @@ export default {
     padding: 1rem;
     font-size: 0.8rem;
     overflow: auto;
+    font-family: "Roboto Mono", "SourceHanSansCNNormal", monospace;
     background: #ddd;
   }
   code {
     padding: 0 .5rem;
     font-size: 0.8rem;
     overflow: auto;
+    font-family: "Roboto Mono", "SourceHanSansCNNormal", monospace;
     background: #ddd;
   }
   img {
@@ -93,6 +95,15 @@ export default {
   }
   video {
     max-width: 100%;
+  }
+  a {
+    font-size: .9rem;
+    word-break: break-all;
+  }
+  blockquote {
+    margin: 1rem;
+    border: 2px solid #ccc;
+    padding: 1rem;
   }
 }
 

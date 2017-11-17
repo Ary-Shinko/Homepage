@@ -7,7 +7,8 @@ import Article from '../view/Article.vue'
 import Werewolves from '../view/Werewolves.vue'
 import Solitaire from '../view/Solitaire.vue'
 import Shadowsocks from '../view/Shadowsocks.vue'
-// import Tarot from '../view/Tarot.vue'
+import Tarot from '../view/Tarot.vue'
+import Resume from '../view/Resume.vue'
 // import Tapcity from '../view/Tapcity.vue'
 
 Vue.use(VueRouter)
@@ -56,10 +57,10 @@ export default new VueRouter({
       requireAuth: true
     }
   },
-  // {
-  //   path: '/tarot',
-  //   component: Tarot
-  // },
+  {
+    path: '/tarot',
+    component: Tarot
+  },
   // {
   //   path: '/tapcity',
   //   component: Tapcity,
@@ -67,6 +68,10 @@ export default new VueRouter({
   //     requireAuth: true
   //   }
   // },
+  {
+    path: '/resume',
+    component: Resume
+  },
   {
     path: '/*',
     component: NotFound

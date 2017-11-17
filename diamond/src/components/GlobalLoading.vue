@@ -8,16 +8,19 @@
 export default {
   data () {
     return {
-      globalLoadingShow: true
+      globalLoadingShow: false
     }
   },
   mounted () {
-    window.addEventListener('load', () => {
-      document.getElementById('globalLoadingFocus').classList.add('global-loading-loaded')
-      setTimeout(() => {
-        this.globalLoadingShow = false
-      }, 4000)
-    }, false)
+    if (window.location.href.match(/^https:\/\/arylab.me\/$/)) {
+      this.globalLoadingShow = true
+      window.addEventListener('load', () => {
+        document.getElementById('globalLoadingFocus').classList.add('global-loading-loaded')
+        setTimeout(() => {
+          this.globalLoadingShow = false
+        }, 4000)
+      }, false)
+    }
   }
 }
 </script>

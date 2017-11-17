@@ -7,6 +7,7 @@
     <before-leave :nextHandle="nextHandle"></before-leave>
     <user-tag></user-tag>
     <header-title v-fade main-color="#111" sub-color="#111">WEREWOLVES</header-title>
+    TESTING
   </div>
 </template>
 

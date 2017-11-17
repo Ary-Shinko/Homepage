@@ -101,7 +101,7 @@ module.exports = {
           {title: 'Werewolves', type: 'App', author: 'Ary', date:'2017/08/13', license:'/werewolves', keywords: ['Werewolves', 'Multiplayer Game', 'Social']},
           {title: 'Solitaire "Texas Hold\'em Poker"', type: 'App', author: 'Ary', date:'2017/09/05', license:'/solitaire', keywords: ['Solitaire', 'Game', 'Poker']},
           {title: 'Shadowsocks proxy', type: 'App', author: 'Ary', date:'2017/10/02', license:'/shadowsocks', keywords: ['Shadowsocks', 'Network', 'Proxy']},
-          {title: 'Tarot, divination and fortune telling', type: 'App', author: 'Ary', date:'20XX/XX/XX', license:'/tarot', keywords: ['Tarot', 'Game', 'Divination']},
+          {title: 'Tarot, divination and fortune telling', type: 'App', author: 'Ary', date:'2017/10/21', license:'/tarot', keywords: ['Tarot', 'Game', 'Divination']},
           {title: 'Tapcity, to be a mayor as city manager', type: 'App', author: 'Ary', date:'20XX/XX/XX', license:'/tapcity', keywords: ['Tapcity', 'Game', 'Lowpoly']}
         ].reverse(),
         author: '',
