@@ -6,7 +6,7 @@
     <router-link to="/article/blog">Blog</router-link>
     <router-link to="/article/algorithm">Algorithm</router-link>
     <router-link to="/article/app">APP</router-link>
-    <a @click="submitShow = true">Submit...</a>
+    <a class="article-top-navigation-submit" @click="submitShow = true">Submit...</a>
     <transition name="fade">
       <article-submit v-if="submitShow" :status="submitShow" @close="submitShow = false"></article-submit>   
     </transition>
@@ -112,6 +112,28 @@ export default {
   }
   100% {
     border-bottom: 3px solid #213040;
+  }
+}
+
+@media all and (orientation: portrait) {
+  .article-top-logo {
+    margin-left: 0;
+  }
+
+  .article-top-navigation {
+    padding-left: 0;
+    margin-left: -2rem;
+    width: auto;
+    a {
+      font-size: .8rem;
+      padding-right: 1rem;
+      &.user-tag-name {
+        display: none;
+      }
+    }
+    .article-top-navigation-submit {
+      display: none;
+    }
   }
 }
 </style>

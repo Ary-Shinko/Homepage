@@ -22,4 +22,11 @@ export default {
   padding-top: 6rem;
   padding-bottom: 3rem;
 }
+
+@media all and (orientation: portrait) {
+  .article-main {
+    padding-top: 3rem;
+    padding-bottom: 0;
+  }
+}
 </style>

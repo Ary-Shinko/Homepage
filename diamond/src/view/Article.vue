@@ -73,4 +73,13 @@ export default {
   right: -18px;
   height: 100%;
 }
+
+@media all and (orientation: portrait) {
+  .article-wrapper {
+    padding-left: 0; 
+    padding-right: 0; 
+    right: auto;
+    width: 100%;
+  }
+}
 </style>

@@ -60,4 +60,12 @@ export default {
     left: -5.5 * 32rem;
   }
 }
+
+@media all and (orientation: portrait) {
+  .article-top-logo {
+    margin-left: 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+}
 </style>

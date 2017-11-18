@@ -188,4 +188,12 @@ export default {
     background-position: ~'calc((100vw - 12rem) * 0.618) 0';
   }
 }
+
+@media all and (orientation: portrait) {
+  .article-main-view {
+    padding: 0rem;
+    width: 100%;
+    box-shadow: none;
+  }
+}
 </style>

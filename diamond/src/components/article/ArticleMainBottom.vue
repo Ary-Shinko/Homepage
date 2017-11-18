@@ -80,4 +80,11 @@ export default {
     }
   }
 }
+
+@media all and (orientation: portrait) {
+  .article-main-bottom {
+    padding: 1rem 0;
+    box-shadow: none;
+  }
+}
 </style>
