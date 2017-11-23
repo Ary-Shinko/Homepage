@@ -26,6 +26,7 @@ export default {
     margin: 5.6vh 0 0;
     font-size: 8vh;
     color: #fff;
+    text-shadow: 0 0 2px #aaa;
     span {
       margin-left: 1.4vh;
     }

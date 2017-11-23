@@ -1,11 +1,11 @@
 <template>
   <div class="resume">
     <!-- resume-background: 背景层 - 0 -->
-    <div class="resume-background" :style="{ marginTop: (scrollCurrent - 1) * -25 + 'vh' }"></div>
+    <div class="resume-background" ref="resumeBackground" :style="{ marginTop: (scrollCurrent - 1) * -25 + 'vh' }"></div>
     <!-- resume-misc: 漂浮物层 - 1 -->
-    <div class="resume-misc" :style="{ marginTop: (scrollCurrent - 1) * -75 + 'vh' }"></div>
+    <div class="resume-misc" ref="resumeMisc" :style="{ marginTop: (scrollCurrent - 1) * -75 + 'vh' }"></div>
     <!-- resume-mask: 近景层 - 2 -->
-    <div class="resume-mask" :style="{ marginTop: (scrollCurrent - 1) * -150 + 'vh' }"></div>
+    <div class="resume-mask" ref="resumeMask" :style="{ marginTop: (scrollCurrent - 1) * -150 + 'vh' }"></div>
     <!-- resume-content: 正文层 - 3 -->
     <div class="resume-content" ref="resumeContent" :style="{ top: (scrollCurrent - 1) * -200 + 'vh' }">
       <article class="resume-content-1">
@@ -50,7 +50,7 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
           </li>
           <li>
-            <h3>业务经验<span>响应式设计 / 前端性能优化 / 代码书写规范</span></h3>
+            <h3>业务经验<span>移动端兼容 / 性能优化 / 代码规范 / 熬夜</span></h3>
             <div><div style="width:45%"></div></div>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
           </li>
@@ -144,6 +144,25 @@
           </li>
         </ul>
       </article>
+      <article class="resume-content-intersection"></article>
+      <article class="resume-content-6">
+        <div></div>
+        <ul>
+          <li>张宇 Ary</li>
+          <li>中南大学 / 城市规划 / 2015</li>
+          <li>建筑设计经验两年 / 前端新人 / 基础牢固 / 创新</li>
+        </ul>
+      </article>
+      <article class="resume-content-intersection"></article>
+      <article class="resume-content-7">
+        <div></div>
+        <ul>
+          <li>电子邮箱：ary@arylab.me</li>
+          <li>联系电话：+86 13187314217</li>
+          <li @click="$router.push('/article/blog')" @touchend="touchRedirectUrl('https://arylab.me/article/blog', $event)" title="点击进入我的技术博客 https://arylab.me/article/blog">技术博客：https://arylab.me/article/blog</li>
+          <li @click="redirectUrl('https://github.com/Winterwrath/Diamond')" @touchend="touchRedirectUrl('https://github.com/Winterwrath/Diamond', $event)" title="点击查看本项目源码 https://github.com/Winterwrath/Diamond">项目源码：https://github.com/Winterwrath/Diamond</li>
+        </ul>
+      </article>
     </div>
     <!-- resume-fixed: 固定内容层 - 4 -->
     <div class="resume-fixed">
@@ -151,11 +170,11 @@
         <li></li>
         <li @click="$router.push('/')" title="点击进入我的个人主页 https://arylab.me"></li>
         <li></li>
-        <li @click="scrollCurrent = 1" @touchstart="scrollCurrent = 1">能力</li>
+        <li @click="scrollCurrent = 1" @touchstart="scrollCurrent = 1">技术水平</li>
         <li></li>
-        <li>资料</li>
+        <li @click="scrollCurrent = 6" @touchstart="scrollCurrent = 6">个人资料</li>
         <li></li>
-        <li>联系</li>
+        <li @click="scrollCurrent = 7" @touchstart="scrollCurrent = 7">联系方式</li>
         <li></li>
         <li>需要打印？</li>
         <li></li>
@@ -193,7 +212,7 @@ export default {
       return this.scrollCurrent === 1 ? 'resume-fixed-arrow-hide' : ''
     },
     isScrollArrowDownShow () {
-      return this.scrollCurrent === 5 ? 'resume-fixed-arrow-hide' : ''
+      return this.scrollCurrent === 7 ? 'resume-fixed-arrow-hide' : ''
     }
   },
   methods: {
@@ -216,7 +235,7 @@ export default {
       }
     },
     scrollThrottler (delta, timeout) {
-      if (this.scrollTimer === 0 && this.scrollCurrent + delta !== 0 && this.scrollCurrent + delta !== 6) {
+      if (this.scrollTimer === 0 && this.scrollCurrent + delta !== 0 && this.scrollCurrent + delta !== 8) {
         this.scrollExecutor(delta)
         this.scrollTimer = setTimeout(() => {
           this.scrollTimer = 0
@@ -276,6 +295,14 @@ export default {
       window.removeEventListener('mousemove', this.mousemoveListener, true)
       this.$refs.resumeContent.style.transition = 'all 2s ease'
       this.$refs.resumeContent.style.marginTop = 0
+    },
+    redirectUrl (url) {
+      window.location = url
+    },
+    touchRedirectUrl (url, e) {
+      if (Math.abs(e.changedTouches[0].screenY - this.ScreenY) < 10) {
+        window.location = url
+      }
     }
   },
   mounted () {
@@ -285,6 +312,9 @@ export default {
     window.addEventListener('touchend', this.touchendListener, true)
     window.addEventListener('mousedown', this.mousedownListener, true)
     window.addEventListener('mouseup', this.mouseupListener, true)
+    this.$refs.resumeBackground.style.backgroundPosition = `0 ${Math.floor(Math.random() * 250)}vh`
+    this.$refs.resumeMisc.style.backgroundPosition = `0 ${Math.floor(Math.random() * 500)}vh`
+    this.$refs.resumeMask.style.backgroundPosition = `0 ${Math.floor(Math.random() * 1000)}vh`
   },
   beforeDestroy () {
     window.removeEventListener('keyup', this.scrollKeyupListener, true)
@@ -304,6 +334,13 @@ export default {
   color: #333;
   cursor: default;
   user-select: none;
+  ul, h3, p {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
 }
 .clearfix::after {
   content: "";
@@ -313,20 +350,13 @@ export default {
   height: 0;
   font-size: 0;
 }
-ul, h3, p {
-  margin: 0;
-  padding: 0;
-}
-li {
-  list-style: none;
-}
 
 // resume-background: 背景层 - 0 **************************************
 .resume-background {
   position: absolute;
   z-index: 0;
   width: 100%;
-  height: 700vh;
+  height: 250vh;
   background: url(../assets/resume/x3.png) repeat scroll;
   background-size: 40%;
   transition: margin-top 3.5s ease;
@@ -342,7 +372,7 @@ li {
   position: absolute;
   z-index: 1;
   width: 100%;
-  height: 700vh;
+  height: 550vh;
   background: url(../assets/resume/x5.png) repeat scroll;
   background-size: 66.66%;
   transition: margin-top 3s ease;
@@ -358,7 +388,7 @@ li {
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 700vh;
+  height: 1000vh;
   background: url(../assets/resume/x7.png) repeat scroll;
   background-size: 100%;
   transition: margin-top 2.5s ease;
@@ -521,6 +551,98 @@ li {
             max-height: 4em;
           }
         }
+      }
+    }
+  }
+}
+.resume-content-6 {
+  justify-content: center;
+  &>div {
+    flex: 0 0 auto;
+    width: 7em;
+    height: 7em;
+    background: url(../assets/resume/avatar.png);
+    background-size: contain;
+  }
+  ul {
+    flex: 0 0 auto;
+    margin-left: 2em;
+    height: 8em;
+    li {
+      width: auto;
+      height: 2em;
+      line-height: 2em;
+      font-size: 1em;
+      font-weight: 700;
+      &:nth-child(3), &:nth-child(4) {
+        cursor: pointer;
+      }
+      &:first-child {
+        line-height: 2em;
+        font-size: 2em;
+      }
+    }
+  }
+}
+@media screen and (orientation:portrait) {
+  .resume-content-6 {
+    flex-flow: column wrap;
+    justify-content: center;
+    ul {
+      margin: 2em 0 0;
+      width: 100%;
+      li {
+        width: 100%;
+        height: 1.5em;
+        line-height: 1.5em;
+        font-size: .6em;
+        text-align: center;
+        &:first-child {
+          line-height: 1em;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+.resume-content-7 {
+  justify-content: center;
+  &>div {
+    flex: 0 0 auto;
+    width: 7em;
+    height: 7em;
+    background: #fff url(../assets/resume/wechat.png);
+    background-size: contain;
+  }
+  ul {
+    flex: 0 0 auto;
+    margin-left: 2em;
+    height: 8em;
+    li {
+      width: auto;
+      height: 2em;
+      line-height: 2em;
+      font-size: 1em;
+      font-weight: 700;
+      &:nth-child(3), &:nth-child(4) {
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (orientation:portrait) {
+  .resume-content-7 {
+    flex-flow: column wrap;
+    justify-content: center;
+    ul {
+      margin: 2em 0 0;
+      width: 100%;
+      li {
+        width: 100%;
+        height: 1.5em;
+        line-height: 1.5em;
+        font-size: .6em;
+        text-align: center;
       }
     }
   }
@@ -693,7 +815,7 @@ li {
     font-size: .6em;
     text-align: center;
   }
-  .resume-fixed-nav-1 {
+  .resume-fixed-nav-1, .resume-fixed-nav-6, .resume-fixed-nav-7 {
     bottom: -6em;
   }
 }

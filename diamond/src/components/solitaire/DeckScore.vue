@@ -50,7 +50,8 @@ export default {
   text-align: right;
   line-height: 3.4vh;
   font-weight: lighter;
-  color: #6fa;
+  color: #fff;
+  text-shadow: 0 0 2px #aaa;
   transition: margin .2s ease;
   cursor: default;
   p {

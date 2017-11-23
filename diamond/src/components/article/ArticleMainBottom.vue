@@ -83,7 +83,8 @@ export default {
 
 @media all and (orientation: portrait) {
   .article-main-bottom {
-    padding: 1rem 0;
+    margin-top: 5px;
+    padding: 5px 5px;
     box-shadow: none;
   }
 }

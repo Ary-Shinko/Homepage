@@ -63,6 +63,6 @@ export default {
 .solitaire {
   width: 100vw;
   height: 100vh;
-  background: #3a6;
+  background: #22deab;
 }
 </style>

@@ -30,7 +30,8 @@ export default {
   position: absolute;
   right: 5%;
   bottom: 10.4%;
-  color: #6fa;
+  color: #fff;
+  text-shadow: 0 0 2px #aaa;
   font-size: 6vh;
   font-weight: bolder;
   transition: margin .2s ease, color .5s ease;

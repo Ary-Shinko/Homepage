@@ -191,7 +191,7 @@ export default {
 
 @media all and (orientation: portrait) {
   .article-main-view {
-    padding: 0rem;
+    padding: 5px;
     width: 100%;
     box-shadow: none;
   }

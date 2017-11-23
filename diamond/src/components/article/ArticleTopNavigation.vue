@@ -122,7 +122,7 @@ export default {
 
   .article-top-navigation {
     padding-left: 0;
-    margin-left: -2rem;
+    margin-left: 5px;
     width: auto;
     a {
       font-size: .8rem;
