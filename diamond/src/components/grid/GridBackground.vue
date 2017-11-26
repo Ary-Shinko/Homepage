@@ -15,7 +15,8 @@ export default {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: url(../../../static/bg1.jpg);
+  background: url(../../assets/resume/x3.png), radial-gradient(#ccc, #000);
+  background-size: contain;
   animation: random-blink 2.5s steps(5) infinite;
 }
 </style>

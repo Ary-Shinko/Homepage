@@ -17,8 +17,9 @@
           <li>兼通设计</li>
           <li>×</li>
           <li>紧抓基础</li>
-          <li>追求卓越，通过艺术性的角度思考代码</li>
+          <li>创新型前端工程师，可兼任简单的产品、设计、后端业务</li>
         </ul>
+        <div class="resume-content-1-hint" :class="startScreenHint">向下翻页，查看更多...</div>
       </article>
       <article class="resume-content-intersection"></article>
       <article class="resume-content-2">
@@ -146,21 +147,53 @@
       </article>
       <article class="resume-content-intersection"></article>
       <article class="resume-content-6">
-        <div></div>
-        <ul>
-          <li>张宇 Ary</li>
-          <li>中南大学 / 城市规划 / 2015</li>
-          <li>建筑设计经验两年 / 前端新人 / 基础牢固 / 创新</li>
-        </ul>
+        <div class="resume-content-6-presentation">
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-text"></div>
+          </div>
+        </div>
+        <div class="resume-content-6-personal" :class="personalAnimationStart">
+          <div class="resume-content-image"></div>
+          <ul>
+            <li>张宇 Ary</li>
+            <li>中南大学 / 本科 / 城市规划 / 2015年毕业</li>
+            <li>两年设计行业经验 / 前端新人 / 熬夜达人 / 追求像素级精准</li>
+          </ul>
+        </div>
       </article>
       <article class="resume-content-intersection"></article>
       <article class="resume-content-7">
-        <div></div>
+        <div class="resume-content-image"></div>
         <ul>
           <li>电子邮箱：ary@arylab.me</li>
           <li>联系电话：+86 13187314217</li>
-          <li @click="$router.push('/article/blog')" @touchend="touchRedirectUrl('https://arylab.me/article/blog', $event)" title="点击进入我的技术博客 https://arylab.me/article/blog">技术博客：https://arylab.me/article/blog</li>
-          <li @click="redirectUrl('https://github.com/Winterwrath/Diamond')" @touchend="touchRedirectUrl('https://github.com/Winterwrath/Diamond', $event)" title="点击查看本项目源码 https://github.com/Winterwrath/Diamond">项目源码：https://github.com/Winterwrath/Diamond</li>
+          <li @click="$router.push('/article/blog')" @touchend="touchRedirectUrl('https://arylab.me/article/blog', $event)" title="点击进入我的技术博客 https://arylab.me/article/blog">技术博客：<span>https://arylab.me/article/blog</span></li>
+          <li @click="$router.push('/')" @touchend="touchRedirectUrl('https://arylab.me', $event)" title="点击进入我的个人主页 https://arylab.me">个人主页：<span>https://arylab.me</span></li>
         </ul>
       </article>
     </div>
@@ -170,9 +203,9 @@
         <li></li>
         <li @click="$router.push('/')" title="点击进入我的个人主页 https://arylab.me"></li>
         <li></li>
-        <li @click="scrollCurrent = 1" @touchstart="scrollCurrent = 1">技术水平</li>
+        <li @click="scrollCurrent = 1" @touchstart="scrollCurrent = 1">技术能力</li>
         <li></li>
-        <li @click="scrollCurrent = 6" @touchstart="scrollCurrent = 6">个人资料</li>
+        <li @click="scrollCurrent = 6" @touchstart="scrollCurrent = 6">作品展示</li>
         <li></li>
         <li @click="scrollCurrent = 7" @touchstart="scrollCurrent = 7">联系方式</li>
         <li></li>
@@ -201,7 +234,9 @@ export default {
     return {
       scrollCurrent: 1,
       scrollTimer: 0,
-      ScreenY: 0
+      ScreenY: 0,
+      personalAnimationStart: '',
+      startScreenHint: ''
     }
   },
   computed: {
@@ -302,6 +337,16 @@ export default {
     touchRedirectUrl (url, e) {
       if (Math.abs(e.changedTouches[0].screenY - this.ScreenY) < 10) {
         window.location = url
+      }
+    }
+  },
+  watch: {
+    scrollCurrent (val, oldval) {
+      if (val === 6) {
+        this.personalAnimationStart = 'resume-content-6-personal-now'
+      }
+      if (oldval === 1) {
+        this.startScreenHint = 'resume-content-1-hint-hide'
       }
     }
   },
@@ -441,6 +486,19 @@ export default {
     }
   }
 }
+.resume-content-1-hint {
+  position: absolute;
+  top: 90vh;
+  left: 50%;
+  margin-left: -8em;
+  width: 16em;
+  font-size: .8em;
+  text-align: center;
+  animation: text-flicker 1s ease infinite;
+}
+.resume-content-1-hint-hide {
+  display: none;
+}
 @media screen and (orientation:portrait) {
   .resume-content-1 {
     ul {
@@ -555,18 +613,52 @@ export default {
     }
   }
 }
-.resume-content-6 {
+article.resume-content-6 {
+  display: block;
+}
+.resume-content-6-presentation {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 1;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-left: -55%;
+  height: 100vh;
+  width: 500%;
+  opacity: 1;
+  background: rgba(255,220,220,.3);
+  transition: all 1s ease;
+  .resume-content-6-detail {
+    float: left;
+    height: 100%;
+    width: 14%;
+    background: #000;
+    .resume-content-6-background {
+
+    }
+    .resume-content-6-text {
+
+    }
+  }
+}
+.resume-content-6-personal {
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 0;
+  height: 100%;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   &>div {
     flex: 0 0 auto;
-    width: 7em;
-    height: 7em;
+    width: 7.5em;
+    height: 7.5em;
     background: url(../assets/resume/avatar.png);
     background-size: contain;
   }
   ul {
     flex: 0 0 auto;
-    margin-left: 2em;
+    margin-left: 1em;
     height: 8em;
     li {
       width: auto;
@@ -574,9 +666,6 @@ export default {
       line-height: 2em;
       font-size: 1em;
       font-weight: 700;
-      &:nth-child(3), &:nth-child(4) {
-        cursor: pointer;
-      }
       &:first-child {
         line-height: 2em;
         font-size: 2em;
@@ -584,12 +673,26 @@ export default {
     }
   }
 }
+.resume-content-6-personal-now {
+  animation: personal-scale 6s ease forwards;
+}
+@keyframes personal-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(.6);
+  }
+}
 @media screen and (orientation:portrait) {
-  .resume-content-6 {
+  .resume-content-6-personal {
     flex-flow: column wrap;
     justify-content: center;
     ul {
-      margin: 2em 0 0;
+      margin: .5em 0 0;
       width: 100%;
       li {
         width: 100%;
@@ -626,6 +729,9 @@ export default {
       font-weight: 700;
       &:nth-child(3), &:nth-child(4) {
         cursor: pointer;
+        span {
+          text-decoration: underline;
+        }
       }
     }
   }
