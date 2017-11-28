@@ -19,7 +19,7 @@
           <li>紧抓基础</li>
           <li>创新型前端工程师，可兼任部分产品、设计、后端业务</li>
         </ul>
-        <div class="resume-content-1-hint" :class="startScreenHint">使用滚轮 / 键盘 / 拖动 / 触摸向下翻页...</div>
+        <div class="resume-content-1-hint" :class="startScreenHint">通过滚轮 / 键盘 / 拖动 / 触摸向下翻页...</div>
       </article>
       <article class="resume-content-intersection"></article>
       <article class="resume-content-2">
@@ -146,65 +146,71 @@
         </ul>
       </article>
       <article class="resume-content-intersection"></article>
-      <article class="resume-content-6" @wheel="presentationWheelListener" @touchstart="presentationTouchstartListener" @touchend="presentationTouchendListener" @mousedown="presentationMousedownListener" @mouseup="presentationMouseupListener">
+      <article class="resume-content-6" @wheel="presentationWheelListener" @touchstart="presentationTouchstartListener" @touchend="presentationTouchendListener" @mousedown="presentationMousedownListener" @mouseup="presentationMouseupListener" @click="presentationClickListener">
         <div class="resume-content-6-presentation" ref="resumePresentation" :class="presentationAnimationStart" :style="{ 'margin-left': presentationCurrent * -60 + 80 + '%' }">
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background"></div>
+            <div class="resume-content-6-background" data-serial="1"></div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me" data-serial="2">
               <video src="../assets/resume/diamond.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅰ</div>
-              <div class="resume-content-6-text2">个人主页</div>
+              <div class="resume-content-6-text2">滑动布局</div>
+              <div class="resume-content-6-text3"><span class="resume-content-6-text3a">SPA</span><br><span class="resume-content-6-text3a">DESIGN</span></div>
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me/solitaire" data-serial="3">
               <video src="../assets/resume/solitaire.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅱ</div>
               <div class="resume-content-6-text2">德州扑克</div>
+              <div class="resume-content-6-text3"><span class="resume-content-6-text3b">APP</span><br><span class="resume-content-6-text3b">DESIGN</span></div>
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me/signin?redirect=%2Findex" data-serial="4">
               <video src="../assets/resume/signin.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅲ</div>
               <div class="resume-content-6-text2">登录系统</div>
+              <div class="resume-content-6-text3"><span class="resume-content-6-text3a">SPA</span><br><span class="resume-content-6-text3a">BACKEND</span></div>
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me/article/blog" data-serial="5">
               <video src="../assets/resume/article.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅳ</div>
-              <div class="resume-content-6-text2">博客系统</div>
+              <div class="resume-content-6-text2">内容管理</div>
+              <div class="resume-content-6-text3"><span class="resume-content-6-text3a">CMS</span><br><span class="resume-content-6-text3a">BACKEND</span></div>
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me/shadowsocks" data-serial="6">
               <video src="../assets/resume/shadowsocks.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅴ</div>
               <div class="resume-content-6-text2">分发器</div>
+              <div class="resume-content-6-text3"><span class="resume-content-6-text3c">SPA</span><br><span class="resume-content-6-text3c">BACKEND</span></div>
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resume" data-serial="7">
               <video src="../assets/resume/resume.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅵ</div>
               <div class="resume-content-6-text2">简历</div>
+              <div class="resume-content-6-text3"><span class="resume-content-6-text3a">SPA</span><br><span class="resume-content-6-text3a">MOBILE</span></div>
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
-              <video src="../assets/resume/comingsoon.webm" autoplay loop type="video/webm"></video>
-              <div class="resume-content-6-text1">-</div>
-              <div class="resume-content-6-text2">待续...</div>
-            </div>
-          </div>
-          <div class="resume-content-6-detail">
-            <div class="resume-content-6-background">
+            <div class="resume-content-6-background" data-src="https://arylab.me/article/blog" data-serial="8">
               <video src="../assets/resume/blog.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">-</div>
               <div class="resume-content-6-text2">技术博客</div>
+            </div>
+          </div>
+          <div class="resume-content-6-detail">
+            <div class="resume-content-6-background" data-serial="9">
+              <video src="../assets/resume/comingsoon.webm" autoplay loop type="video/webm"></video>
+              <div class="resume-content-6-text1">-</div>
+              <div class="resume-content-6-text2">待续...</div>
             </div>
           </div>
         </div>
@@ -433,12 +439,29 @@ export default {
         this.presentationCurrent++
       }
     },
+    presentationClickListener (e) {
+      let target = e.target
+      do {
+        if (target.dataset.serial) {
+          if (parseInt(target.dataset.serial) === this.presentationCurrent) {
+            if (target.dataset.src) {
+              window.open(target.dataset.src)
+            }
+          } else {
+            this.presentationCurrent = parseInt(target.dataset.serial)
+          }
+          break
+        } else {
+          target = target.parentNode
+        }
+      } while (target !== e.currentTarget)
+    },
     redirectUrl (url) {
-      window.location = url
+      window.location.href = url
     },
     touchRedirectUrl (url, e) {
       if (Math.abs(e.changedTouches[0].screenY - this.screenY) < 10) {
-        window.location = url
+        window.location.gref = url
       }
     }
   },
@@ -721,10 +744,7 @@ article.resume-content-6 {
 }
 .resume-content-6-presentation {
   position: absolute;
-  box-sizing: border-box;
   z-index: 0;
-  padding-top: 3em;
-  padding-bottom: 3em;
   height: 100vh;
   width: 600%;
   opacity: 1;
@@ -738,7 +758,9 @@ article.resume-content-6 {
   height: 100%;
   width: 10%;
   &:nth-child(1) .resume-content-6-background { // 个人信息
-    background: #f8f8f8;
+    background: rgba(255,255,255,.2) url(../assets/resume/pst1.png) no-repeat;
+    background-size: contain;
+    background-position: 50%;
   }
   &:nth-child(3) .resume-content-6-background { // Solitaire
     background: rgb(19,200,171);
@@ -757,11 +779,14 @@ article.resume-content-6 {
   }
   &:nth-child(5) .resume-content-6-background { // Article
     .resume-content-6-text1 {
-      color: rgb(19,200,171);
+      color: rgb(21,240,211);
     }
   }
   &:nth-child(6) .resume-content-6-background { // Shadowsocks
     background: radial-gradient(#888,#333);
+    video {
+      border: 2px solid #faa;
+    }
     .resume-content-6-text1 {
       color: #faa;
     }
@@ -772,28 +797,39 @@ article.resume-content-6 {
       color: #f33;
     }
   }
+  &:nth-child(9) .resume-content-6-background { // Comming Soon
+    video {
+      border: 2px solid #fff;
+    }
+  }
 }
 .resume-content-6-background {
   overflow: hidden;
   display: flex;
+  flex: 0 0 auto;
   justify-content: center;
   align-items: center;
   border: 1px solid #666;
-  height: 60vh;
-  width: 60vh;
+  height: 300vh;
+  width: 43vw;
   box-shadow: 0 0 10px -2px #333;
   transform: rotate(45deg);
   background: linear-gradient(-45deg, #111, #111, #fff, #fff);
   transition: transform .3s ease;
   cursor: pointer;
   video {
+    z-index: -1;
     flex: 0 0 auto;
-    height: 47.8125vh;
-    width: 85vh;
+    border: 2px solid #333;
+    height: 47.8125vmin;
+    width: 85vmin;
     transform: rotate(-45deg);
   }
   &:hover {
     transform: rotate(45deg) scale(1.1);
+    .resume-content-6-text2 {
+      z-index: 3;
+    }
   }
 }
 .resume-content-6-text1 {
@@ -801,17 +837,50 @@ article.resume-content-6 {
   margin-top: -22vh;
   margin-left: -22vh;
   transform: rotate(-45deg);
-  font-size: 4em;
+  font-size: 12vh;
   font-weight: 700;
 }
 .resume-content-6-text2 {
   position: absolute;
-  margin-top: 20vh;
-  margin-left: 20vh;
+  margin-top: 20.2vh;
+  margin-left: 19.8vh;
   transform: rotate(-45deg);
-  font-size: 1.4em;
-  font-weight: 700;
+  font-size: 6vh;
+  font-weight: 400;
   color: #fff;
+}
+.resume-content-6-text3 {
+  position: absolute;
+  z-index: 0;
+  margin-top: -40vh;
+  margin-left: 24vh;
+  transform: rotate(-45deg);
+  font-size: 2.5vh;
+  font-weight: 700;
+  font-variant: small-caps;
+  line-height: 4vh;
+  span {
+    display: inline-block;
+    margin-bottom: 1vh;
+    border-radius: .5vh;
+    padding: 0 1vh;
+    text-align: center;
+  }
+  .resume-content-6-text3a {
+    border: 2px solid #333;
+    background: #fff;
+    color: #333;
+  }
+  .resume-content-6-text3b {
+    border: 2px solid #fff;
+    background: rgb(19,200,171);
+    color: #fff;
+  }
+  .resume-content-6-text3c {
+    border: 2px solid #faa;
+    background: #666;
+    color: #f8f8f8;
+  }
 }
 .resume-content-6-presentation-now {
   animation: presentation-show 6s ease forwards;
@@ -867,14 +936,17 @@ article.resume-content-6 {
   0% {
     visibility: visible;
     opacity: 1;
+    transform: scale(1);
   }
   75% {
     visibility: visible;
     opacity: 1;
+    transform: scale(1);
   }
   100% {
     visibility: hidden;
     opacity: 0;
+    transform: scale(1.2);
   }
 }
 .resume-content-6-indicator {
@@ -974,6 +1046,15 @@ article.resume-content-6 {
     video {
       height: 36vw;
       width: 64vw;
+    }
+    .resume-content-6-text1 {
+      display: none;
+    }
+    .resume-content-6-text2 {
+      display: none;
+    }
+    .resume-content-6-text3 {
+      display: none;
     }
   }
   .resume-content-6-personal {
