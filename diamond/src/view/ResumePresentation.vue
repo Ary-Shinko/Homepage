@@ -23,13 +23,13 @@ export default {
           return 'Ⅱ 德州扑克'
         case 'signin':
           return 'Ⅲ 登录系统'
-        case 'article/blog':
+        case 'article/algorithm':
           return 'Ⅳ 内容管理'
         case 'shadowsocks':
           return 'Ⅴ 分发器（需登录）'
         case 'resume':
           return 'Ⅵ 简历'
-        case 'article/blog/':
+        case 'article/blog':
           return '技术博客'
         default:
           return '未展示的网页'
@@ -42,15 +42,15 @@ export default {
         case 'solitaire':
           return '源网址：<br><a href="https://arylab.me/solitaire"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Solitaire.vue"></a>'
         case 'signin':
-          return '源网址：<br><a href="https://arylab.me/signin"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Signin.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/signin.js"></a>'
-        case 'article/blog':
-          return '源网址：<br><a href="https://arylab.me/article/blog"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Article.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/article.js"></a>'
+          return '源网址：<br><a href="https://arylab.me/signin"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Signin.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/signin.js"></a>在此处预览会有显示 BUG，若要查看最佳效果，请在主页<a href="https://arylab.me"></a>右上角点击 Sign In 按钮进入。'
+        case 'article/algorithm':
+          return '源网址：<br><a href="https://arylab.me/article/algorithm"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Article.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/article.js"></a>'
         case 'shadowsocks':
           return '源网址：<br><a href="https://arylab.me/shadowsocks"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Shadowsocks.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/shadowsocks.js"></a>'
         case 'resume':
           return '源网址：<br><a href="https://arylab.me/resume"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Resume.vue"></a>'
-        case 'article/blog/':
-          return '<br><a href="https://arylab.me/article/blog/CSS: Typography I"></a><br><a href=\'https://arylab.me/article/blog/CSS: the reason for order "link-visited-hover-active"\'></a><br><a href="https://arylab.me/article/blog/The way to shuffle an array"></a><br><a href="https://arylab.me/article/blog/CSS: background-position"></a><br><a href=https://arylab.me/article/blog/Shadowsocks Direction on iOS"></a>'
+        case 'article/blog':
+          return '<br><a href="https://arylab.me/article/blog/CSS: Typography I"></a><br><a href=\'https://arylab.me/article/blog/CSS: the reason for order "link-visited-hover-active"\'></a><br><a href="https://arylab.me/article/blog/The way to shuffle an array"></a><br><a href="https://arylab.me/article/blog/CSS: background-position"></a><br><a href="https://arylab.me/article/blog/Shadowsocks Direction on iOS"></a>'
         default:
           return '请检查链接是否正确。'
       }

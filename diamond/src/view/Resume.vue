@@ -209,7 +209,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/article/blog/" data-serial="8">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/article/blog" data-serial="8">
               <video src="../assets/resume/blog.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">-</div>
               <div class="resume-content-6-text2">技术博客</div>
