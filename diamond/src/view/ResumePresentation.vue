@@ -42,7 +42,7 @@ export default {
         case 'solitaire':
           return '源网址：<br><a href="https://arylab.me/solitaire"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Solitaire.vue"></a>'
         case 'signin':
-          return '源网址：<br><a href="https://arylab.me/signin"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Signin.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/signin.js"></a>在此处预览会有显示 BUG，若要查看最佳效果，请在主页<a href="https://arylab.me"></a>右上角点击 Sign In 按钮进入。'
+          return '源网址：<br><a href="https://arylab.me/signin"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Signin.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/signin.js"></a><br>在此处预览会有显示 BUG，若要查看最佳效果，请在主页 <a href="https://arylab.me"></a> 右上角点击 Sign In 按钮进入。'
         case 'article/algorithm':
           return '源网址：<br><a href="https://arylab.me/article/algorithm"></a><br>前端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/diamond/src/view/Article.vue"></a><br>后端源代码：<br><a href="https://github.com/Winterwrath/Diamond/blob/dev/server/api/article.js"></a>'
         case 'shadowsocks':

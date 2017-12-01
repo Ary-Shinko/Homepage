@@ -185,7 +185,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/article/blog" data-serial="5">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/article/algorithm" data-serial="5">
               <video src="../assets/resume/article.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅳ</div>
               <div class="resume-content-6-text2">内容管理</div>
