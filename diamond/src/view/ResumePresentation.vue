@@ -1,7 +1,7 @@
 <template>
   <div class="resumepresentation">
     <iframe class="resumepresentation-frame" :src="'/' + $route.params[0]" frameborder="0"></iframe>
-    <div class="resumepresentation-note">
+    <div v-autohide class="resumepresentation-note">
       <h1>{{ presentationTitle }}</h1>
       <p v-html="presentationText"></p>
     </div>
@@ -55,6 +55,24 @@ export default {
           return '请检查链接是否正确。'
       }
     }
+  },
+  directives: {
+    autohide: {
+      bind (el) {
+        let timer = setTimeout(() => {
+          el.style.right = '-43rem'
+        }, 3000)
+        el.addEventListener('mouseenter', e => {
+          clearTimeout(timer)
+          el.style.right = '0rem'
+        }, false)
+        el.addEventListener('mouseleave', e => {
+          timer = setTimeout(() => {
+            el.style.right = '-43rem'
+          }, 1000)
+        }, false)
+      }
+    }
   }
 }
 </script>
@@ -73,11 +91,10 @@ export default {
   border-right: none;
   background: rgba(255,255,255,.95);
   box-shadow: 0 0 3px 0 #666;
-  transition: all .3s ease;
-  animation: pre-hide 3s ease forwards;
+  transition: all 1s ease;
+  right: 0rem;
   &:hover {
     background: rgb(21,240,211);
-    animation: pre-show 1s ease forwards;
     h1, p, a {
       color: #fff;
     }
@@ -103,25 +120,6 @@ export default {
   }
   a::after {
     content: attr(href);
-  }
-}
-@keyframes pre-hide {
-  0% {
-    right: 0rem;
-  }
-  80% {
-    right: 0rem;
-  }
-  100% {
-    right: -43rem;
-  }
-}
-@keyframes pre-show {
-  0% {
-    right: -43rem;
-  }
-  100% {
-    right: 0rem;
   }
 }
 </style>
