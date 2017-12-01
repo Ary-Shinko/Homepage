@@ -27,33 +27,38 @@
           <li>
             <h3>Javascript<span>ES5 / ES6+</span></h3>
             <div><div style="width:25%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque similique, sed possimus reiciendis, veritatis, totam nulla laboriosam asperiores ab esse dolorum nisi. Quasi facere est eaque maxime nemo facilis impedit adipisci. Fugit eius blanditiis eos! Deserunt eligendi ullam quia tempore.</p>
+            <p>熟悉 ECMAScript 5/6 的语言特性，对闭包、作用域、异步调用、Promise、原型式继承等特性均有大量实践和理解；</p>
+            <p>熟悉 BOM，对 事件处理、Ajax、节点与元素的控制、客户端存储均有大量实践和理解；</p>
           </li>
           <li>
             <h3>HTML<span>HTML5</span></h3>
             <div><div style="width:28%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 HTML5 规范中的大部分元素的属性、特性；</p>
+            <p>掌握 Manifest、文件加载与缓存优化、语义化标签的使用。</p>
           </li>
           <li>
             <h3>CSS<span>CSS3 / Less</span></h3>
             <div><div style="width:12%"></div></div>
-            <p>Lorem ipsum dolor sit amtetur, adipisicing elit. Vel nulla tesci earum atque quae. Ddolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 CSS3，对相关规范、格式化上下文、排版、动画、交互均有大量的应用与研究；</p>
+            <p>熟悉各种动画、特效、效果、交互、展示的实现，进行了大量的实践并有三年以上的使用经验。</p>
           </li>
           <li>
             <h3>正则表达式</h3>
             <div><div style="width:7%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉正则表达式的编写，可在业务需求范围内编写出任何需要的正则表达式并有两年以上的使用经验；</p>
           </li>
           <li>
             <h3>Vue<span>Vue / Vuex / Vue-router</span></h3>
             <div><div style="width:25%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 Vue 系列的使用，可配合后端开发出完整的网页、单页应用；</p>
+            <p>对常用钩子函数、框架特性、路由控制、组件化、状态控制均有深刻的理解与实践。</p>
           </li>
           <li>
             <h3>业务经验<span>移动端兼容 / 性能优化 / 代码规范 / 熬夜</span></h3>
             <div><div style="width:45%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>掌握移动端兼容、响应式设计、前端性能优化等技术能力，在各大相关论坛、各大企业前端部门的网站上经常学习前沿的前端思想与技术；</p>
+            <p>代码书写规范要求严格，始终如一；</p>
+            <p>精通熬夜（因为曾经是建筑设计师的缘故）。</p>
           </li>
         </ul>
       </article>
@@ -63,28 +68,31 @@
           <li>
             <h3>前端自动化<span>Git / Gulp / Webpack</span></h3>
             <div><div style="width:42%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque similique, sed possimus reiciendis, veritatis, totam nulla laboriosam asperiores ab esse dolorum nisi. Quasi facere est eaque maxime nemo facilis impedit adipisci. Fugit eius blanditiis eos! Deserunt eligendi ullam quia tempore.</p>
+            <p>熟悉 Git、Gulp 的使用并以此提升工作效率；</p>
+            <p>了解 Webpack，可以修改相应的配置文件来适应项目。</p>
           </li>
           <li>
-            <h3>HTTP协议</h3>
+            <h3>HTTP协议与安全</h3>
             <div><div style="width:25%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 HTTP 协议的组成、常用首部、状态码、上下游协议；</p>
+            <p>对 CSRF、XSS 有简单的认识。</p>
           </li>
           <li>
             <h3>Node.js<span>Express / 常用模块</span></h3>
             <div><div style="width:49%"></div></div>
-            <p>Lorem ipsum dolor sit amtetur, adipisicing elit. Vel nulla tesci earum atque quae. Ddolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 Express，可完成小型规模网站的后端编写任务并有相关的业务实践；</p>
+            <p>了解 Node.js 及其简单的常用模块的使用。</p>
           </li>
           <li>
             <h3>Linux</h3>
             <div><div style="width:54%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>了解 Linux 常用的命令、文件系统、防火墙设置、进程处理，可完成网站的发布、更新等任务。</p>
           </li>
           <li>
             <h3>数据库<span>MongoDB / MySQL</span></h3>
             <div><div style="width:60%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>了解 MongoDB 的使用，并可根据相关接口进行控制；</p>
+            <p>入门 MySQL 等关系型数据库。</p>
           </li>
         </ul>
       </article>
@@ -94,33 +102,34 @@
           <li>
             <h3>平面设计<span>Photoshop / Tess / 图标绘制 / 色彩 / 排版</span></h3>
             <div><div style="width:23%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque similique, sed possimus reiciendis, veritatis, totam nulla laboriosam asperiores ab esse dolorum nisi. Quasi facere est eaque maxime nemo facilis impedit adipisci. Fugit eius blanditiis eos! Deserunt eligendi ullam quia tempore.</p>
+            <p>熟悉网页的平面排布、色彩搭配、字体搭配、UI设计，并能绘制简单的图标与背景。</p>
           </li>
           <li>
             <h3>动画与特效设计</h3>
             <div><div style="width:16%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉基于多重工具的动画与特效设计，并能结合在网页中使用。</p>
           </li>
           <li>
             <h3>三维建模<span>Sketch Up / Vray</span></h3>
             <div><div style="width:25%"></div></div>
-            <p>Lorem ipsum dolor sit amtetur, adipisicing elit. Vel nulla tesci earum atque quae. Ddolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 Sketch Up三维建模，并通过 Vray 进行渲染；</p>
+            <p>对材质、布光、视角的配置均有相关经验。</p>
           </li>
           <li>
             <h3>地理信息与制图<span>AutoCAD / ArcGIS</span></h3>
             <div><div style="width:30%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>熟悉 AutoCAD 的使用，可绘制精准的图纸；</p>
+            <p>了解 ArcGIS，可进行简单的地理信息绑定与展示。</p>
           </li>
           <li>
             <h3>文档编写</h3>
             <div><div style="width:33%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>可根据项目要求编写相关的文档。</p>
           </li>
           <li>
-            <h3>用户体验分析</h3>
+            <h3>项目分析</h3>
             <div><div style="width:18%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>可进行可行性分析、用户体验分析、进度控制与安排。</p>
           </li>
         </ul>
       </article>
@@ -130,18 +139,18 @@
           <li>
             <h3>英语<span>日常交流 / 专业英语</span></h3>
             <div><div style="width:44%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque similique, sed possimus reiciendis, veritatis, totam nulla laboriosam asperiores ab esse dolorum nisi. Quasi facere est eaque maxime nemo facilis impedit adipisci. Fugit eius blanditiis eos! Deserunt eligendi ullam quia tempore.</p>
+            <p>四级英语水平，了解大部分专业相关的词汇，可阅读英文原版文档与博客。</p>
           </li>
           <li>
             <h3>数据结构与算法</h3>
             <div><div style="width:56%"></div></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>了解常见的数据结构类型，并可对算法的复杂度进行讨论分析。</p>
           </li>
           <li>
             <h3>专业基础<span>计算机网络 / 计算机组成 / 计算机操作系统</span></h3>
             <div><div style="width:65%"></div></div>
-            <p>Lorem ipsum dolor sit amtetur, adipisicing elit. Vel nulla tesci earum atque quae. Ddolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel nulla tempore maiores adipisci earum atque quae. Beatae dolore nisi voluptate minima enim alias. Vero quidem laboriosam, voluptatibus sapiente nobis dolor rem sunt corrupti rerum odit aliquam animi natus, odio iste?</p>
+            <p>了解七层网络模型，并对常用的协议有大概的了解；</p>
+            <p>了解计算机的发展、组成，目前仍在进一步学习中。</p>
           </li>
         </ul>
       </article>
@@ -152,7 +161,7 @@
             <div class="resume-content-6-background" data-serial="1"></div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me" data-serial="2">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/index" data-serial="2">
               <video src="../assets/resume/diamond.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅰ</div>
               <div class="resume-content-6-text2">滑动布局</div>
@@ -160,7 +169,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/solitaire" data-serial="3">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/solitaire" data-serial="3">
               <video src="../assets/resume/solitaire.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅱ</div>
               <div class="resume-content-6-text2">德州扑克</div>
@@ -168,7 +177,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/signin?redirect=%2Findex" data-serial="4">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/signin?redirect=%2Findex" data-serial="4">
               <video src="../assets/resume/signin.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅲ</div>
               <div class="resume-content-6-text2">登录系统</div>
@@ -176,7 +185,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/article/blog" data-serial="5">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/article/blog" data-serial="5">
               <video src="../assets/resume/article.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅳ</div>
               <div class="resume-content-6-text2">内容管理</div>
@@ -184,7 +193,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/shadowsocks" data-serial="6">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/shadowsocks" data-serial="6">
               <video src="../assets/resume/shadowsocks.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅴ</div>
               <div class="resume-content-6-text2">分发器</div>
@@ -192,7 +201,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/resume" data-serial="7">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/resume" data-serial="7">
               <video src="../assets/resume/resume.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">Ⅵ</div>
               <div class="resume-content-6-text2">简历</div>
@@ -200,7 +209,7 @@
             </div>
           </div>
           <div class="resume-content-6-detail">
-            <div class="resume-content-6-background" data-src="https://arylab.me/article/blog" data-serial="8">
+            <div class="resume-content-6-background" data-src="https://arylab.me/resumepresentation/article/blog/" data-serial="8">
               <video src="../assets/resume/blog.webm" autoplay loop type="video/webm"></video>
               <div class="resume-content-6-text1">-</div>
               <div class="resume-content-6-text2">技术博客</div>
@@ -259,7 +268,7 @@
         <li></li>
         <li @click="scrollCurrent = 7" @touchstart="scrollCurrent = 7">联系方式</li>
         <li></li>
-        <li>需要打印？</li>
+        <li><a class="resume-fixed-header-print" href="../../static/张宇-前端工程师-简历.pdf" download>需要打印？</a></li>
         <li></li>
       </ul>
       <div class="resume-fixed-footer">Arylab<span>2017</span></div>
@@ -1185,6 +1194,9 @@ article.resume-content-6 {
       flex: 1 1 auto;
     }
   }
+}
+.resume-fixed-header-print {
+  text-decoration: none !important;
 }
 .resume-fixed-header-1 {
   li:nth-child(4) {

@@ -9,6 +9,7 @@ import Solitaire from '../view/Solitaire.vue'
 import Shadowsocks from '../view/Shadowsocks.vue'
 import Tarot from '../view/Tarot.vue'
 import Resume from '../view/Resume.vue'
+import ResumePresentation from '../view/ResumePresentation.vue'
 // import Tapcity from '../view/Tapcity.vue'
 
 Vue.use(VueRouter)
@@ -71,6 +72,10 @@ export default new VueRouter({
   {
     path: '/resume',
     component: Resume
+  },
+  {
+    path: '/resumepresentation/*',
+    component: ResumePresentation
   },
   {
     path: '/*',
