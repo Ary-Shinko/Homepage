@@ -86,8 +86,8 @@ const state = {
   navigationFrom: 1,
   navigationTo: 1,
   navigationLocked: false,
-  navigationLastModified: '2017/11/17',
-  navigationVersion: 'v0.3.3 alpha',
+  navigationLastModified: '2017/11/30',
+  navigationVersion: 'v0.3.4 alpha',
   navigationNews: {
     news1: {
       title: '10/29 Blog - "link-visited-hover-active"',
@@ -133,7 +133,7 @@ const state = {
   cardFinalBalanceShow: false,
   cardFinalBalanceString: null,
   cardHint: true,
-  cardVersion: 'v1.0.5'
+  cardVersion: 'v1.0.6'
 }
 
 export default new Vuex.Store({
